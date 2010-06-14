@@ -6,6 +6,8 @@ main (int    argc,
       char **argv)
 {
   int i;
+  int count;
+  int *nums;
 
   if (argc < 2)
     {
@@ -16,6 +18,25 @@ main (int    argc,
   for (i = 1; i < argc; ++i)
     {
       printf ("%s ", argv[i]);
+    }
+  printf ("\n");
+
+  /**
+   * Set nums
+   */
+  count = argc - 1;
+  nums = (int *) malloc (count * sizeof (int));
+  for (i = 0; i < count; ++i)
+    {
+      nums[i] = atoi (argv[i + 1]);
+    }
+
+  /**
+   * Do real sort!!
+   */
+  for (i = 0; i < count; ++i)
+    {
+      printf ("%d ", nums[i]);
     }
   printf ("\n");
 

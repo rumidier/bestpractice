@@ -15,12 +15,6 @@ main (int    argc,
       exit (EXIT_FAILURE);
     }
 
-  for (i = 1; i < argc; ++i)
-    {
-      printf ("%s ", argv[i]);
-    }
-  printf ("\n");
-
   /**
    * Set nums
    */
@@ -34,11 +28,6 @@ main (int    argc,
   /**
    * Do real sort!!
    */
-  for (i = 0; i < count; ++i)
-    {
-      printf ("%d ", nums[i]);
-    }
-  printf ("\n");
 
   return 0;
 }

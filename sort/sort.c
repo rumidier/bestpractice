@@ -29,5 +29,24 @@ main (int    argc,
    * Do real sort!!
    */
 
+
+  while (1) {
+    int mi_num;
+    int old_num;
+    int new_num;
+    int *result_num;
+    while (counter < argc) {
+
+    }
+
+    
+    result_nums[index] = mi_num;
+    index++;
+  for (index = 0; index < count; index++) {
+    printf ("%d \n", result_nums[index]);
+  }
+  }
+
+
   return 0;
 }

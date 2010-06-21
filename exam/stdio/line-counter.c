@@ -1,9 +1,10 @@
 #include <stdio.h>
 
 int
-main (int argc, char *argv[])
+main (int   argc,
+      char *argv[])
 {
-  char line [100];
+  char line[100];
   int line_num = 1;
 
   while (1)

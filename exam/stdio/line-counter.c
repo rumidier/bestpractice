@@ -5,8 +5,9 @@ main (int   argc,
       char *argv[])
 {
   char line[100];
-  int line_num = 1;
+  int line_num;
 
+  line_num = 1;
   while (1)
     {
       fgets (line, sizeof (line), stdin);

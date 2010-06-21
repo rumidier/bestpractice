@@ -1,6 +1,6 @@
 CC = gcc
 
-PROGRAMS = simple term twice q_zero
+PROGRAMS = simple term twice q_zero two
 
 all: $(PROGRAMS)
 
@@ -14,6 +14,9 @@ twice: twice.c
 	$(CC) -Wall -o $@ $^
 
 q_zero: q_zero.c
+	$(CC) -Wall -o $@ $^
+
+two: two.c
 	$(CC) -Wall -o $@ $^
 
 clean:

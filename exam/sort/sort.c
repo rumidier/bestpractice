@@ -30,23 +30,69 @@ main (int    argc,
    */
 
 
-  while (1) {
-    int mi_num;
-    int old_num;
-    int new_num;
-    int *result_num;
-    while (counter < argc) {
+  int *new_num;
+  int *last_num;
+  int counter;
+  int mi_num;
+  int next_count;
+  int next_num;
 
-    }
+  new_num = (int *) malloc (count * sizeof (int));
+  last_num = (int *) malloc (count * sizeof (int));
+  mi_num = nums[0];
+  counter = 0;
+  next_count = 0;
 
-    
-    result_nums[index] = mi_num;
-    index++;
-  for (index = 0; index < count; index++) {
-    printf ("%d \n", result_nums[index]);
-  }
-  }
+    for (i = 0; i < count; i++)
+      {
+        if (mi_num >= nums[i])
+          {
+            mi_num = nums[i];
+          }//mi_num 가장 작은 수일때만 실행되어 찾는다.
+        else
+          {
+            continue;
+          }
+      }
 
+    while (counter < count)
+      {
+        last_num[counter] = mi_num;
+
+        for (i = 0; i < count; i++)
+          {
+            if (mi_num < nums[i])
+              {
+                new_num[next_count] = nums[i];
+                next_count++;
+              }
+            else
+              {
+                continue;
+              }
+          }//mi_num보다 큰수만 찾는다.
+
+        mi_num = new_num[0];
+        for (i = 0; i < next_count; i++)
+          {
+            if (mi_num > new_num[i])
+              {
+                mi_num = new_num[i];
+              }//mi_num 가장 작은 수일때만 실행되어 찾는다.
+            else
+              {
+                continue;
+              }
+          }
+
+        next_count = 0;
+        counter++;
+      }
+
+    for (i = 0; i < count; i++)
+      {
+        printf ("last[%d] \n", last_num[i]);
+      }
 
   return 0;
 }

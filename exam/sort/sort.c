@@ -35,7 +35,6 @@ main (int    argc,
   int counter;
   int mi_num;
   int next_count;
-  int next_num;
 
   new_num = (int *) malloc (count * sizeof (int));
   last_num = (int *) malloc (count * sizeof (int));

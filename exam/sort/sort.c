@@ -22,7 +22,7 @@ main (int    argc,
   nums = (int *) malloc (count * sizeof (int));
   for (i = 0; i < count; ++i)
     {
-      nums[i] = atoi (argv[i + 1]);
+      nums[i] = atoi (argv[i + 1]);//atoi!!
     }
 
   /**
@@ -38,25 +38,21 @@ main (int    argc,
 
   new_num = (int *) malloc (count * sizeof (int));
   last_num = (int *) malloc (count * sizeof (int));
+
   mi_num = nums[0];
   counter = 0;
-  next_count = 0;
 
     for (i = 0; i < count; i++)
       {
         if (mi_num >= nums[i])
           {
             mi_num = nums[i];
-          }//mi_num 가장 작은 수일때만 실행되어 찾는다.
-        else
-          {
-            continue;
-          }
+          }//minimum number check
       }
-
+///////////////////---------------------------
     while (counter < count)
       {
-        last_num[counter] = mi_num;
+        next_count = 0;
 
         for (i = 0; i < count; i++)
           {
@@ -65,9 +61,10 @@ main (int    argc,
                 new_num[next_count] = nums[i];
                 next_count++;
               }
-            else
+            else if (mi_num == nums[i])
               {
-                continue;
+                last_num[counter] = mi_num;
+                counter++;
               }
           }//mi_num보다 큰수만 찾는다.
 
@@ -77,15 +74,11 @@ main (int    argc,
             if (mi_num > new_num[i])
               {
                 mi_num = new_num[i];
-              }//mi_num 가장 작은 수일때만 실행되어 찾는다.
-            else
-              {
-                continue;
               }
-          }
-
-        next_count = 0;
-        counter++;
+          }//전 최소값 보다 큰 값들 중에서 최소값을 찾음
+/*
+        last_num[counter] = mi_num;// 이애는 뭔데 영향을 안주지..;
+*/
       }
 
     for (i = 0; i < count; i++)

@@ -34,7 +34,10 @@ main (int   argc,
       count = strlen (buf);
 
       if (count != 14)
-        break;
+        {
+          printf ("바(-)를 포함한 정확한 주민번호를 입력하세요(길이 오류)\n");
+          continue;
+        }
 
       for (i = 0; i < 2; i++)
         {
@@ -65,6 +68,7 @@ main (int   argc,
                   else
                     {
                       printf ("성별 정보가 잘못되었습니다\n");
+                      continue;
                     }
                 }
               else
@@ -88,7 +92,7 @@ main (int   argc,
                   else
                     {
                       printf ("성별 정보가 잘못되었습니다\n");
-                      break;
+                      continue;
                     }
                 }
               else

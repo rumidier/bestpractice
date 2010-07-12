@@ -57,7 +57,6 @@ main (int   argc,
                   s = buf[7];
                   printf ("%d\n", s);
 
-
                   if ( s == 1 || s == 2)
                     {
                       printf ("정상적인 주민번호 입력에 감사드립니다.\n");

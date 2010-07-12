@@ -1,6 +1,6 @@
 CC = gcc
 
-PROGRAMS = wordlen score str palin sacik jumin jumin2
+PROGRAMS = wordlen score str palin sacik jumin jumin2 jumin3
 
 all: $(PROGRAMS)
 
@@ -23,6 +23,9 @@ jumin: jumin.c
 	$(CC) -Wall -o $@ $^
 
 jumin2: jumin2.c
+	$(CC) -Wall -o $@ $^
+
+jumin3: jumin3.c
 	$(CC) -Wall -o $@ $^
 
 clean:

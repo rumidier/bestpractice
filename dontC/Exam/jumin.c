@@ -43,11 +43,12 @@ main (int   argc,
         {
           num[i] = buf[2 + i];
         }
+      num[i] = '\0';
       mm = at_num (num);
 
       if (1 <= mm && mm <= 12)
         {
-          for (i = 0; i <2; i++)
+          for (i = 0; i < 2; i++)
             {
               num[i] = buf[4 + i];
             }

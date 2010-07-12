@@ -9,9 +9,11 @@
 #include <string.h>
 #include <stdlib.h>
 
-int at_num (char str[])
+int
+at_num (char str[])
 {
   int num;
+
   num = atoi (str);
 
   return num;
@@ -29,7 +31,6 @@ main (int   argc,
     {
       printf ("바(-)를 포함한 주민등록번호 입력 : ");
       scanf ("%s", buf);
-
       count = strlen (buf);
 
       if (count != 14)
@@ -73,14 +74,13 @@ main (int   argc,
                   continue;
                 }
             }
-
           else
             {
               if (1 <= dd && dd <= 31)
                 {
-
                   s = buf[7];
                   printf ("%d\n", s);
+
                   if (s == 1 || s == 2)
                     {
                       printf ("정상적인 주민번호 입력에 감사드립니다.\n");
@@ -99,13 +99,12 @@ main (int   argc,
                 }
             }
         }
-
-        else
-          {
-                printf ("월 정보가 잘못되었습니다.\n");
-                continue;
-          }
-      }
+      else
+        {
+              printf ("월 정보가 잘못되었습니다.\n");
+              continue;
+        }
+    }
 
   return 0;
 }

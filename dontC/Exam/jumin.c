@@ -23,12 +23,12 @@ int
 main (int   argc,
       char *argv[])
 {
-  char buf[256];
-  char num[256];
-  int count, i, mm, dd, s;
-
   while (1)
     {
+      char buf[256];
+      char num[256];
+      int count, i, mm, dd, s;
+
       printf ("바(-)를 포함한 주민등록번호 입력 : ");
       scanf ("%s", buf);
       count = strlen (buf);

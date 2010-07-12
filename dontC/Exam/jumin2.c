@@ -7,11 +7,29 @@
 
 #include <stdio.h>
 
+#define BUF_LEN   256
+
 int
 main (int   argc,
       char *argv[])
 {
-  printf ("Hello World!\n");
+  while (1)
+    {
+      int year;
+      int month;
+      int day;
+      int gender;
+      int remain;
+
+      printf ("주민등록 번호('-' 기호 포함)를 입력하세요: ");
+      scanf ("%02d%02d%02d-%1d%06d", &year, &month, &day, &gender, &remain);
+
+      printf ("year:   [%d]\n", year);
+      printf ("month:  [%d]\n", month);
+      printf ("day:    [%d]\n", day);
+      printf ("gender: [%d]\n", gender);
+      printf ("remain: [%d]\n", remain);
+    }
 
   return 0;
 }

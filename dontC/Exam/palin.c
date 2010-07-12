@@ -1,3 +1,10 @@
+/**
+ * 회문(palindrome) 판단
+ *
+ *   난 정말 C Programming을 공부한 적이 없다구요!
+ *   p.502, 문제 4
+ */
+
 #include <stdio.h>
 #include <string.h>
 

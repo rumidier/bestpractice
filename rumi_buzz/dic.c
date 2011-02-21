@@ -941,7 +941,7 @@ main (int   argc,
           in_word = NULL;
           //    NULL, error;
         }
-
+//------------------------------------------------------------
       if (b_exist == 0)
         {
           char *save_argv;

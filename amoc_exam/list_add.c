@@ -14,6 +14,6 @@ list_add (int id, char *name)
   new_item_ptr -> id =  id;
   strcpy (new_item_ptr -> name, name);
   new_item_ptr -> next_ptr = first_ptr;
-  first_ptr = new_item_ptr;
 
+  first_ptr = new_item_ptr;
 }

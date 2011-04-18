@@ -9,8 +9,7 @@ void
 spec_print (struct linked_list *ptr, int spec_id)
 {
   struct linked_list *buf_ptr;
-  buf_ptr = malloc (sizeof (struct linked_list));
-  buf_ptr -> next_ptr = ptr;
+  buf_ptr = ptr;
 
   while (1)
     {

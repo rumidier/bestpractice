@@ -9,11 +9,8 @@ void
 list_spec_delete (struct linked_list *start_ptr, int spec_id, struct linked_list *fir_ptr)
 {
   struct linked_list *spec_root_ptr;
-  spec_root_ptr = malloc (sizeof (struct linked_list));
   struct linked_list *spec_new_ptr;
-  spec_new_ptr = malloc (sizeof (struct linked_list));
   struct linked_list *spec_next_ptr;
-  spec_next_ptr = malloc (sizeof (struct linked_list));
 
   spec_new_ptr = start_ptr;
 
@@ -21,17 +18,28 @@ list_spec_delete (struct linked_list *start_ptr, int spec_id, struct linked_list
     {
       if (start_ptr -> id == spec_id)
         {
-          if (start_ptr -> next_ptr == fir_ptr -> next_ptr)
+          if (start_ptr -> id == fir_ptr -> id && !strcmp (start_ptr -> name, fir_ptr -> name) &&
+              start_ptr -> next_ptr == fir_ptr -> next_ptr)
             {
               spec_root_ptr = fir_ptr -> next_ptr; 
-              fir_ptr = spec_root_ptr; //start-list point check
 
-              free (spec_root_ptr);
+
+              printf ("free id [%d]\n", fir_ptr -> id);
+              printf ("free name [%s]\n", fir_ptr -> name);
+
+              free (fir_ptr);
+
+              fir_ptr = spec_root_ptr;
+              start_ptr = fir_ptr;
             }
           else
             {
-              spec_next_ptr = start_ptr -> next_ptr;
               spec_new_ptr -> next_ptr = start_ptr -> next_ptr;
+
+              printf ("free start id [%d]\n", start_ptr -> id);
+              printf ("free start name [%s]\n", start_ptr -> name);
+
+              free (start_ptr);
 
               start_ptr = spec_new_ptr;
             }
@@ -45,6 +53,5 @@ list_spec_delete (struct linked_list *start_ptr, int spec_id, struct linked_list
       spec_new_ptr = start_ptr;
       start_ptr = start_ptr -> next_ptr;
     }
-
-  start_ptr = fir_ptr;
+  *start_ptr = *fir_ptr;
 }

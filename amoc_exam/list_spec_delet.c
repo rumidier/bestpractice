@@ -2,15 +2,62 @@
 #include <string.h>
 #include <malloc.h>
 
-#include "list_head.h"
 #include "list_func_head.h"
 
-void
-list_spec_delete (struct linked_list *start_ptr, int spec_id, struct linked_list *fir_ptr)
+int
+list_spec_check (Linked_list *ptr, int spec_id, Linked_list *fir_ptr)
 {
-  struct linked_list *spec_root_ptr;
-  struct linked_list *spec_new_ptr;
-  struct linked_list *spec_next_ptr;
+  int spec_check = 0;
+
+  while (1)
+    {
+      if (ptr -> id == spec_id)
+        {
+          spec_check = 1;
+        }
+
+      if (ptr -> next_ptr == NULL)
+        {
+          break;
+        }
+
+      ptr = ptr -> next_ptr;
+    }
+
+  ptr = fir_ptr -> next_ptr;
+
+  return spec_check;
+}
+
+void
+spec_print (Linked_list *ptr, int spec_id)
+{
+  Linked_list *buf_ptr;
+  buf_ptr = ptr;
+
+  while (1)
+    {
+      if (buf_ptr -> id == spec_id)
+        {
+          fputs ("|----------------------------------|\n", stdout);
+          list_print (buf_ptr);
+        }
+
+      if (buf_ptr -> next_ptr == NULL)
+        {
+          break;
+        }
+
+      buf_ptr = buf_ptr -> next_ptr;
+    }
+}
+
+void
+list_spec_delete (Linked_list *start_ptr, int spec_id, Linked_list *fir_ptr)
+{
+  Linked_list *spec_root_ptr;
+  Linked_list *spec_new_ptr;
+  Linked_list *spec_next_ptr;
 
   spec_new_ptr = start_ptr;
 

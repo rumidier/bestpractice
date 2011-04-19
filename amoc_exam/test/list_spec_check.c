@@ -29,4 +29,3 @@ list_spec_check (struct linked_list *ptr, int spec_id, struct linked_list *fir_p
 
   return spec_check;
 }
-

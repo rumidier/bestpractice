@@ -4,8 +4,7 @@ PROGRAMS = list
 
 all: $(PROGRAMS)
 
-list: list_main.c list_add.c list_print.c list_spec_print.c list_spec_check.c \
-      list_spec_delet.c
+list: list_main.c list_add.c list_print.c list_spec_delet.c
 	$(CC) -Wall -o $@ $^
 
 clean:

@@ -3,7 +3,6 @@
 #include <malloc.h>
 #include <string.h>
 
-#include "list_head.h"
 #include "list_func_head.h"
 
 #define DIC_USAGE       \
@@ -121,7 +120,7 @@ main (int   argc,
             }
         case 6:
             {
-              struct linked_list *rut;
+              Linked_list *rut;
               rut = first_ptr;
 
               while (1)

@@ -29,8 +29,8 @@ typedef struct List_ {
   ListElmt  *tail;
 } List;
 
-List *first;
-ListElmt *elmt_first;
+List *fir_list;
+ListElmt *fir_element;
 
 /*
  * frames.h
@@ -43,7 +43,7 @@ int free_frame (List *frames, int frame_number);
  */
 
 
-void list_init (List *list, void (*destroy) (void *data));
+void list_init (List *list, void (*destroy)(void *data));
 void list_destroy (List *list);
 int list_ins_next (List *list, ListElmt *element, const void *data);
 int list_rem_next (List *list, ListElmt *element, void **data);
@@ -57,4 +57,3 @@ int list_rem_next (List *list, ListElmt *element, void **data);
 #define list_next(element) ((element) -> next)
 
 #endif
-

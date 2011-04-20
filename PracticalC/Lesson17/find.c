@@ -22,7 +22,7 @@ int fine (char *name)
   /* 현재 보고 있는 구조체 */
   struct linked_list *current_ptr;
 
-  current_otr = first_ptr;
+  current_ptr = first_ptr;
 
   while ((strcmp (current_ptr -> data, name) != 0) &&
          (current_ptr != NULL))
@@ -33,12 +33,4 @@ int fine (char *name)
    */
 
   return (current_ptr != NULL);
-}
-
-int
-main (int   argc,
-      char *argv[])
-{
-
-  return 0;
 }

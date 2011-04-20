@@ -2,6 +2,7 @@
  * list.c
  */
 
+#include <stdio.h> // debug
 #include <stdlib.h>
 #include <string.h>
 

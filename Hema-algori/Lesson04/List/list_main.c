@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 #include "list.h"
 
@@ -6,12 +7,15 @@ int
 main (int   argc,
       char *argv[])
 {
-  char buf[20] = "chohanyoung";
+  char buf[20] = "asfsdf";
+  char buf_2[20] = "아오...";
+  List fir;
 
-  list_init (first, NULL);
+  list_init (&fir, NULL);
+  list_ins_next (&fir, fir_element, buf); 
 
-  list_ins_next (first, elmt_first, buf);
-  printf ("first
+  printf ("%s\n", fir.head -> data);
+
 
   return 0;
 }

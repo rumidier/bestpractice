@@ -1,13 +1,10 @@
 CC = gcc
 
-PROGRAMS = word find
+PROGRAMS = list
 
 all: $(PROGRAMS)
 
-word: word.c
-	$(CC) -Wall -o $@ $^
-
-find: find.c
+list: list_main.c list_func.c
 	$(CC) -Wall -o $@ $^
 
 clean:

@@ -54,6 +54,26 @@ main (int   argc,
   while (TRUE)
     {
       puts ("\nInputs number to test ->");
-      scanf 
+      scanf ("%d", &n);
+
+      if (n < 0)
+        continue;
+
+      if (n == 0)
+        break;
+
+      t1 = get_tick ();
+      for (i = 0; i < LOOP; i++)
+        r = is_orime1 (n);
+
+      t2 = get_tick ();
+      result (1, n, r, diff_tick (t1, t2));
+
+      t1 = get_tick ();
+      for (i = 0; i < LOOP; i++)
+        r = is_prime2 (n);
+
+      t2 = get_tick ();
+      result (2, n, r, diff_tick (t1, t2));
     }
 }

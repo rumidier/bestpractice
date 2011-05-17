@@ -4,7 +4,8 @@ PROGRAMS = dlist
 
 DLIST = \
 	D-list/dlist-main.c \
-	D-list/dlist.c
+	D-list/dlist.c \
+	D-list/phone.c
 
 all: $(PROGRAMS)
 

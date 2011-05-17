@@ -2,6 +2,7 @@
  * dlist.c
  */
 
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -30,7 +31,6 @@ dlist_init (DList     *list,
 /*******************************
  * dlist_destroy
  */
-
 void
 dlist_destroy (DList *list)
 {
@@ -41,14 +41,16 @@ dlist_destroy (DList *list)
 
   while (dlist_size (list) > 0)
     {
-    if (dlist_remove (list, dlist_tail (list), (void **) &data) == 0 && list->destroy != NULL)
-      {
-        /************************
-         * 동적으로 할당된 자료를 해제하기 위해 사용자 정의 함수 호출.
-         */
-        list->destroy (data);
-      }
+      if (dlist_remove (list, dlist_tail (list), (void **) &data) == 0 && list->destroy != NULL)
+        {
+          /************************
+           * 동적으로 할당된 자료를 해제하기 위해 사용자 정의 함수 호출.
+           */
+          list->destroy (data);
+        }
+  printf ("호옹이\n");
     }
+
 
   /****************************
    * 지금은 아무 연산도 허용되지 않지만 예방책으로 구조체를 지움.
@@ -63,9 +65,9 @@ dlist_destroy (DList *list)
  * dlist_ins_next
  */
 int
-dlist_ins_next (DList *list,
-                DListElmt *element,
-                const void *data)
+dlist_ins_next (DList       *list,
+                DListElmt   *element,
+                const void  *data)
 {
   DListElmt *new_element;
   /**************************

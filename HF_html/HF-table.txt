@@ -122,3 +122,142 @@
 
   <code> : 코드를 보여주기 위해 사용??
   <address> : 주소를 브라우저에게 알려줄때??
+
+  ===========================================================
+
+4. 웹 마을로의 여행 : 인터넷에 연결하기
+
+==============================================================
+
+5. 미디어와의 만남 : 이미지 추가하기
+	브라우저가 이미지들을 다루는 방법
+	 <img src="경로/filenae.gif">
+	     <img>: 더 이상 상대적인 링크가 아닙니다.
+	         <img src="http://www.starbuzzcoffee.com/images/corporate/ceo.jpg">
+
+	이미지는 어떻게 보여질까요?
+	  JPEG와 GIF의 차이점
+
+	  JPEG : 사진이나 복잡한 그래픽에 사용한다
+	      - 사진 같은 연속적인 톤의 이미지에서 가장 잘 맞는다
+	      - 1,600만 개의 서로 다른 색을 가진 이미지를 표현할 수 있다
+	      - 이미지에 대한 약간의 정보를 버리고 파일 크기를 감소시키기 대문에 "손실 압축"이다.
+	      - 투명도는 지원되지 않는다.
+
+	  GIF : 단색이나 로고 그리고 기하학적 모양의 이미지에 사용
+	     - 몇 가지의 단색이나 로고 같은 선이 있는 이미지, 클립아트 그리고 텍스트가 있는 이미지에 맞음
+	     - 256가지의 색상을 가진 이미지를 표현할 수 있다.
+	     - 또한 GIF는 사이즈를 줄여 압축될 수 있으며, 아무것도 버리지 않는다. "무손실 압축"형식
+	     - 배경색이 "투명하게" 설정되도록 허용하므로 이미지 밑에 있는 어떤 것이라도 보여줄수 있다.
+
+	항상 대체 수단을 제공하는군요
+	  <img src="http://www.headfirstlabs.com/trivia/pencil.gif"
+	       alt="Pencil line 35 miles long"> || 이미지가 보이지 않는다면 alt문장 출력
+	이미지 크기 조절하기
+	   width: 너비 혹은 가로
+	   height: 높이 혹은 세로
+	      <img src="images/drinks.gif" width="48" height="100" alt="no image">
+	브라우저에 맞게 이미지 크기 조정하기
+	 1.이미지 조정의 이유 :
+	      큰 이미지 들은 웹 페이지에서 한번에 보기 어려울 뿐더러 이미지가 너무 크면
+	      전송시간이 많이 걸리기 때문에 조정이 필요하다.
+	 2. 페이지 에서 이미지 크기를 조정하느느데 width와 height속성을 못사용하는가?
+	      브라우저는 페이지에 그림을 맞추기 전에 큰 그림 전체를 다운받기 때문
+
+	링크로 변환하기
+	   <a href="html/seattle_downtown.html">
+	      <img src="thumbnails/seattle_downtown.jpg" alt="An iPod in downtown seattle, WA">
+	   </a>
+	   <a></a> 안에 이미지를 넣게 됨으로써 이미지 클릭시 새로운 창에서 이미지를 보여주게 된다.
+
+	각 사진들을 위한 개별적인 페이지 만들기
+	   <html>
+	      <head>
+	         <title>myPod: Seattle Ferry</title>
+		 <style type="text/css"> body { background-color: #eaf3da; } </style>
+	     </head>
+	     <body>
+	        <h1>Seattle Ferry</h1>
+		<p>
+		   <img src="path.jpg" alt="An iPod on the Seattle ferry">
+		</p>
+             </body>
+	  </html>
+
+     5장 핵심 정리
+      1.웹페이지에 큰 이미지가 있다면 섬네일 (큰 이미지를 보기 위해 사용자들이 클릭 할수있는 작은 이미지)
+      2.alt 속성은 이미지를 찾지 못했을대 설명을 보여준다
+      3.포토샵 엘리먼트에서 웹으로 저장(Save for Web) 대화상자의 Matte 색을 사용하여 투명한 Gif 이미지의
+      가장자릴  부드럽게 하는데 적합한 색을 선택 하도록 합니다.
+===========================================================
+
+6. 진지해진 HTML: 표준, 신뢰성, 기타등등
+   문서 타입 정의 추가하기
+     <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+         "http://www.w3c.org/TR/html4/loose.dtd">
+   W3C 유효성 검사기(Validator)알아보기
+     유효성 검사기 : http://validator.w3.org
+   컨텐트 타입을 명시하기 위해 <meta>태그 추가하기
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   Doctype을 strict로 변환하기
+     <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+         "http://www.w3c.org/TR/html4/strict.dtd">
+
+===========================================================
+
+7. HTML에 'X'끼워 넣기 : XHTML로 이동하기
+   xml은 무엇일가요
+     XML(eXtensible Markup Language) 확장 가능한 마크업 랭귀지
+
+   html과 무슨 관련이 있을가요
+     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+         "http://www.w3c.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+   여러분은 왜 xhtml을 사용하기를 원하나요?
+     1.문법이 엄격하여 음성 스크린리더기와 시각 장애인들을 위한 다른 종류의 브라우저들이
+     웹콘텐츠를 더 쉽게 처리 한다.
+     2. HTML보다 좀 더 나은 기술인 XHTML
+     3. 가장 최신의 브라우저들의 장점을 가지며 무선장치와 더 많은 브라우저에서 작동된다
+     4.HMTL과 달리 벡터 그래픽, 수학 공식 엘리먼트 등을 추가하는 확장기능이 잇다
+     5. 모바일기기에서 지원하기 원하는 언어의 일부를 고를수 있다.
+     6.XML사용자는 XHTML도 사용할수 있다.
+     7.XML로 작성되어 있는 데이터를 HTML보다 쉽게 사용할수 있다
+     8.XML과HTML의 장점을 가지고 있다
+
+   여러분은 생각하는 것보다 훨씬 가갑게 xhtml을 사용하고 있습니다.
+
+     XHTML 1.0 체크 리스트
+    1.DOCTYPE을 Strict XHTML로 변경 한다. 여전히 Transitional HTML을 사용한다면
+    Transitional XHTML로 변경한다.
+
+    2.xmlns, lang 그리고 xml:lang 속성을 <html>시작 태그에 추가 합니다.
+
+    3.<html>태그는 DOCTYPE다음에 오는 맨 첫 번째 태그가 되어야 하며,</html>종료 태그는 가장
+    마지막 태그가 되어야 합니다.
+
+    4.모든 엘리먼트 이름들은 소문자로 작성되어야 합니다.
+
+    5.모든 시작 태그들은 종료 태그를 가져야 합니다. 또는 빈 엘리먼트의 경우 하나의 공백 문자와 /> 로
+    끝나야 합니다.
+
+    6.모든 속성 값들은 큰 따옴표로 둘러싸고 값을 가져야 합니다.
+
+    7.HTML 콘텐츠에 &를 사용하지 마세요. &가 시작 엔티티를 위한 것이라면 대신 &amp를 사용하세요.
+    또한 다른 특수 문자들도 엔티티로 변환합니다.
+
+   strict HTML에서 XHTML 1.0 으로 가는 세 가지 단계
+   1단계: DOCTYPE를 XHTML 1.0 Strict로 변경한다.
+     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3c.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+   2단계: xmlns, lang그리고 xml:lang속석을 <html>엘리먼트에 추가한다.
+     <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+   3단계: 모든 빈 태그들은 ">"dl dksls "/>"로 끝나야 한다.
+   구식의 HTML 4.01 Strict
+   <br>
+   <img src="drinks.gif" alt="Drinks">
+   개선된 XHTML 1.0
+   <br />
+   <img src="drinks.gif" alt="Drinks" />
+
+===========================================================

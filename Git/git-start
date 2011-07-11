@@ -1,0 +1,76 @@
+리눅스에 설치 하기
+prompt>sudo apt-get build-dep git-core git-doc
+다운로드한 최신 릴리스를 우분투에서 직접 컴파일 하려면 build-essential 패키지를 설치해야
+한다. 또 자주 바뀌지는 않지만 Git이 동작할 때 의존하는 패키지도 있다. (위 명령어를통해 패키지를 얻자)
+명령어로 git-core와 git-doc 패키지가 의존하는 모든 패키지를 설치한다.
+
+현재 컴퓨터의 전체 사용자가 사용할수 있도록 설치
+prompt>make prefix=/usr/local all doc
+자신만 사용하려면 prefix=/usr/local 을 뺀다.
+
+컴파일이 끝나면
+prompt>sudo make instll install-doc 을 설치한다
+
+버전 결과 확인 하기
+prompt>git --version
+git version 1.7.1
+
+윈도 -Cygwin, msysGit 둘중에 하나 설치
+
+-----------------------------------------------------------------------
+Git 구성하기
+  설정값 확인 하기
+  prompt>git config --global --list
+  user.name=user name
+  user.email=useremail@nimam.com
+  설정값 설정하기 (필수)
+  prompt>git config --global user.name "user name"
+  prompt>git config --global user.email "useremail@nimam.com"
+
+  color.ui 설정하기
+  prompt>git config --global color.ui "auto"
+
+-----------------------------------------------------------------------
+Git clone 하기 (원격 저장소 복제하기)
+git 설명하는 블로그 등에서 보면 git init 을 다하게
+설명이 되지만 clone 은 init 을 하지 않아도 자동으로 되는듯 하다
+prompt>mkdir Git
+prompt>cd Git
+Git>git clone git://github.com/userID/repositore.git folder-name
+userId:클론하려는 상대방의 아이디 (ex:rumidier)
+repositorie:상대방의 repositroie (ex:GYM)
+folder-name:Git 디렉토리 밑에 폴더명생성
+
+Git>git pull
+Git>git push
+-----------------------------------------------------------------------
+Git 기초
+git add <filenmae> (파일 스테이징하기)
+git commit <filename> (스테이징된 파일 커밋하기)
+git commit -m "commit message" (스테이징된 파일 한번에 커밋하기)
+git pull (저장소에서 수정된 내용이나 추가된 내용 가져오기)
+git push (저장소에 저장하기)
+
+==== push error ====
+fatal: remote error: 
+You can't push to git://github.com/rumidier/GYM.git
+Use git@github.com:rumidier/GYM.git
+이런 내용들이 뜨게 된다면
+
+prompt>ls -a 명령어로 .git 폴더를 찾는다
+.git>ls
+.git>vi config
+
+[remote "origin"]
+fetch = +refs/heads/*:refs/remotes/origin/*
+수정전 url = git://github.com/rumidier/GYM.git 
+수정후 url = git@github.com:rumidier/GYM.git
+
+경로를 수정해준후 다시 본래의 디렉토리에서
+git push 해보자 이때 푸쉬가 잘되지 않았다면
+origin master 를 붙여 보자
+
+prompt>git push origin master
+=>계속 origin master 를 쓰기 귀찮다면
+prompt>git branch --set-upstream master origin
+이제 git push 와 git pull 만 써도 잘 되는가?

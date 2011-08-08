@@ -1,0 +1,123 @@
+# 데이터베이스 만들기
+
+CREATE TABLE tbl_picbook (
+		code INT,
+		title VARCAR(30),
+		price INT
+		);
+
+SELECT * FROM tbl_picbook;
+
+-------------------------
+
+# 데이터베이스 제약 조건
+CREATE TABLE tbl_picbook2 (
+		code INT UNIQUE NOT NULL,
+		title VARCHAR(30),
+		price INT,
+		PRIMARY KEY (title, price)
+		);
+주요제약 조건
+제약 조건에는 주로 다음과 같은 것들이 있습니다
+제약조건    의미
+PRIMARY KEY :
+	     데이터의 중복을 금지한다.
+	     NULL 값을 금지한다.
+UNIQUE      :
+ 	    데이터가 한가지 값만 갖도록 한다.
+
+CHECK (조건문) :
+		미리 조건식을 준비하고 그에 맞지 않는 데이터를 금지한다.
+
+NULL :
+     NULL 값을 금지한다.
+
+DEFAULT = 값 :
+	     미리 지정한 값을 초기값으로 등록한다.
+
+# 데이터의 등록과 가져오기
+
+데이터 등록
+INSERT INTO tbl_picbook (code, title, price) VALUES (111, 'C가 보이는 그림책', 120000);
+INSERT INTO tbl_picbook (code, title, price) VALUES (112, 'Java가 보이는 그림책', 120000);
+INSERT INTO tbl_picbook (code, title, price) VALUES (113, '알고리즘이 보이는 그림책', 120000);
+INSERT INTO tbl_picbook (code, title, price) VALUES (114, 'TCP/IP가 보이는 그림책', 120000);
+
+데이터 가져오기
+SELCET * FROM tbl_picbook;
+
+USE db_picbook;
+INSERT INTO tbl_height (id, name, height) VALUES (1, '김철수', 149.5);
+INSERT INTO tbl_height (id, name, height) VALUES (2, '이해준', 172);
+INSERT INTO tbl_height (id, name, height) VALUES (3, '강하늘', 168);
+INSERT INTO tbl_height (id, name, height) VALUES (4, '박사랑', 149.5);
+SELECT * FROM tbl_height;
+
+
+# 지정한 열 가져오기
+## 한열만 가져오기
+SELECT coulmn_name FROM tbl_picbook;
+USE db_picbook;
+SELECT name FROM tbl_height;
+
+## 여러열 가져오기
+SELECT title, price FROM tbl_picbook;
+USE db_picbook;
+SELECT id, height FROM tbl_height;
+
+## 데이터 정렬
+### ORDER BY절
+오름차순 정렬
+SELCET * FROM tbl_picbook ORDER BY price ASC;
+내림차순 정렬
+SELECT * FROM tbl_picbook ORDER BY price DESC;
+### 복잡한 정렬
+SELECT * FROM tbl_picbook ORDER BY price, code;
+
+USE db_picbook;
+SELECT * FROM tbl_height ORDER BY height DESC, id DESC;
+SELECT * FROM tbl_height ORDER BY height DESC, id ASC;
+
+## 기타 옵션
+### 데이터 그룹화하기
+SELECT price, COUNT(title) FROM tbl_picbook GROUP BY price;
+### 중복 데이터 제거하기
+SELECT DISTINCT title FROM tbl_picbook;
+
+### 열 이름을 바꿔서 표시하기
+SELECT code AS bookcode FROM tbl_picbook;
+
+USE db_picbook;
+SELECT DISTINCT height AS stature FROM tbl_height;
+
+도전! SQL
+ex-01
+db_exam이라는 데이터베이스를 새로 만드는 SQL문을 쓰세요.
+
+ex-02
+학번과 이름, 국어 점수, 영어 점수, 수학 점수를 갖고 있는 tbl_test라는 테이블을 만드는
+SQL문을 쓰세요
+
+ex-03
+문제 01에서 새로 만든 데이터베이스를 사용하려면 어떻게 해야 할가요?
+
+ex-04
+다음 제약 조건의 기능을 쓰세요.
+PRIMARY KEY
+NOT NULL
+DEFAULT = 값
+
+ex-05
+문제 02 에서 만든 tbl_test테이블에 다음 데이터를 등록하세요
+학번 |  이름  | 국어 | 영어 | 수학 |
+1    | 강지민 |  80  |  76  |  92  |
+2    | 박제희 |  86  |  95  |  43  |
+3    | 유수진 |  55  |  56  |  94  |
+
+ex-06
+문제 05에서 등록한 tbl_test 테이블에서 이름
+영어점수 수학점수를 가져와서 영어 점수 순으로 보여지는
+sql문을 작성하세요
+
+ex-07
+tbl_test 테이블에 몇 개의 행이 있는지 보여주는 SQL 문을 작성하세요 (단, 표시되는 열 이름 CNT로 바꿔서 나타냄). 

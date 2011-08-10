@@ -1,0 +1,9 @@
+USE db_picbook;
+create table (
+	     );
+insert into () values;
+insert into () values;
+insert into () values;
+insert into () values;
+
+SELECT * FROM WHERE

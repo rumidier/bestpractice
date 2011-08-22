@@ -1,0 +1,353 @@
+#함수란
+
+## 함수란
+함수란 데이터를 사용하여 뭔가 처리를 한 수 그 결과를 반환하는 장치를 말한다.
+처리 종류에 따라 인수가 필요한 함수나 필요없는 함수로 나뉜다.
+
+##인수가 필요한 함수
+###단일행 함수
+각행에 대해 처리를 수행하고 행단위로 결과를 반환. 인수로는
+열 이름이나 실제값을 지정
+###그룹 함수
+여러 개의 행을 하나의 그룹으로 처리를 수행하고 하나의 결과를 반환합니다. 인수로는 열 이름을 지정합니다.
+
+##수치함수
+###CEILING, CEIL함수
+인수가 실수인경우 소수점 이하를 1 더한후 반환
+CEILING : mysql
+CEIL함수 : orcle
+
+###FLOOR함수
+인수가 실수인 경우 소수점 이하를 제거후 반환
+
+USE>
+USE db_picbook;
+SELECT cost, CEILING(cost) AS result1,
+	       FLOOR(cost) AS result2 FROM tbl_sum;
+|cost|result1|result2|
+|----|-------|-------|
+|1.248|2|1|
+|29.400|30|29|
+|105.050|106|105|
+
+## 수치 함수
+### RAND 함수
+0~1 이하의 난수를 구하는 함수
+Access 는 RND함수로 사용
+
+exam)
+use db_picbook;
+SELECT RAND();
+SELECT RAND();
+SELECT RAND(7);
+SELECT RAND(7);
+------------------
+0.45463xxxxxx
+0.200xxxxxxx
+0.713703xxxxx (7)
+0.713703xxxxx (7)
+
+그외 수치 함수
+|함수명       |기능					     |주의사항|
+|-------------|----------------------------------------------|--------|
+|ABS(m)       |m의 절대값을 반환                             |
+|ROUND(m[, x])|소수점 이하 x자리에서 m을 사사오입한 값을 반환|orcle,access는 []생략|
+|POWER(m,n)   |m을n승한 수치(제곱승)을 반환		     |Mysql,postreesql은 pow함수|
+|SQRT(m)      |m에 대한 제곱근을 반환			     |Access에서는 SQR 함수|
+|MOD(m,n)     |m을 n으로 나눈 나머지를 반환		     |SQL Server에서는 % 연산자, Access에서는 MOD연산자|
+|SIN(m)       |m에 대한 사인값을 반환			     |
+|COS(m)       |m에 대한 코사인값을 반환			     |
+|TAN(m)       |m에 대한 탄젠트값을 반환			     |
+|EXP(m)       |m의 지수승을 반환			     |
+|LOG( [m,] m) |밑이 m인 n의 자연로그값을 반환		     |[]생략 가능 (Oracle만 생략불가)|
+|SIGN(m)      |m의 부호를 반환				     |양 : 1, 음 : -1 , 0 : 0|
+m,n = 수치 또는 열 이름
+x = 자릿수
+
+### 자리 수 지정
+ROUND 함수 등의 수치 함수에서 자리 수를 지정할 때는 '처리하고 싶은 자리 수 -1'인 정수를 지정합니다.
+|지정한 값 | 실제 자리수     |
+|----------|-----------------|
+|3         |소수점 이하 4자리|
+|2         |소수점 이하 3자리|
+|1         |소수점 이하 2자리|
+|0         |소수점 이하 1자리|
+|-1        |1의 단위         |
+|-2        |10의 단위        |
+|-3        |100의 단위       |
+
+## 문자열 함수
+###LEN 함수와 LENGTH 함수
+Oracle = LEN
+MySQL, PostageSQL = LENGTH
+
+exam)
+USE db_picbook;
+SELECT LEN('꽃이 피다');
+SELECT sname, LEN(sname) AS result FROM tbl_stdname;
+
+-------------
+5
+
+sname | result
+-------------
+KIM   |3
+CHOI  |4
+KANG  |4
+LEE   |3
+
+substring 함수와 substr 함수
+지정된 부분 만큼만 문자를 반환
+orcle, MySQL 에서 SUBSTR
+Access의 경우 : MID
+SUBSTRING('그림책', 3, 1)
+'그림책' : 제1인수 가져울 원래 문자열 또는 문자열형 열의 이름을 지정
+2 : 제2인수 문자열의 처음(왼쪽 끝)부터 세서 몇번째 문자열부터 가져올지 결정
+3 : 제3인수 몇 개의 문자열을 가져올지를 지정합니다.
+
+USE
+SELECT fname, SUBSTRING(fname, 2, 2) AS result FROM tbl_stdname;
+
+fname   | result
+--------|-------
+sangtaek|an
+sanhae  |an
+taekgu  |ae
+solim   |ol
+
+## 문자열 함수
+LTRIM 함수와 RTRIM함수
+LTRIM : 문자열의 좌측 공백 삭제
+RTRIM : 문자열의 우측 공백 삭제
+
+exam)
+USE db_picbook;
+SELECT '***' + pname + '***' AS pname,
+       '***' + LTRIM(pname) + '***' AS leftsp,
+       '***' + RTRIM(pname) + '***' AS rightsp
+       FROM tbl_pet;
+실행결과)
+|pname        |leftsp      |rightsp     |
+|-------------|------------|------------|
+|*** KKOMA ***|***KKOMA ***|*** KKOMA***|
+|*** ALEX *** |***ALEX *** |*** ALEX*** |
+|*** RAN ***  |***RAN ***  |*** RAN***  |
+|*** SHAM *** |***SHAM *** |*** SHAM*** |
+
+### UPPER 함수와 LOWER함수
+대문자로 변환과 소문자로 변환
+
+exam)
+USE
+SELECT sname, LOWER(sname) AS somunja FROM tbl_stdname;
+SELECT fname, LOWER(fname) AS daemunja FROM tbl_stdname;
+
+|sname|somunja|
+|-----|-------|
+|KIM  |kim    |
+|CHOI |choi   |
+|KANG |kang   |
+|LEE  |lee    |
+
+|fname   |daemunja|
+|--------|--------|
+|sangtaek|SANGTAEK|
+|sanhae  |SANHAE  |
+|taekgu  |TAEKGU  |
+|solim   |SOLIM   |
+
+## 날짜 함수
+SQL Serer     : GETDATE
+Access        : DATE
+Oracle, MySQL : SYSDATE
+PostagreSQL   : NOW
+
+exam)
+USE
+SELECT GETDATE();
+
+실행결과)
+2011-8-16 12:06:54.263
+
+### 날짜 데이터에서 일, 월, 연도 구하기
+SQL Server와 Access에는 날짜형으로 된 값에서 연도, 월, 일을 개별 정수값으로
+구할수 있는 함수가 있습니다.
+|함수명  |기능       |사용법->반환값        |
+|--------|-----------|----------------------|
+|DAY(m)  |일을 반환  |DAY('2004-6-6')->6    |
+|MONTH(m)|월을 반환  |MONTH('2004-6-6')->6  |
+|YEAR(m) |연도를 반환|YEAR('2005-6-6')->2005|
+
+USE
+CREATE TABLE tbl_date (DATETIME);
+INSERT INTO tbl_date (sigak) VALUES (GETDATE());
+SELECT * FROM tbl_date;
+SELECT DAY(sigak) FROM tbl_date;
+
+실행)
+|sigak                  |
+|-----------------------|
+|2004-05-06 12:38:31.070|
+
+print -> 6
+
+## 날짜 함수
+### 일 수와 시간 수 더하기
+SQL Server와 Acess에서는 날짜형이나 시간형으로 된 값에 일 수나 시간 수를 더하는 DATEADD 함수를 사용할 수 있습니다.
+DATEADD(d, 1, '2003-08-31')
+d            : 제1인수 더할 수치의 단위(요소)를 지정합니다.
+1            : 제2인수 더할 수치 또는 수치형으로 된 열 이름을 지정합니다. 음수를 넣으면 날짜나 시간이 앞으로 돌아갑니다.
+'2003-08-31' : 더할 대상이 되는 날짜입니다. 날짜형의 값 ㄸ3노느 열 이름을 지정합니다.
+
+요소 목록
+|요소 |SQL Server        |Acess|
+|-----|------------------|-----|
+연도  |year, yyyy, yy    |yyyy |
+분기  |quarter, qq, q    |q    |
+월    |month, mm, m      |m    |
+일 수 |dayofyear, dy, y  |y    |
+주    |week, wk, ww      |ww   |
+일    |day, dd, d        |d    |
+요일  |weekday, dw       |w    |
+시    |hour, hh          |h    |
+분    |minute, mi, n     |n    |
+초    |second, ss        |s    |
+밀리초|millisecond, ms, s|없음 |
+
+## 날짜의 차 구하기
+SQL Server와 Access에서는 날짜형으로 된 값끼리의 차를 구하는 DATEDIFF
+함수
+DATEDIFF(m, '2003-08-16', '2003-12-05')
+m           : 제1인수 반환값의 단위(요소)를 지정합니다. 요소에 대해서는 왼쪽 페이지의 목록을 참조하세요
+'2003-08-16':제2인수 날짜형으로 된 값이나 열 이름을 지정합니다.
+'2003-12-05':제3인수 날짜형으로 된 값이나 열 이름을 지정합니다.
+
+3인수 - 2인수 = 4개월
+
+exam)
+USE db_picbook;
+SELECT DATEADD(m, 6, date) FROM tbl_datelist WHERE no = 1;
+SELECT DATADIFF(d, date1, date2) FROM tbl_datelist WHERE no = 2;
+
+2004-10-13 :00:00.000
+105
+-127
+
+## 집합 함수
+
+### AVG함수
+AVG(age)   : 열에 포함된 모든 값(NULL 값 제외)을 대상으로 그 평균값을 구합니다.
+
+### SUM함수
+SUM(price) : 열에 포함된 모든 값(NULL 값 제외)의 합계를 구합니다.
+
+### COUNT함수
+COUNT(no)  : 열의 개수를 구합니다.
+
+exam)
+use
+SELECE AVG(score) ASaever, SUM(score) AS total_score, COUNT(name) AS game FROM tbl_game;
+
+|average|total_scoe|game|
+|-------|----------|----|
+|107    |967       |9   |
+
+### 중복 데이터를 제거한 행의 개수 구하기
+COUNT(DISTINCT name)
+
+exam)
+USE db_piclbook;
+SELECT COUNT(DISTINCT name) AS member FROM tbl_game;
+
+실행)
+|member|
+|------|
+|3     |
+
+## 집합 함수
+### MAX 함수와 MIN 함수
+MAX(weight)
+MIN(weight)
+
+### SELECT문 옵션과의 조합
+그룹 단위로 처리하기
+GROUP BY절과 조합하면 행을 그룹화하여 그룹별로 집계 처리를 수행할 수 있습니다.
+
+exam)
+USE db_picbook;
+SELECT name, MAX(score) AS high, MIN(score) AS low
+FROM tbl_game
+GROUP BY name;
+
+실행)
+|name|high|low|
+|----|----|---|
+|june|140 |98 |
+|woor|160 |90 |
+|yumi|125 |64 |
+
+함수의 처리 결과를 조건으로 특정 데이터 가져오기
+조건에 맞는 데이터만 가져올때 WHERE절을 사용하지만 WHERE절 안에서는
+집합 함수를 사용할 수 없다. 집합 함수의 처리 결과를 조건으로 하고싶을땐
+GROUP BY절과 HAVING절을 사용한다, HAVING절은 SELECT문의 옵션중 하나이다.
+
+SELECT code, MAX(price) FROM tbl_picbook GROUP BY code HAVING (MAX(price) > 12000);
+
+exam)
+USE db_picbook;
+SELECT name, SUM(score) AS over300 FROM tbl_game
+       GROUP BY HAVING (SUM(score) >= 300);
+
+|name |over300|
+|-----|-------|
+|june |343    |
+|woori|360    |
+
+## 변환 함수
+
+### CAST 함수
+데이터를 변환 시키는 함수
+
+수치를 문자열로 변환
+CAST(0.245 AS VARCHAR)
+
+문자열을 날짜값으로 변환
+CAST('2000-02-02' AS DATETIME)
+
+exam)
+USE db_picbook;
+SELECT time AS moonhayeol, CAST(time AS DATETIME) AS nalzza
+	FROM tbl_schedule;
+
+실행)
+|moonhayeol       |nalzza                |
+|-----------------|----------------------|
+|12 29 2003 8:50AM|2003-12-29 08:50.00.00|
+
+Oracle에서는 CAST 함수 외에도 TO_CHAR함수(문자열형으로 변환), TO_NUMBER함수(수치형으로 변환), TO_DATE함수
+(날짜형으로 변환)등 특정 데이터형으로 변환시키는 함수도 사용할 수 있습니다. 또한 SQL Server에서는 CAST 함수와
+똑같은 기능을 갖고 있는 CONVERT함수도 사용 가능
+
+#도전! SQL
+
+01_SQL에서 인수를 받아서 처리한 결과를 반환하는 것을 무엇이라고 합니까?
+02_초기화 인수로 5를 사용하는 난수를 구하는 SELECT문을 작성하세요
+03_10.548921이라는 숫자를 소수점 이하 4자리 에서 사사 오입한 값을 반환하는 함수식을 쓰세요.
+04_다음 함수의 수행결과는 무엇입니까?
+(1)CEILING(45.86)
+(2)FLOOR(7.23)
+(3)LEN('SQL이 보이는 그림책')
+(4)SUBSTRING('SQL이 보이는 그림책', 6, 3)
+(5)LTRIM(' SQL')
+(6)RTRIM('SQL ')
+(7)UPER('sql이 보이는 그림책')
+(8)LOWER('SQL이 보이는 그림책')
+(9)GETDATE();
+(10)DATEADD(M, 1, '2004-10-29')
+(11)DATEDIFF(D, '2004-11-11', '2004-12-25')
+
+05_예제 4-5(104p)에 나오는tbl_game에서 각 이름별 평균과 총점을 구하는 SQL문을 작성하세요
+(단, 평균이 높은 순으로 표시함)
+06_예제 4-5(104p)에 나오는 tbl_game에서 총점이 300점이 넘는 사람의 이름과 그 사람으 최고점과
+최저점을 구하는 SQL문을 작성하세요.
+07_데이터형을 변환 시키는 함수는 무엇입니까?

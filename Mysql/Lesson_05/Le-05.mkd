@@ -1,0 +1,354 @@
+#  INSERT문
+
+## 열 이름을 생략하고 등록하기
+INSERT문은 열 이름을 생략해서 데이터를 등록할 수도 있습니다. 생략하는 경우는
+테이블을 작성할 때 저으이한 열 순서대로 데이터를 나열합니다.
+
+tbl_tea
+|code|name|price|
+|----|----|-----|
+| 1  |녹차|7000 |
+
+ INSERT INTo tbl_tea VALUES (2, '홍차', 8500);
+
+tbl_tea
+|code|name|price|
+|----|----|-----|
+| 1  |녹차|7000 |
+| 2  |홍차|8500 |
+
+exam)
+USE db_picbook;
+INSERT INTO tbl_subjects VALUES (1, '사준영', 76, 98);
+INSERT INTO tbl_subjects VALUES (2, '박산해', 90, 74);
+SELECT * FROM tbl_subjects;
+
+실행)
+|id  |name  |math |english|
+|----|------|-----|-------|
+| 1  |사준영|76   |98     |
+| 2  |박산해|90   |74     |
+
+## 특정 열에만 값 등록하기
+특정 열에만 데이터를 등록할 수도 있습니다. 데이터를 등록하지 않은 열에는
+테이블을 작성할 때 설정한 제약 조건을 기초로 한 값이 들어갑니다.(제약 조건에
+		대해서는 42p 참조)
+
+INSERT INTO tbl_tea(name, code) VALUES('구기자차', 3);
+
+|code  |name  |price |
+|----|--------|------|
+| 1  |녹차    |76    |
+| 2  |홍차    |90    |
+| 3  |구기자차|90    |
+
+USE db_picbook;
+INSERT INTO tbl_subjects(id, name, math) VALUES(3, '임상규', 75);
+INSERT INTO tbl_subjects(id, name, english) VALUES(4, '서일도', 100);
+SELECT * FROM tbl_subjects;
+
+|id  |name  |math |english|
+|----|------|-----|-------|
+| 3  |임상규|75   |NULL   |
+| 4  |서일도|NULL |100    |
+
+## SELECT문의 결과를 등록하기
+SELECT문을 사용하여 INSERT문에서 등록할 데이터를 지정할 수도 있습니다. 예를
+들어 기존의 테이블의 데이터를 다른 테이블의 데이터로 등록하고 싶을 때 사용하면
+편리합니다.
+
+INSERT INTO tbl_perlist(id, name) SELECT no, name FROM tbl_cat;
+
+tbl_cat
+|no  |name  |age  |
+|----|------|-----|
+| 1  |꼬마  |17   |
+| 2  |알렉스|15   |
+
+tbl_petlist
+|no  |name  |
+|----|------|
+| 1  |꼬마  |
+| 2  |알렉스|
+
+
+
+exam)
+USE db_picbook;
+INSERT INTO tbl_insa() SELECT name FROM tbl+employee
+	WHERE section = '인사부';
+SELECT * FROM tbl_insa;
+
+|name  |
+|------|
+|궁선영|
+|송만식|
+|전진만|
+
+## UPDATE문
+
+### 하나의 값 수정하기
+
+|code  |menu       |price|
+|------|-----------|-----|
+| 1    |매일의 런치|8000 |
+| 2    |카레라이스 |7300 |
+| 3    |스파게티   |7500 |
+
+UPDATE tbl_lunch SET price = 7600 WHERE code = 2;
+
+|code  |menu       |price|
+|------|-----------|-----|
+| 1    |매일의 런치|8000 |
+| 2    |카레라이스 |7600 |
+| 3    |스파게티   |7500 |
+
+UPDATE tbl_lunch SET price = 7600
+|code  |menu       |price|
+|------|-----------|-----|
+| 1    |매일의 런치|7600 |
+| 2    |카레라이스 |7600 |
+| 3    |스파게티   |7600 |
+WHERE 절을 사용하여 열을 특정하지 않으면 모든 행의 값이 수정되어 버리므로 주의해야한다.
+
+## 여러 값 수정하기
+여러 열의 값을 수정하려면 수정 내용을 ','(콤마)로 구분하여 나열한다
+
+UPDATE tbl_lunch
+	SET menu = '오늘의 런치', price = 7900 WHERE code = 1;
+|code  |menu       |price|
+|------|-----------|-----|
+| 1    |오늘의 런치|7900 |
+| 2    |카레라이스 |7600 |
+| 3    |스파게티   |7600 |
+
+
+exam)
+USE db_picbook;
+UPDATE tbl_shopping SET material = '실톱' number = 2
+	WHERE priority = 1;
+UPDATE tbl_shopping SET number = 10
+	WHERE priority >= 3;
+SELECT * FROM tbl_shopping;
+
+tbl_shopping의 원래 데이터
+|priority|material   |number|
+|--------|-----------|-----|
+| 1      |톱         |1    |
+| 2      |못         |30   |
+| 3      |사포       |5    |
+| 4      |합판       |1    |
+
+수정후 데이터
+|priority|material   |number|
+|--------|-----------|-----|
+| 1      |실톱       |2    |
+| 2      |못         |30   |
+| 3      |사포       |10   |
+| 4      |합판       |10   |
+
+## DELETE문
+### 조건과 일치하는 데이터 삭제하기
+테이블에 등록된 데이터를 삭제하려면 DELETE문을 사용합니다. 이때 WHERE절을 사용해
+삭제할 행을 지정합니다.
+
+tbl_tel
+|no  |name  |phone        |
+|----|------|-------------|
+| 1  |박화정|xx-ssss-ssss |
+| 2  |강산해|90-3423-2433 |
+
+DELETE FROM tbl_tel WHERE name = '박희정';
+
+|no  |name  |phone        |
+|----|------|-------------|
+| 2  |강산해|90-3423-2433 |
+
+exam)
+USE db_picbook;
+DELETE FROM tbl_novel WHERE name = 2222;
+SELECT * FROM tbl_novel;
+
+원본데이터)
+|code|title             |price        |
+|----|------------------|-------------|
+|1111|또또와 뚜뚜       |5800         |
+|2222|또또를 둘러싼 모험|6800         |
+|3333|SQL 끝내기        |4300         |
+|4444|또또 아빠의 선물  |9800         |
+
+### 모든 데이터 삭제하기
+WHERE절을 사용해 행을 특정하지 않으면 모든 행이 삭제 됩니다.
+
+DELETE FROM tbl_tel;
+(테이블 내역 전원삭제)
+
+exam)
+USE db_picbook;
+DELETE FROM tbl_novel
+SELECT * FROM tbl_novel;
+
+|code|title             |price        |
+(내용 모두 삭제)
+
+## 서브 쿼리(1)
+SELECT문 안에 또 다른 SELECT문을 쓸 수도 있습니다. 이때 외부에 쓴 SELECT문을 메인쿼리
+내부에 쓴 SELECT문을 서브 쿼리라고 합니다.
+select문의 검색 조건으로 select문을 사용할 수 있습니다. 이렇게 중첩된 select문을 서브 쿼리
+(부 질의: Sub Query)라고 합니다.
+
+## WHERE절에서 서브 쿼리 사용하기
+서브 쿼리는 WHERE절 안에서도 사용할 수 있습니다.
+SELECT * FROM tbl_cake
+	WHERE price >= (SELECT AVG(price) FROM tbl_cake);
+
+원본 데이터
+(서브 쿼리를 실행 평균 가격을 산출합니다.)
+tbl_cake
+|name  |price |
+|------|------|
+|시폰  |2300  |
+|몽블랑|3000  |
+|푸딩  |1800  |
+|치즈  |2500  |
+
+메인 쿼리를 실행 평균이상가격 데이터만 표시
+tbl_cake
+|name  |price |
+|------|------|
+|몽블랑|3000  |
+|치즈  |2500  |
+
+exam)
+SELECT * FROM tbl_cake
+	WHERE price >= (SELECT AVG(price) FROM tbl_novel);
+|code|title             |price        |
+|----|------------------|-------------|
+|2222|또또를 둘러싼 모험|6800         |
+|4444|또또 아빠의 선물  |9800         |
+
+## 서브쿼리
+### HAVING 절에서 서브 쿼리 사용하기
+SELECT code, MIN(arrival) AS arrival FROM tbl_stock GROUP BY code
+	HAVING MIN(arrival) < (SELECT AVG(shipment) FROM tbl_stock);
+1)서브 쿼리를 실행 shipment열의 평균값을 산출 합니다.
+tbl_stock
+|code|arrival|shipment|
+|----|-------|--------|
+|11  |20     |17      |
+|12  |30     |23      |
+|13  |48     |36      |
+|14  |34     |12      |
+
+2)메인 쿼리를 실행 code 열을 기준으로 그룹화하고, arrival열의 그룹
+최저값이 서브 쿼리의 결과보다 작은 데이터만 가져온다
+|code|arrival|
+|----|-------|
+|11  |20     |
+
+USE db_picbook;
+SELECT team, MIN(point2) AS lowest FROM tbl_results GROUP BY team
+	HAVING MAX(point2) >= (SELECT AVG(point1) FROM tbl_results);
+|code|arrival|
+|----|-------|
+|A   |130    |
+|C   |105    |
+(서브 쿼리 - point1 열의 값의 평균값을 산출) -> (메인 쿼리 point2 열의 그룹 최고값이 서브 쿼리의 결과보다 높은 그룹의 최저값과 팀명을 표시)
+
+### FROM 절에서 서브 쿼리 사용하기
+RDBMS에 따라 FROM절 안에 서브 쿼리를 쓸 수도 있습니다. FROM절 안에 쓴
+서브 쿼리의 결과는 뷰처럼 취급되기 때문에 인라인 뷰(Inline View)라고도 합니다.
+
+SELECT MIN(price) AS price FROM
+	(SELECT * FROM tbl_cake WHERE price >= 2500) AS c_price;
+
+1)서브 쿼리를 실행 price 열의 값이 2500 이상인 데이터를 가져와서
+	c_price라는 가상의 이름을 붙입니다.
+
+|name  |price|      |name  |price|     |price|
+|------|-----|      |------|-----|     |-----|
+|시폰  |2300 |      |몽블랑|3000 |     |2500 |
+|몽블랑|3000 |  ->  |치즈  |2500 | -> 
+|푸딩  |1800 |
+|치즈  |2500 |
+
+exam)
+USE db_picbook;
+select max(point_avg) AS max_avg
+	FROM (SELECT AVG(point1 + point2) AS point_avg
+	FROM tbl_result GROUP BY team) AS p_avg;
+
+max_avg
+----------------
+301
+
+## 서브 쿼리 응용편
+### 서브 쿼리의 응용
+: 서브 쿼리의 결과는 INSERT, UPDATE, DELETE문을 사용할수 있다
+
+exam)
+USE
+INSERT INTO tbl_advance SELECT * FROM tbl_results
+	WHERE point1 + point2 > (SELECT AVG(point1 + point2) FROM
+	tbl_result);
+
+UPDATE tbl_allowance SET total = (overtime + travel)
+	WHERE overtime + travel < (SELECT MAX(overtime) FROM
+	tbl_allowance);
+
+DELETE FROM tbl_allowance WHERE travel > (SELECT AVG(travel)
+		FROM tbl_allowance WHERE overtime >= 40000);
+
+SELECT * FROM tbl_advance;
+SELECT * FROM tbl_allowance;
+
+|id  |team|name  |point1 |point2|
+|----|----|------|-------|------|
+| 2  |A   |유본희|150    |130   |
+| 4  |A   |민상철|170    |153   |
+| 5  |C   |사준영|147    |151   |
+
+|id  |name  |overtime|travel|total|
+|----|------|--------|------|-----|
+| 1  |고근택|35000   |18000 |53000|
+| 2  |최나준|45000   |23600 |NULL |
+| 4  |임상규|21000   |14500 |35500|
+
+1
+서브:tbl_results테이블에서 point2열의 합계의 편균값을 산출 합니다.
+메인:point1과point2의 합계까 서브 쿼리의 결과보다 큰 데이터만 tbl_advance에 INSERT합니다.
+
+2
+서브:tbl_allowance 테이블에서 overtime열의 최대값을 산출 합니다.
+메인:overtime 열과 travel 열의 합계까 서브 쿼리의 결과보다 작은 데이터만 overtime 열과 travel열의 합계
+값을 total 열에 UPDATE합니다.
+
+3
+서브:tbl_allowance테이블에 overtime 열의 값이 40000 이상인 데이터의 travel 열의 값의 평균을 산출 합니다.
+메인:travel 열의 값이 서브 쿼리의 결과보다 큰 데이터만 DELETE합니다.
+
+도전! SQL
+01_번호, 이름, 3회의 볼링 점수를 갖고 있는 tbl_bowing이라는 테이블을 만드세요. (이 테이블은 제 5장 도전 SQL에서 사용할
+		예제 테이블 입니다. 데이터베이스는 db_exam입니다.)
+
+02_tbl_bowing에 다음의 데이터를 입력하세요.
+|id  |name  |score1|score2|score3|
+|----|------|------|------|------|
+| 1  |나잘난|120   |88    |104   |
+| 2  |볼링왕|125   |140   |167   |
+| 4  |골든볼|96    |111   |72    |
+| 4  |볼링꽝|50    |37    |49    |
+
+03_tbl_bowling 테이블에서 '골든볼'의 점수를
+다음과 같이 수정하세요.
+|no  |name  |score1|score2|score3|
+|----|------|------|------|------|
+| 3  |골든볼|196   |211   |172   |
+
+04_tbl_bowling 테이블에서 볼링 점수의 합계까 100점이 안 되는 데이터를 삭제하세요.
+
+05_SELECT문 안에 또 다른 SELECT문이 중첩 된것을 무엇이라고 합니까?
+
+06_tbl_bowling에서 score1의 값이 score2의 평균값보다 큰 데이터를 가져오세요.
+
+07_번호, 이름, 평균을 갖고 있는 tbl_average라는 테이블에 tbl_bowling의 평균값을 등록하세요.

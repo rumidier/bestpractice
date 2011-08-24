@@ -1,0 +1,352 @@
+---
+info:
+  subject: All About *Silide*
+  author: Keedi Kim
+color:
+  strong: '#ff0000'
+  em: '#ff0000'
+  background:
+    fg: '#000000'
+    bg: '#ff0000'
+slides:
+  - Silide?
+  - <strong>Si</strong>lex + S<strong>lide</strong>
+  - Stolen from <br/> [Timmy Willison](http://www.timmywillison.com)
+  -
+    section: |
+      # This slide is for <br/> angry *@y0ngbin*
+      #### (and others... maybe...)
+  -
+    name: Features
+    section: |
+      ### Making slides is not a painful work!
+
+      ----
+
+      - Simple usage
+      - Simple syntax
+      - Auto generated cover page
+      - Support YAML
+      - Support MultiMarkdown
+      - Syntax highlight for code
+      - Keyboard binding (left & right arrow)
+      - Written in *Perl*
+  - Syntax
+  -
+    name: YAML Template
+    code:
+      desc: You can start from here
+      type: yaml
+      data: |
+        ---
+        info:
+          subject: All About *Silide*
+          author: Keedi Kim
+        slides:
+          - Slide 1
+          - Slide 2
+          - Slide 3
+          - ...
+    section: |
+      ### *info*: use for slide cover
+      - *subject*: Presentation name
+      - *author*: Author name
+
+      ----
+  -
+    name: TAKAHASHI Method
+    code:
+      desc: '[What is TAKAHASHI Method?](http://en.wikipedia.org/wiki/Takahashi_method)'
+      type: yaml
+      data: |
+        slides:
+          - [TAKAHASHI Method](http://bit.ly/104bse)
+          - Add additional item for each slide
+          - Just Try It!
+  - Where Is It?
+  -
+    name: Let's Clone!
+    code:
+      desc: Clone from Silex repository
+      type: bash
+      data: |
+        $ cd ~/workspace/git
+        $ git clone git@git.silex.kr:tools.git
+        $ tree tools/silide
+        tools/silide
+        ├── css
+        ├── img
+        ├── js
+        ├── lib
+        │   └── App
+        │       └── Silide
+        │           └── MultiMarkdown.pm
+        ├── silide.pl
+        └── silide.yml
+
+        6 directories, 46 files
+        $
+  - How To Use?
+  -
+    name: Usage
+    code:
+      desc: Make symbolic link in your $PATH directory
+      type: bash
+      data: |
+        $ cd ~/bin
+        $ ln -sf ~/workspace/git/tools/silide/silide.pl
+  -
+    name: Usage (contd.)
+    code:
+      desc: Just run silide.pl anywhere
+      type: bash
+      data: |
+        $ mkdir -p ~/path/where/you/want/to/make/slide
+        $ cd ~/path/where/you/want/to/make/slide
+        $ silide.pl
+        $ ls
+        .
+        ├── css
+        ├── img
+        ├── index.html
+        ├── js
+        └── silide.yml
+
+        3 directories, 45 files
+        $
+  -
+    name: Edit and Run!
+    code:
+      desc: Edit *silide.yml* file, and run *silide.pl* again and again
+      type: bash
+      data: |
+        $ vi silide.yml
+        $ silide.pl
+        $ vi silide.yml
+        $ silide.pl
+        $ vi silide.yml
+        $ silide.pl
+        $ ...
+    section: |
+      ### *silide.pl* will update *index.html* result file
+  - MultiMarkdown Syntax
+  -
+    name: MultiMarkdown Syntax
+    code:
+      desc: YAML + MultiMarkdown + HTML
+      type: yaml
+      data: |
+        ---
+        slides:
+          - this is a *em* element
+          - another <em>em</em> element
+          - this is a **strong** element
+          - another <strong>strong</strong> element
+          - Silex <br/> [Bugzilla](http://bugs.silex.kr)
+  - More Complex Syntax
+  - Code
+  -
+    name: Code Section
+    code:
+      desc: Paste your terminal code here
+      type: yaml
+      data: |
+        ---
+        slides:
+          -
+            name: Code Section
+            code:
+              desc: Paste your terminal code here
+              type: yaml
+              data: |
+                ---
+                slides:
+                  - ...
+    section: |
+      ### *code*: code section
+      - *desc*: Description for your code snippet
+      - *type*: Kind of code to support syntax highlight
+      - *data*: Code snippet
+
+      ----
+  -
+    name: Code Section Example
+    code:
+      desc: Perl code example
+      type: yaml
+      data: |
+        ---
+        slides:
+          -
+            name: Code Section
+            code:
+              desc: Paste your terminal code here
+              type: perl
+              data: |
+                #!/usr/bin/env perl
+
+                use strict;
+                use warnings;
+
+                while (<>) {
+                  # ...
+                }
+  - Image
+  -
+    name: Image Section
+    code:
+      desc: Embed image files in your slide
+      type: yaml
+      data: |
+        ---
+        slides:
+          -
+            name: Image Section
+            image:
+              desc: Wow...
+              alt: good!
+              data: img/good.jpg
+              attr: width=500px
+    section: |
+      ### *image*: image section
+      - *desc*: Description for your image
+      - *alt*: Image caption
+      - *data*: Image path
+      - *attr*: Attributes for image
+
+      ----
+  -
+    name: Image Section Example
+    image:
+      desc: Wow...
+      alt: good!
+      data: img/good.jpg
+      attr: 'width=500px style="border: solid black 1px"'
+  - Table
+  -
+    name: Table
+    code:
+      desc: MultiMarkdown supports table syntax
+      type: yaml
+      data: |
+        slides:
+          - ...
+          -
+            name: Table Example
+            sectionclass: middle
+            section: |
+              |          | Grouping               ||
+              1st Header | 2nd Header | 3rd Header |
+              ---------- | :--------: | ---------: |
+              Content    |       *Long Cell*      ||
+              Content    | **Cell**      | Cell    |
+
+              Section    |   More        |     Data|
+              And more   |          And More      ||
+              [Silide supports a table]
+          - ...
+  -
+    name: Table Example
+    sectionclass: middle
+    section: |
+      |          | Grouping               ||
+      1st Header | 2nd Header | 3rd Header |
+      ---------- | :--------: | ---------: |
+      Content    |       *Long Cell*      ||
+      Content    | **Cell**      | Cell    |
+
+      Section    |   More        |     Data|
+      And more   |          And More      ||
+      [Silide supports a table]
+  - Font Size
+  -
+    name: Resize Your Font
+    code:
+      desc: Easy to adjust font size
+      type: yaml
+      data: |
+        slides:
+          - '--Smaller Font'
+          - '-Small Font'
+          - Default Font
+          - '+Large Font'
+          - '++Larger Font'
+    section: |
+      ### NEVER forget *'...'*!
+  - '--Smaller Font'
+  - '-Small Font'
+  - Default Font
+  - '+Large Font'
+  - '++Larger Font'
+  - Font Align
+  -
+    name: Align Your Font
+    code:
+      desc: Easy to align font position
+      type: yaml
+      data: |
+        slides:
+          - '<<+Left Large'
+          - '>>++Right Larger'
+    section: |
+      ### NEVER forget *'...'*!
+  - '<<+Left Large Font'
+  - '>>++Right Larger Font'
+  - Template Color
+  -
+    name: Change Your Color Theme
+    code:
+      desc: Use color section
+      type: yaml
+      data: |
+        ---
+        info:
+          ...
+        color:
+          em: '#00ff00'
+          strong: '#00ff00'
+          background:
+            fg: '#000000'
+            bg: '#0000ff'
+        slides:
+          - ...
+    section: |
+      ### *color*
+      - *em*: color of em element
+      - *strong*: color of strong element
+      - *background.fg*, *background.bg*: color of background
+
+      ----
+  -
+    name: Limitation
+    section: |
+      ### In Linux & Firefox 4.0
+
+      ----
+
+      - Limited code block size for readibility
+        - width: *48*
+        - height: *18* ~ *24*
+      - Not support sequential effect yet
+      - YAML & MultiMarkdown parser is not smart as you think
+  -
+    name: TODO
+    section: |
+      ### What to do next?
+
+      ----
+
+      - Fix line number bug of SyntaxHighlighter
+      - Port to Catalyst application
+      - Support web editor
+  - '*Patch* and *Suggestion* <br/> are welcome!'
+  -
+    image:
+      alt: Any Questions?
+      data: img/qa.jpg
+      attr: 'width=800px height=600px style="border: solid black 1px"'
+  -
+    image:
+      alt: Thanks
+      data: img/thanks.gif
+      attr: 'width=800px height=600px style="border: solid black 1px"'

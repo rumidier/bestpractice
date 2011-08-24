@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]> <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]> <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]> <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset='utf-8' />
+  <meta content='IE=Edge;chrome=1' http-equiv='X-UA-Compatible' />
+  <meta content='rumidier personal website' name='description' />
+  <meta content='rumidier' name='author' />
+
+  <title>About *Make Moudle* | by rumidier</title>
+
+  <script src='js/modernizr-shim.min.js'></script>
+
+  <!-- Syntax Highlighter -->
+  <script type="text/javascript" src="js/shCore.js"></script>
+  <script type="text/javascript" src="js/shBrushBash.js"></script>
+  <script type="text/javascript" src="js/shBrushPerl.js"></script>
+  <script type="text/javascript" src="js/shBrushJScript.js"></script>
+  <script type="text/javascript" src="js/shBrushPlain.js"></script>
+  <script type="text/javascript" src="js/shBrushXml.js"></script>
+  <script type="text/javascript" src="js/shBrushSql.js"></script>
+  <script type="text/javascript" src="js/shBrushDiff.js"></script>
+  <script type="text/javascript" src="js/shBrushJava.js"></script>
+  <script type="text/javascript" src="js/shBrushCpp.js"></script>
+  <script type="text/javascript" src="js/shBrushYaml.js"></script>
+  <script type="text/javascript" src="js/shBrushLatex.js"></script>
+  <script type="text/javascript" src="js/shBrushIni.js"></script>
+
+  <link type="text/css" rel="stylesheet" href="css/shCore.css" />
+  <link type="text/css" rel="stylesheet" href="css/shThemeMidnight.css" />
+  <link type="text/css" rel="stylesheet" href="css/main.css" />
+  <style type="text/css">
+section em { color: #ff0000; }section strong { color: #ff0000; }.presentation {
+    display: block; overflow: hidden; background: #0D2833;
+    background-color: #000000;
+    background-image: -moz-radial-gradient(center, #ff0000, #000000);
+    background-image: -o-radial-gradient(center, #ff0000, #000000);
+    background-image: -webkit-gradient(radial,center center,center center,color-stop(0, #ff0000),color-stop(1, #000000));
+    background-image: -webkit-radial-gradient(center, #ff0000, #000000);
+    background-image: radial-gradient(center, #ff0000, #000000);
+              filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#ff0000', EndColorStr='#000000', GradientType=1);
+}
+
+  </style>
+
+</head>
+<body>
+  <div class='presentation'>
+    <div id='presentation-counter'></div>
+    <div class='slides'>
+        <!-- landing -->
+        <div class='slide' id='landing'> <section class='middle landing'><h1 id="aboutmakemoudle">About <em>Make Moudle</em></h1>
+
+<h4 id="byrumidier">by rumidier</h4>
+</section> </div>
+        <!-- slide-1-Moudle -->
+        <div class='slide' id='slide-1-Moudle'> <section class='middle middle-0'><h1 id="moudle">Moudle?</h1>
+</section> </div>
+        <!-- slide-2- -->
+        <div class='slide' id='slide-2-'> <section class='middle landing'><h1>형 모듈이 뭐에요?</h1>
+</section> </div>
+        <!-- slide-3- -->
+        <div class='slide' id='slide-3-'> <section class='middle landing'><h1>만들어봐</h1>
+</section> </div>
+        <!-- slide-4-PerlMoudlebrWikihttpenwikipediaorgwikiPerl_module -->
+        <div class='slide' id='slide-4-PerlMoudlebrWikihttpenwikipediaorgwikiPerl_module'> <section class='middle middle-0'><h1 id="perlmoudlebrwikihttp:en.wikipedia.orgwikiperl_module">Perl Moudle <br/> <a href="http://en.wikipedia.org/wiki/Perl_module">Wiki</a></h1>
+</section> </div>
+        <!-- slide-5-무엇으로만들어야하지 -->
+        <div class='slide' id='slide-5-무엇으로만들어야하지'> <section class='middle middle-0'><h1>무엇으로 만들어야 하지?</h1>
+</section> </div>
+        <!-- slide-6-h2xs -->
+        <div class='slide' id='slide-6-h2xs'> <section class='middle middle-0'><h1 id="h2xs">h2xs</h1>
+</section> </div>
+        <!-- slide-7-h2xs -->
+        <div class='slide' id='slide-7-h2xs'> <header><h1 id="h2xs">h2xs</h1>
+</header><section class='smallerCode'><h3 id="whatish2xsmethod-http:jeen.tistory.com104"><a href="http://jeen.tistory.com/104">What is h2xs Method? - 이빨까기</a></h3>
+<pre class="brush: bash;">$ h2xs -AX -n Test::Module -b 5.10.0
+Writing Test-Module/li/Test/Module.pm
+Writing Test-Module/Makefile.PL
+Writing Test-Module/README
+Writing Test-Module/t/Test-Module.t
+Writing Test-Module/Changes
+Writing Test-Module/MANIFEST
+</pre><h3 id="code:codesection"><em>code</em>: code section</h3>
+
+<ul>
+<li><em>A</em>: AUTOLOAD 끔</li>
+<li><em>X</em>: XS(C)와 연동 없음</li>
+<li><em>n</em>: 모듈의 이름</li>
+<li><em>b</em>: 모듈의 최소 버전</li>
+</ul>
+</section> </div>
+        <!-- slide-8-TestModule -->
+        <div class='slide' id='slide-8-TestModule'> <header><h1 id="test-module">Test-Module</h1>
+</header><section class='smallerCode'><pre class="brush: bash;">├── Changes
+├── MANIFEST
+├── Makefile.PL
+├── README
+├── lib
+│   └── Test
+│       └── Module.pm
+├── t
+    └── Test-Module.t
+</pre>
+</section> </div>
+        <!-- slide-9-Changes -->
+        <div class='slide' id='slide-9-Changes'> <header><h1 id="changes">Changes</h1>
+</header><section class='smallerCode'><h3>모듈의 변동사항을 기재</h3>
+<pre class="brush: yaml;">Revision history for Perl extension Test::Module.
+
+0.01  Tue Aug 23 19:21:44 2011
+- original version; created by h2xs 1.23 with options
+-AX -n Test::Module -b 5.10.0
+</pre>
+</section> </div>
+        <!-- slide-10-MANIFEST -->
+        <div class='slide' id='slide-10-MANIFEST'> <header><h1 id="manifest">MANIFEST</h1>
+</header><section class='smallerCode'><h3>포함된 파일명 기재</h3>
+<pre class="brush: yaml;">Changes
+Makefile.PL
+MANIFEST
+README
+t/Test-Module.t
+lib/Test/Module.pm
+</pre>
+</section> </div>
+        <!-- slide-11-MakefilePL -->
+        <div class='slide' id='slide-11-MakefilePL'> <header><h1 id="makefile.pl">Makefile.PL</h1>
+</header><section class='smallerCode'><h3 id="makefile">makefile을 작성하는 펄 스크립트</h3>
+<pre class="brush: yaml;">use 5.010000;
+use ExtUtils::MakeMaker;
+WriteMakefile(
+NAME              => 'Test::Module',
+VERSION_FROM      => 'lib/Test/Module.pm',
+PREREQ_PM         => {},
+($] >= 5.005 ?
+(ABSTRACT_FROM  => 'lib/Test/Module.pm',
+AUTHOR         => 'rumidier <rumidier@(none)>') : ()),
+);
+</pre>
+</section> </div>
+        <!-- slide-12-lib -->
+        <div class='slide' id='slide-12-lib'> <header><h1 id="lib">lib</h1>
+</header><section class='smallerCode'><h3 id="testmodule.pm">Test/Module.pm 모듈의 메인 저장소</h3>
+<pre class="brush: yaml;">`-- Test
+  `-- Module.pm
+</pre>
+</section> </div>
+        <!-- slide-13-BerforeModulepm -->
+        <div class='slide' id='slide-13-BerforeModulepm'> <header><h1 id="berforemodule.pm">Berfore Module.pm</h1>
+</header><section class='smallerCode middle'><h3 id="emptymodule.pm">Empty Module.pm</h3>
+<p><img src="img/pm-start.png" alt="Before Module.pm" title="Before Module.pm" id="beforemodule.pm" style="border: solid black 1px" width="700px" /></p>
+
+</section> </div>
+        <!-- slide-14-AfterModulepm -->
+        <div class='slide' id='slide-14-AfterModulepm'> <header><h1 id="aftermodule.pm">After Module.pm</h1>
+</header><section class='smallerCode middle'><h3 id="fullmodule.pm">Full Module.pm</h3>
+<p><img src="img/pm-last.png" alt="After Module.pm" title="After Module.pm" id="aftermodule.pm" style="border: solid black 1px" width="500px" /></p>
+
+</section> </div>
+        <!-- slide-15-t -->
+        <div class='slide' id='slide-15-t'> <header><h1 id="t">t</h1>
+</header><section class='smallerCode'><h3 id="test-module">Test-Module</h3>
+<pre class="brush: yaml;">use strict;
+use warnings;
+
+use Test::More tests => 1;
+BEGIN { use_ok('Test::Module') };
+</pre>
+</section> </div>
+        <!-- slide-16-tarcvzfModule001targzModule001 -->
+        <div class='slide' id='slide-16-tarcvzfModule001targzModule001'> <section class='middle middle-mm'><h1 id="tarcvzfmodule-001.tar.gz.module-001">tar cvzf Module-001.tar.gz ./Module-001</h1>
+</section> </div>
+        <!-- slide-17-tarcvfz -->
+        <div class='slide' id='slide-17-tarcvfz'> <header><h1 id="tarcvfz">tar cvfz ~</h1>
+</header><section class='smallerCode'><h3 id="hardmaketar.gz">hard make tar.gz</h3>
+<pre class="brush: bash;">$ ls
+Test-Module-001
+$ tar cvzf Module-001.tar.gz ./Test-Module-001
+$ ls
+Module-001.tar.gz Test-Module-001
+</pre>
+</section> </div>
+        <!-- slide-18-makedist -->
+        <div class='slide' id='slide-18-makedist'> <section class='middle middle-0'><h1 id="makedist">make dist</h1>
+</section> </div>
+        <!-- slide-19-makedist -->
+        <div class='slide' id='slide-19-makedist'> <header><h1 id="makedist">make dist</h1>
+</header><section class='smallerCode'><h3 id="simplemaketar.gz">simple make tar.gz</h3>
+<pre class="brush: bash;">$ cd Test-Module-001
+Changes MANIFEST .... t
+$ make dist
+Changes MANIFEST .... t Test-Module-0.01.tar.gz
+</pre>
+</section> </div>
+        <!-- slide-20-AppFatPackerbrWhatisAppFatPackercpanhttpsearchcpanorgdglAppFatPacker0009006libAppFatPackerpm -->
+        <div class='slide' id='slide-20-AppFatPackerbrWhatisAppFatPackercpanhttpsearchcpanorgdglAppFatPacker0009006libAppFatPackerpm'> <section class='middle middle-mm'><h1 id="app::fatpackerbrwhatisapp::fatpacker-cpanhttp:search.cpan.orgdglapp-fatpacker-0.009006libappfatpacker.pm">App::FatPacker<br/> <a href="http://search.cpan.org/~dgl/App-FatPacker-0.009006/lib/App/FatPacker.pm">What is App::FatPacker - cpan</a></h1>
+</section> </div>
+        <!-- slide-21-AppFatPacker -->
+        <div class='slide' id='slide-21-AppFatPacker'> <header><h1 id="app::fatpacker">App::FatPacker</h1>
+</header><section class='smallerCode'><hr />
+
+<ul>
+<li>장점
+  - 모듈에 대한 의존성을 신경쓰지 않아도 된다</li>
+<li>단점 
+<ul>
+<li>순수한 Perl모듈에 대해서만 동작</li>
+<li>XS모듈 동작하지 않음</li>
+<li>패키징 되므로 크기가 작고 적은 수의 모듈 적합</li>
+</ul></li>
+<li>대용량 추천
+<ul>
+<li><a href="http://search.cpan.org/~rschupp/PAR-Packer-1.010/lib/PAR/Packer.pm">PAR::Packer - cpan</a></li>
+<li><a href="http://aero2blog.blogspot.com/2010/09/perl-appfatpacker.html">참고 : aero`s blog</a></li>
+</ul></li>
+</ul>
+<hr />
+</section> </div>
+        <!-- slide-22-tracepl -->
+        <div class='slide' id='slide-22-tracepl'> <header><h1 id="trace.pl">trace .*pl</h1>
+</header><section class='smallerCode'><h3 id="makefatpacker.trace">make fatpacker.trace</h3>
+<pre class="brush: bash;">$ tree
+|-- lib
+`-- t_module.pl
+$ fatpack treace t_module.pl
+$ tree
+|-- fatpacker.trace
+|-- lib
+`-- t_module.pl
+</pre><ul>
+<li>분석하여 필요한 모듈이 담긴 <em>fatpacker.trace</em> 파일을 생성한다</li>
+</ul>
+</section> </div>
+        <!-- slide-23-catlist -->
+        <div class='slide' id='slide-23-catlist'> <header><h1 id="cat-list">cat-list</h1>
+</header><section class='smallerCode'><h3 id="makepacklists">make packlists</h3>
+<pre class="brush: bash;">$ fatpack packlists-for `cat fatpacker.trace` > packlists
+$ tree
+|-- fatpacker.trace
+|-- lib
+|-- packlist
+`-- t_module.pl
+</pre><ul>
+<li><em>fatpacker.trace</em> 파일에서 포함한 파일의 리스트를 packlist파일로 뽑는다</li>
+</ul>
+</section> </div>
+        <!-- slide-24-fatpacktreecatpacklists -->
+        <div class='slide' id='slide-24-fatpacktreecatpacklists'> <header><h1 id="fatpacktreecatpacklists">fatpack tree <code>cat packlists</code></h1>
+</header><section class='smallerCode'><h3 id="packlists">패키징 packlists</h3>
+<pre class="brush: bash;">$ fatpack tree `cat packlists`
+$ tree
+|-- fatpacker.trace
+|-- lib
+|-- packlist
+`-- t_module.pl
+</pre><ul>
+<li>packlists에 있는 모둘 파일들을 패키징할 준비를 한다</li>
+</ul>
+</section> </div>
+        <!-- slide-25-Makescript -->
+        <div class='slide' id='slide-25-Makescript'> <header><h1 id="makescript">Make script</h1>
+</header><section class='smallerCode'><h3>스크립트 생성</h3>
+<pre class="brush: bash;">$ (fatpack file; cat t_module.pl) > Module.pl 
+$ tree
+|-- Module.pl
+|-- fatpacker.trace
+|-- fatlib
+|   |-- Data
+|   |   `-- Section
+|   |       `-- Simple.pm
+|   `-- Test
+|       `-- Module.pm
+|-- lib
+|-- packlist
+`-- t_module.pl
+</pre><ul>
+<li>Module.pl이란 스크립트를 생성하며 ~/lib 디렉터리가 없다고 에러날시 lib을 생성 해주면 된다</li>
+</ul>
+</section> </div>
+        <!-- slide-26-이제완성 -->
+        <div class='slide' id='slide-26-이제완성'> <section class='middle middle-0'><h1>이제 완성!!....?</h1>
+</section> </div>
+        <!-- slide-27-ScriptFail -->
+        <div class='slide' id='slide-27-ScriptFail'> <header><h1 id="scriptfail">Script Fail</h1>
+</header><section class='smallerCode'><h3>스크립트 생성</h3>
+<pre class="brush: bash;">$ ./Module.pl
+$ ./Module.plo./Module.pl: 줄 3: BEGIN: 명령어를 찾을 수 없음
+./Module.pl: 줄 4: my: 명령어를 찾을 수 없음
+./Module.pl: 줄 6: {Data/Section/Simple.pm}: 그런 파일이나 디렉터리가 없습니다
+./Module.pl: 줄 139: {Test/Module.pm}: 그런 파일이나 디렉터리가 없습니다
+./Module.pl: 줄 441: s/^: 그런 파일이나 디렉터리가 없습니다
+./Module.pl: 줄 443: unshift: 명령어를 찾을 수 없음
+./Module.pl: 줄 444: syntax error near unexpected token `{'
+        ./Module.pl: 줄 444: `  if (my $fat = $fatpacked{$_[1]}) {'
+</pre>
+</section> </div>
+        <!-- slide-28-BerforeModulepl -->
+        <div class='slide' id='slide-28-BerforeModulepl'> <header><h1 id="berforemodule.pl">Berfore Module.pl</h1>
+</header><section class='smallerCode middle'><h3 id="failmodule.pl">Fail Module.pl</h3>
+<p><img src="img/fat-start.png" alt="error Module.pl" title="error Module.pl" id="errormodule.pl" style="border: solid black 1px" width="700px" /></p>
+
+</section> </div>
+        <!-- slide-29-AfterModulepl -->
+        <div class='slide' id='slide-29-AfterModulepl'> <header><h1 id="aftermodule.pl">After Module.pl</h1>
+</header><section class='smallerCode middle'><h3 id="successmodule.pl">Success Module.pl</h3>
+<p><img src="img/fat-finish.png" alt="After Module.p1" title="After Module.p1" id="aftermodule.p1" style="border: solid black 1px" width="800px" /></p>
+
+</section> </div>
+    </div>
+  </div>
+  <script charset='utf-8' src='js/jquery-1.4.4.min.js' type='text/javascript'></script>
+  <!-- presentation -->
+  <script charset='utf-8' src='js/slides.js' type='text/javascript'></script>
+  <!--[if lt IE 9]>
+    <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+    <script>CFInstall.check({ mode: "overlay" });</script>
+  <![endif]-->
+
+  <script type="text/javascript">
+        SyntaxHighlighter.all();
+
+        /*
+        * https://bitbucket.org/alexg/syntaxhighlighter/issue/182/version-3-making-code-wrap
+        */
+        $(function(){
+            // Line wrap back
+            var shLineWrap = function(){
+                $('.syntaxhighlighter').each(function(){
+                    // Fetch
+                    var $sh = $(this),
+                        $gutter = $sh.find('td.gutter'),
+                        $code = $sh.find('td.code')
+                    ;
+                    // Cycle through lines
+                    $gutter.children('.line').each(function(i){
+                        // Fetch
+                        var $gutterLine = $(this),
+                            $codeLine = $code.find('.line:nth-child('+(i+1)+')');
+                        // Fetch height
+                        var height = $codeLine.height()||0;
+                        if ( !height ) {
+                            height = 'auto';
+                        }
+                        else {
+                            height = height += 'px important';
+                        }
+                        // Copy height over
+                        $gutterLine.height(height);
+                        console.debug($gutterLine.height(), height, $gutterLine.text(), $codeLine);
+                    });
+                });
+            };
+            
+            // Line wrap back when syntax highlighter has done it's stuff
+            var shLineWrapWhenReady = function(){
+                if ( $('.syntaxhighlighter').length === 0 ) {
+                    setTimeout(shLineWrapWhenReady,800);
+                }
+                else {
+                    shLineWrap();
+                }
+            };
+            
+            // Fire
+            shLineWrapWhenReady();
+        });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,270 @@
+---
+info:
+  subject: About *Make Moudle*
+  author: rumidier
+color:
+  strong: '#ff0000'
+  em: '#ff0000'
+  background:
+    fg: '#000000'
+    bg: '#ff0000'
+slides:
+  - Moudle?
+  -
+    section: |
+      # 형 모듈이 뭐에요?
+  -
+    section: |
+      # 만들어봐
+  - Perl Moudle <br/> [Wiki](http://en.wikipedia.org/wiki/Perl_module)
+  - 무엇으로 만들어야 하지? 
+  -
+    name: h2xs 
+  -
+    name: h2xs 
+    code:
+      desc: '[What is h2xs Method? - 이빨까기](http://jeen.tistory.com/104)'
+      type: bash
+      data: |
+        $ h2xs -AX -n Test::Module -b 5.10.0
+        Writing Test-Module/li/Test/Module.pm
+        Writing Test-Module/Makefile.PL
+        Writing Test-Module/README
+        Writing Test-Module/t/Test-Module.t
+        Writing Test-Module/Changes
+        Writing Test-Module/MANIFEST
+    section: |
+      ### *code*: code section
+      - *A*: AUTOLOAD 끔
+      - *X*: XS(C)와 연동 없음
+      - *n*: 모듈의 이름
+      - *b*: 모듈의 최소 버전
+  -
+    name: Test-Module
+    code:
+      type: bash
+      data: |
+        ├── Changes
+        ├── MANIFEST
+        ├── Makefile.PL
+        ├── README
+        ├── lib
+        │   └── Test
+        │       └── Module.pm
+        ├── t
+            └── Test-Module.t
+  -
+    name: Changes
+    code:
+      desc: 모듈의 변동사항을 기재
+      type: yaml 
+      data: |
+         Revision history for Perl extension Test::Module.
+
+         0.01  Tue Aug 23 19:21:44 2011
+         - original version; created by h2xs 1.23 with options
+         -AX -n Test::Module -b 5.10.0
+  -
+    name: MANIFEST
+    code:
+      desc: 포함된 파일명 기재
+      type: yaml 
+      data: |
+        Changes
+        Makefile.PL
+        MANIFEST
+        README
+        t/Test-Module.t
+        lib/Test/Module.pm
+  -
+    name: Makefile.PL
+    code:
+      desc: makefile을 작성하는 펄 스크립트
+      type: yaml 
+      data: |
+        use 5.010000;
+        use ExtUtils::MakeMaker;
+        WriteMakefile(
+        NAME              => 'Test::Module',
+        VERSION_FROM      => 'lib/Test/Module.pm',
+        PREREQ_PM         => {},
+        ($] >= 5.005 ?
+        (ABSTRACT_FROM  => 'lib/Test/Module.pm',
+        AUTHOR         => 'rumidier <rumidier@(none)>') : ()),
+        );
+  -
+    name: lib
+    code:
+      desc: Test/Module.pm 모듈의 메인 저장소
+      type: yaml 
+      data: |
+        `-- Test
+          `-- Module.pm
+  -
+    name: Berfore Module.pm
+    image:
+      desc: Empty Module.pm
+      alt: Before Module.pm
+      data: img/pm-start.png
+      attr: 'width=700px style="border: solid black 1px"'
+  -
+    name: After Module.pm
+    image:
+      desc: Full Module.pm
+      alt: After Module.pm
+      data: img/pm-last.png
+      attr: 'width=500px style="border: solid black 1px"'
+
+  -
+    name: t 
+    code:
+      desc: Test-Module
+      type: yaml 
+      data: |
+        use strict;
+        use warnings;
+
+        use Test::More tests => 1;
+        BEGIN { use_ok('Test::Module') };
+
+  - '--tar cvzf Module-001.tar.gz ./Module-001'
+  -
+    name: tar cvfz ~
+    code:
+      desc: hard make tar.gz
+      type: bash
+      data: |
+        $ ls
+        Test-Module-001
+        $ tar cvzf Module-001.tar.gz ./Test-Module-001
+        $ ls
+        Module-001.tar.gz Test-Module-001
+
+  - 'make dist'
+  -
+    name: make dist 
+    code:
+      desc: simple make tar.gz 
+      type: bash
+      data: |
+        $ cd Test-Module-001
+        Changes MANIFEST .... t
+        $ make dist
+        Changes MANIFEST .... t Test-Module-0.01.tar.gz
+  - '--App::FatPacker<br/> [What is App::FatPacker - cpan](http://search.cpan.org/~dgl/App-FatPacker-0.009006/lib/App/FatPacker.pm)'
+  -
+    name: App::FatPacker
+    section: |
+
+      ----
+
+      - 장점
+         - 모듈에 대한 의존성을 신경쓰지 않아도 된다
+      - 단점 
+        - 순수한 Perl모듈에 대해서만 동작
+        - XS모듈 동작하지 않음
+        - 패키징 되므로 크기가 작고 적은 수의 모듈 적합
+      - 대용량 추천
+        - [PAR::Packer - cpan](http://search.cpan.org/~rschupp/PAR-Packer-1.010/lib/PAR/Packer.pm)
+        - [참고 : aero`s blog](http://aero2blog.blogspot.com/2010/09/perl-appfatpacker.html)
+
+  -
+    name: trace .*pl
+    code:
+      desc: make fatpacker.trace
+      type: bash
+      data: |
+       $ tree
+       |-- lib
+       `-- t_module.pl
+       $ fatpack treace t_module.pl
+       $ tree
+       |-- fatpacker.trace
+       |-- lib
+       `-- t_module.pl
+    section: |
+      - 분석하여 필요한 모듈이 담긴 *fatpacker.trace* 파일을 생성한다
+  -
+    name: cat-list
+
+    code:
+      desc: make packlists 
+      type: bash
+      data: |
+       $ fatpack packlists-for `cat fatpacker.trace` > packlists
+       $ tree
+       |-- fatpacker.trace
+       |-- lib
+       |-- packlist
+       `-- t_module.pl
+    section: |
+      - *fatpacker.trace* 파일에서 포함한 파일의 리스트를 packlist파일로 뽑는다
+  -
+    name: fatpack tree `cat packlists`
+
+    code:
+      desc: 패키징 packlists 
+      type: bash
+      data: |
+       $ fatpack tree `cat packlists`
+       $ tree
+       |-- fatpacker.trace
+       |-- lib
+       |-- packlist
+       `-- t_module.pl
+    section: |
+      -  packlists에 있는 모둘 파일들을 패키징할 준비를 한다
+  -
+    name: Make script
+
+    code:
+      desc: 스크립트 생성
+      type: bash
+      data: |
+       $ (fatpack file; cat t_module.pl) > Module.pl 
+       $ tree
+       |-- Module.pl
+       |-- fatpacker.trace
+       |-- fatlib
+       |   |-- Data
+       |   |   `-- Section
+       |   |       `-- Simple.pm
+       |   `-- Test
+       |       `-- Module.pm
+       |-- lib
+       |-- packlist
+       `-- t_module.pl
+    section: |
+      - Module.pl이란 스크립트를 생성하며 ~/lib 디렉터리가 없다고 에러날시 lib을 생성 해주면 된다
+  - 이제 완성!!....?
+  -
+    name: Script Fail
+
+    code:
+      desc: 스크립트 생성
+      type: bash
+      data: |
+       $ ./Module.pl
+       $ ./Module.plo./Module.pl: 줄 3: BEGIN: 명령어를 찾을 수 없음
+       ./Module.pl: 줄 4: my: 명령어를 찾을 수 없음
+       ./Module.pl: 줄 6: {Data/Section/Simple.pm}: 그런 파일이나 디렉터리가 없습니다
+       ./Module.pl: 줄 139: {Test/Module.pm}: 그런 파일이나 디렉터리가 없습니다
+       ./Module.pl: 줄 441: s/^: 그런 파일이나 디렉터리가 없습니다
+       ./Module.pl: 줄 443: unshift: 명령어를 찾을 수 없음
+       ./Module.pl: 줄 444: syntax error near unexpected token `{'
+               ./Module.pl: 줄 444: `  if (my $fat = $fatpacked{$_[1]}) {'
+
+  -
+    name: Berfore Module.pl
+    image:
+      desc: Fail Module.pl
+      alt: error Module.pl
+      data: img/fat-start.png
+      attr: 'width=700px style="border: solid black 1px"'
+  -
+    name: After Module.pl
+    image:
+      desc: Success Module.pl
+      alt: After Module.p1
+      data: img/fat-finish.png
+      attr: 'width=800px style="border: solid black 1px"'

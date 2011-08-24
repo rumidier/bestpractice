@@ -1,0 +1,6 @@
+Changes
+Makefile.PL
+MANIFEST
+README
+t/Test-Fat-module.t
+lib/Test/Fat-module.pm

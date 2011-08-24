@@ -1,0 +1,6 @@
+Changes
+Makefile.PL
+MANIFEST
+README
+t/Test-Module.t
+lib/Test/Module.pm

@@ -1,0 +1,23 @@
+#!/usr/bin/env perl
+
+use 5.010;
+use strict;
+use warnings;
+
+my @columns = qw/
+        serial
+        FUANGIO FATYP FAGIOD FUCATHRT FUCATHLT FUIVUS FUISR
+        FUISRS1 FUISR1TY FUISRS1R FUISRS2 FUISR2TY FUISRS2R
+        FUISRS3 FUISR3TY FUISRS3R FUNL FUNLS1 FUNLR1 FUNLS2
+        FUNLR2 FUNLS3 FUNLR3 FUNCTEST FTTYP FSPECTD FSPECTR
+        FTMTD FTMTR FSECHOD FSECHOR FMRID FMRIR FANGCOMT
+/;
+
+my @data = map { $_ * 10 } 1 .. 35;
+
+my %junk;
+@junk{ qw/ FUISRS3 FUNL FUISR3TY FUISRS3R FUNLS1 FUNLR1 FUNLS2 / } = ( 1000, 2000, @data );
+
+use Data::Dumper;
+say Dumper(\%junk);
+

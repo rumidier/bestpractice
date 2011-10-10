@@ -10,7 +10,7 @@
   <meta content='rumidier personal website' name='description' />
   <meta content='rumidier' name='author' />
 
-  <title>About *Make Moudle* | by rumidier</title>
+  <title>About *Makeing Moudle* | by rumidier</title>
 
   <script src='js/modernizr-shim.min.js'></script>
 
@@ -52,12 +52,12 @@ section em { color: #ff0000; }section strong { color: #ff0000; }.presentation {
     <div id='presentation-counter'></div>
     <div class='slides'>
         <!-- landing -->
-        <div class='slide' id='landing'> <section class='middle landing'><h1 id="aboutmakemoudle">About <em>Make Moudle</em></h1>
+        <div class='slide' id='landing'> <section class='middle landing'><h1 id="aboutmakeingmoudle">About <em>Makeing Moudle</em></h1>
 
 <h4 id="byrumidier">by rumidier</h4>
 </section> </div>
-        <!-- slide-1-Moudle -->
-        <div class='slide' id='slide-1-Moudle'> <section class='middle middle-0'><h1 id="moudle">Moudle?</h1>
+        <!-- slide-1-Module -->
+        <div class='slide' id='slide-1-Module'> <section class='middle middle-0'><h1 id="module">Module?</h1>
 </section> </div>
         <!-- slide-2- -->
         <div class='slide' id='slide-2-'> <section class='middle landing'><h1>형 모듈이 뭐에요?</h1>
@@ -65,18 +65,18 @@ section em { color: #ff0000; }section strong { color: #ff0000; }.presentation {
         <!-- slide-3- -->
         <div class='slide' id='slide-3-'> <section class='middle landing'><h1>만들어봐</h1>
 </section> </div>
-        <!-- slide-4-PerlMoudlebrWikihttpenwikipediaorgwikiPerl_module -->
-        <div class='slide' id='slide-4-PerlMoudlebrWikihttpenwikipediaorgwikiPerl_module'> <section class='middle middle-0'><h1 id="perlmoudlebrwikihttp:en.wikipedia.orgwikiperl_module">Perl Moudle <br/> <a href="http://en.wikipedia.org/wiki/Perl_module">Wiki</a></h1>
+        <!-- slide-4-PerlModulebrWikipediahttpenwikipediaorgwikiPerl_module -->
+        <div class='slide' id='slide-4-PerlModulebrWikipediahttpenwikipediaorgwikiPerl_module'> <section class='middle middle-0'><h1 id="perlmodulebrwikipediahttp:en.wikipedia.orgwikiperl_module">Perl Module <br/> <a href="http://en.wikipedia.org/wiki/Perl_module">Wikipedia</a></h1>
 </section> </div>
-        <!-- slide-5-무엇으로만들어야하지 -->
-        <div class='slide' id='slide-5-무엇으로만들어야하지'> <section class='middle middle-0'><h1>무엇으로 만들어야 하지?</h1>
+        <!-- slide-5-어떻게만들지 -->
+        <div class='slide' id='slide-5-어떻게만들지'> <section class='middle middle-0'><h1>어떻게 만들지?</h1>
 </section> </div>
         <!-- slide-6-h2xs -->
         <div class='slide' id='slide-6-h2xs'> <section class='middle middle-0'><h1 id="h2xs">h2xs</h1>
 </section> </div>
         <!-- slide-7-h2xs -->
         <div class='slide' id='slide-7-h2xs'> <header><h1 id="h2xs">h2xs</h1>
-</header><section class='smallerCode'><h3 id="whatish2xsmethod-http:jeen.tistory.com104"><a href="http://jeen.tistory.com/104">What is h2xs Method? - 이빨까기</a></h3>
+</header><section class='smallerCode'><h3 id="cpan1-http:jeen.tistory.com104"><a href="http://jeen.tistory.com/104">CPAN 모듈만들기! #1 - 이빨까기인형</a></h3>
 <pre class="brush: bash;">$ h2xs -AX -n Test::Module -b 5.10.0
 Writing Test-Module/li/Test/Module.pm
 Writing Test-Module/Makefile.PL
@@ -84,26 +84,27 @@ Writing Test-Module/README
 Writing Test-Module/t/Test-Module.t
 Writing Test-Module/Changes
 Writing Test-Module/MANIFEST
-</pre><h3 id="code:codesection"><em>code</em>: code section</h3>
+</pre><h3 id="option"><em>option</em></h3>
 
 <ul>
 <li><em>A</em>: AUTOLOAD 끔</li>
 <li><em>X</em>: XS(C)와 연동 없음</li>
 <li><em>n</em>: 모듈의 이름</li>
-<li><em>b</em>: 모듈의 최소 버전</li>
+<li><em>b</em>: 모듈에 요구되는 펄의 최소 버전</li>
 </ul>
 </section> </div>
         <!-- slide-8-TestModule -->
         <div class='slide' id='slide-8-TestModule'> <header><h1 id="test-module">Test-Module</h1>
-</header><section class='smallerCode'><pre class="brush: bash;">├── Changes
-├── MANIFEST
-├── Makefile.PL
-├── README
-├── lib
-│   └── Test
-│       └── Module.pm
-├── t
-    └── Test-Module.t
+</header><section class='smallerCode'><pre class="brush: bash;">$ tree
+|-- Changes
+|-- MANIFEST
+|-- Makefile.PL
+|-- README
+|-- lib
+|  `-- Test
+|     `-- Module.pm
+|-- t
+   `-- Test-Module.t
 </pre>
 </section> </div>
         <!-- slide-9-Changes -->
@@ -171,24 +172,49 @@ use Test::More tests => 1;
 BEGIN { use_ok('Test::Module') };
 </pre>
 </section> </div>
-        <!-- slide-16-tarcvzfModule001targzModule001 -->
-        <div class='slide' id='slide-16-tarcvzfModule001targzModule001'> <section class='middle middle-mm'><h1 id="tarcvzfmodule-001.tar.gz.module-001">tar cvzf Module-001.tar.gz ./Module-001</h1>
+        <!-- slide-16-AnotherMakeingModule -->
+        <div class='slide' id='slide-16-AnotherMakeingModule'> <header><h1 id="anothermakeingmodule">Another Makeing Module</h1>
+</header><section class='smallerCode'><hr />
+
+<ul>
+<li><p><a href="http://search.cpan.org/~xsawyerx/Module-Starter-1.58/lib/Module/Starter.pm">Module::Starter</a></p>
+
+<ul>
+<li>distribution</li>
+<li>basic builder scripts</li>
+<li>tests</li>
+<li>documentation</li>
+<li>module code</li>
+</ul></li>
+<li><p><a href="http://search.cpan.org/~adamk/Module-Install-1.01/lib/Module/Install.pod">Module::Install</a></p>
+
+<ul>
+<li>Perl module installer
+<ul>
+<li>clean</li>
+<li>simple</li>
+<li>minimalist</li>
+</ul></li>
+</ul></li>
+</ul>
+<hr />
 </section> </div>
         <!-- slide-17-tarcvfz -->
-        <div class='slide' id='slide-17-tarcvfz'> <header><h1 id="tarcvfz">tar cvfz ~</h1>
+        <div class='slide' id='slide-17-tarcvfz'> <header><h1 id="tarcvfz..">tar cvfz..</h1>
 </header><section class='smallerCode'><h3 id="hardmaketar.gz">hard make tar.gz</h3>
 <pre class="brush: bash;">$ ls
 Test-Module-001
-$ tar cvzf Module-001.tar.gz ./Test-Module-001
+$ tar cvzf Test-Module-001.tar.gz ./Test-Module-001
 $ ls
-Module-001.tar.gz Test-Module-001
-</pre>
+Test-Module-001.tar.gz Test-Module-001
+</pre><ul>
+<li>cvzf : 압축옵션</li>
+<li>Test-Module-001.tar.gz : 압축파일명</li>
+<li>./Test-Module-001 : 현재 경로의 압축할 폴더명</li>
+</ul>
 </section> </div>
         <!-- slide-18-makedist -->
-        <div class='slide' id='slide-18-makedist'> <section class='middle middle-0'><h1 id="makedist">make dist</h1>
-</section> </div>
-        <!-- slide-19-makedist -->
-        <div class='slide' id='slide-19-makedist'> <header><h1 id="makedist">make dist</h1>
+        <div class='slide' id='slide-18-makedist'> <header><h1 id="makedist">make dist</h1>
 </header><section class='smallerCode'><h3 id="simplemaketar.gz">simple make tar.gz</h3>
 <pre class="brush: bash;">$ cd Test-Module-001
 Changes MANIFEST .... t
@@ -196,16 +222,17 @@ $ make dist
 Changes MANIFEST .... t Test-Module-0.01.tar.gz
 </pre>
 </section> </div>
-        <!-- slide-20-AppFatPackerbrWhatisAppFatPackercpanhttpsearchcpanorgdglAppFatPacker0009006libAppFatPackerpm -->
-        <div class='slide' id='slide-20-AppFatPackerbrWhatisAppFatPackercpanhttpsearchcpanorgdglAppFatPacker0009006libAppFatPackerpm'> <section class='middle middle-mm'><h1 id="app::fatpackerbrwhatisapp::fatpacker-cpanhttp:search.cpan.orgdglapp-fatpacker-0.009006libappfatpacker.pm">App::FatPacker<br/> <a href="http://search.cpan.org/~dgl/App-FatPacker-0.009006/lib/App/FatPacker.pm">What is App::FatPacker - cpan</a></h1>
-</section> </div>
-        <!-- slide-21-AppFatPacker -->
-        <div class='slide' id='slide-21-AppFatPacker'> <header><h1 id="app::fatpacker">App::FatPacker</h1>
+        <!-- slide-19-AppFatPacker -->
+        <div class='slide' id='slide-19-AppFatPacker'> <header><h1 id="app::fatpacker">App::FatPacker</h1>
 </header><section class='smallerCode'><hr />
 
 <ul>
-<li>장점
-  - 모듈에 대한 의존성을 신경쓰지 않아도 된다</li>
+<li><p><a href="http://search.cpan.org/~dgl/App-FatPacker-0.009006/lib/App/FatPacker.pm">What is App::FatPacker - cpan.org</a></p></li>
+<li><p>장점</p>
+
+<ul>
+<li>모듈에 대한 의존성을 신경쓰지 않아도 된다</li>
+</ul></li>
 <li>단점 
 <ul>
 <li>순수한 Perl모듈에 대해서만 동작</li>
@@ -220,13 +247,13 @@ Changes MANIFEST .... t Test-Module-0.01.tar.gz
 </ul>
 <hr />
 </section> </div>
-        <!-- slide-22-tracepl -->
-        <div class='slide' id='slide-22-tracepl'> <header><h1 id="trace.pl">trace .*pl</h1>
+        <!-- slide-20-tracepl -->
+        <div class='slide' id='slide-20-tracepl'> <header><h1 id="trace.pl">trace .*pl</h1>
 </header><section class='smallerCode'><h3 id="makefatpacker.trace">make fatpacker.trace</h3>
 <pre class="brush: bash;">$ tree
 |-- lib
 `-- t_module.pl
-$ fatpack treace t_module.pl
+$ fatpack trace t_module.pl
 $ tree
 |-- fatpacker.trace
 |-- lib
@@ -235,34 +262,34 @@ $ tree
 <li>분석하여 필요한 모듈이 담긴 <em>fatpacker.trace</em> 파일을 생성한다</li>
 </ul>
 </section> </div>
-        <!-- slide-23-catlist -->
-        <div class='slide' id='slide-23-catlist'> <header><h1 id="cat-list">cat-list</h1>
+        <!-- slide-21-catlist -->
+        <div class='slide' id='slide-21-catlist'> <header><h1 id="cat-list">cat-list</h1>
 </header><section class='smallerCode'><h3 id="makepacklists">make packlists</h3>
 <pre class="brush: bash;">$ fatpack packlists-for `cat fatpacker.trace` > packlists
 $ tree
 |-- fatpacker.trace
 |-- lib
-|-- packlist
+|-- packlists
 `-- t_module.pl
 </pre><ul>
 <li><em>fatpacker.trace</em> 파일에서 포함한 파일의 리스트를 packlist파일로 뽑는다</li>
 </ul>
 </section> </div>
-        <!-- slide-24-fatpacktreecatpacklists -->
-        <div class='slide' id='slide-24-fatpacktreecatpacklists'> <header><h1 id="fatpacktreecatpacklists">fatpack tree <code>cat packlists</code></h1>
+        <!-- slide-22-fatpacktreecatpacklists -->
+        <div class='slide' id='slide-22-fatpacktreecatpacklists'> <header><h1 id="fatpacktreecatpacklists">fatpack tree <code>cat packlists</code></h1>
 </header><section class='smallerCode'><h3 id="packlists">패키징 packlists</h3>
 <pre class="brush: bash;">$ fatpack tree `cat packlists`
 $ tree
 |-- fatpacker.trace
 |-- lib
-|-- packlist
+|-- packlists
 `-- t_module.pl
 </pre><ul>
 <li>packlists에 있는 모둘 파일들을 패키징할 준비를 한다</li>
 </ul>
 </section> </div>
-        <!-- slide-25-Makescript -->
-        <div class='slide' id='slide-25-Makescript'> <header><h1 id="makescript">Make script</h1>
+        <!-- slide-23-Makescript -->
+        <div class='slide' id='slide-23-Makescript'> <header><h1 id="makescript">Make script</h1>
 </header><section class='smallerCode'><h3>스크립트 생성</h3>
 <pre class="brush: bash;">$ (fatpack file; cat t_module.pl) > Module.pl 
 $ tree
@@ -275,17 +302,17 @@ $ tree
 |   `-- Test
 |       `-- Module.pm
 |-- lib
-|-- packlist
+|-- packlists
 `-- t_module.pl
 </pre><ul>
 <li>Module.pl이란 스크립트를 생성하며 ~/lib 디렉터리가 없다고 에러날시 lib을 생성 해주면 된다</li>
 </ul>
 </section> </div>
-        <!-- slide-26-이제완성 -->
-        <div class='slide' id='slide-26-이제완성'> <section class='middle middle-0'><h1>이제 완성!!....?</h1>
+        <!-- slide-24-이제완성 -->
+        <div class='slide' id='slide-24-이제완성'> <section class='middle middle-0'><h1>이제 완성!!....?</h1>
 </section> </div>
-        <!-- slide-27-ScriptFail -->
-        <div class='slide' id='slide-27-ScriptFail'> <header><h1 id="scriptfail">Script Fail</h1>
+        <!-- slide-25-ScriptFail -->
+        <div class='slide' id='slide-25-ScriptFail'> <header><h1 id="scriptfail">Script Fail</h1>
 </header><section class='smallerCode'><h3>스크립트 생성</h3>
 <pre class="brush: bash;">$ ./Module.pl
 $ ./Module.plo./Module.pl: 줄 3: BEGIN: 명령어를 찾을 수 없음
@@ -295,20 +322,39 @@ $ ./Module.plo./Module.pl: 줄 3: BEGIN: 명령어를 찾을 수 없음
 ./Module.pl: 줄 441: s/^: 그런 파일이나 디렉터리가 없습니다
 ./Module.pl: 줄 443: unshift: 명령어를 찾을 수 없음
 ./Module.pl: 줄 444: syntax error near unexpected token `{'
-        ./Module.pl: 줄 444: `  if (my $fat = $fatpacked{$_[1]}) {'
+./Module.pl: 줄 444: `  if (my $fat = $fatpacked{$_[1]}) {'
 </pre>
 </section> </div>
-        <!-- slide-28-BerforeModulepl -->
-        <div class='slide' id='slide-28-BerforeModulepl'> <header><h1 id="berforemodule.pl">Berfore Module.pl</h1>
+        <!-- slide-26-BerforeModulepl -->
+        <div class='slide' id='slide-26-BerforeModulepl'> <header><h1 id="berforemodule.pl">Berfore Module.pl</h1>
 </header><section class='smallerCode middle'><h3 id="failmodule.pl">Fail Module.pl</h3>
 <p><img src="img/fat-start.png" alt="error Module.pl" title="error Module.pl" id="errormodule.pl" style="border: solid black 1px" width="700px" /></p>
 
 </section> </div>
-        <!-- slide-29-AfterModulepl -->
-        <div class='slide' id='slide-29-AfterModulepl'> <header><h1 id="aftermodule.pl">After Module.pl</h1>
+        <!-- slide-27-AfterModulepl -->
+        <div class='slide' id='slide-27-AfterModulepl'> <header><h1 id="aftermodule.pl">After Module.pl</h1>
 </header><section class='smallerCode middle'><h3 id="successmodule.pl">Success Module.pl</h3>
 <p><img src="img/fat-finish.png" alt="After Module.p1" title="After Module.p1" id="aftermodule.p1" style="border: solid black 1px" width="800px" /></p>
 
+</section> </div>
+        <!-- slide-28-etc -->
+        <div class='slide' id='slide-28-etc'> <header><h1 id="etc..">etc..</h1>
+</header><section class='smallerCode'><hr />
+
+<ul>
+<li>silide
+  - 파폭 ver.3.xx 버전에 silide 적용이 잘 안됨</li>
+<li>Blog
+  - aer0님, keedi님, jeen님 블로그가 검색시 상위에 나타남</li>
+<li>@INC 경로에 대한 지식이 부족함</li>
+<li>t/Test-module 사용 안함</li>
+<li>Perl-versin 적용 잘안함(say, given-when 사용시 오류)</li>
+<li>make clean 은 blib 등을 초기화 해줌</li>
+<li>App::Pmuninstall 모률설치후 pm-unistall Test::module 옵션은 자동으로 삭제해줌</li>
+<li>영어의 중요성을 실감함</li>
+<li>세미나 준비가 의외로 신남</li>
+</ul>
+<hr />
 </section> </div>
     </div>
   </div>

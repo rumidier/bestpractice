@@ -22,8 +22,8 @@ our @EXPORT = qw(
 );
 our %EXPORT_TAGS = ( 'all' => [ @EXPORT ] );
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
-
 our $VERSION = '0.01';
+
 sub index_out {
     my (@fn) = @_;
     my $file_index;

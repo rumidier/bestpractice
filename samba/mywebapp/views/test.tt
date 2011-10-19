@@ -1,0 +1,8 @@
+<form action="<% action %>" method="post">
+  number 1: <input type="text" name="num-1" id="num-1"/> <br/>
+  number 2: <input type="text" name="num-2" id="num-2"/> <br/>
+  <input type="submit" value="Submit" />
+</form>
+<hr />
+
+<% num1 %> + <% num2 %> = <% sum %>

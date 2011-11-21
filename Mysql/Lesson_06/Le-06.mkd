@@ -1,0 +1,447 @@
+Lesson-01 다양한 조인
+---------------
+
+# 조인이란?
+ 여러개의 테이블이나 뷰를 연결하여 떨어진 장소에 있는 데이터를 한꺼번에 다룰 수 있도록
+ 하는 것을 조인(Join)이라고 합니다. 테이블 끼리나 뷰끼리뿐만이 아니라 테이블과 뷰를 연결
+ 할수도 있습니다. 조인에는 몇 가지 종류가 있습니다.
+
+ * 교차 조인        : CROSS JOIN
+ * 내부 조인        : INNER JOIN
+ * 전체 외부 조인   : FULL JOIN
+ * 왼쪽 외부 조인   : LEFT JOIN
+ * 오른쪽 외부 조인 : RIGHT JOIN
+
+
+ Lesson-02 교차 조인
+ -------------------
+
+# 교차(크로스) 조인
+  여러 개의 테이블(또느 뷰)에 있는 모든 행을 단순히 조인하는 방법을 교차 조인이라고 합니다.
+
+# 기술 방법 : CROSS JOIN
+
+  SELECT * FROM tbl_a CROSS JOIN tbl_b;
+
+ 
+  tbl_a                 tbl_b
+  |id|price|            |id|name  |
+  |--|-----|            |--|------|
+  |1 |100  |            |1 |연필  |
+  |2 |250  |            |2 |지우개|
+
+            CORSS JOIN
+
+  |id|price|id|name  |
+  |--|-----|--|------|
+  |1 |100  |1 |연필  |
+  |2 |250  |1 |연필  |
+  |1 |100  |2 |지우개|
+  |2 |250  |2 |지우개|
+
+  CROSS JOIN을 사용하지 않고 ','(콤마)를 사용해서 다음과 같이 기술해도 교차조인과
+  똑같은 결과를 얻을 수 있습니다.
+
+      SELECT * FROM tbl_a, tbl_b;
+
+열 지정 방법
+------------
+
+여러 개의 테이블(뷰)을 동시에 다루기 때문에 '이 테이블의 이 열' 이라는 지정이 필요한
+경우에는 다음과 같이 기술합니다.
+
+* 한 쪽 테이블의 모든 열을 가져오는 경우
+    tbl_a.*
+    테이블명과 *를 '.'(피리어드)로 구분합니다.
+
+* 양쪽 테이블에 동일한 열 이름이 있어 둘 중 한 쪽의 열을 지정하고 싶은 경우
+    tbl_b.name
+    테이블명과 열 이름을 '.'(피리어드)로 구분합니다.
+
+    USE db_picbook;
+    SELECT * FROM tbl_namelist CORSS JOIN tbl_grades;
+
+|no|name  |no|history|science|
+|--|------|--|-------|-------|
+|1 |강유미|1 |78     |65     |
+|1 |강유미|2 |81     |93     |
+|2 |전상철|1 |78     |65     |
+|2 |전상철|2 |81     |93     |
+|3 |박나리|1 |78     |65     |
+|3 |박나리|2 |81     |93     |
+
+Lesson-03 내부 조인
+------------------
+
+# 내부 조인
+교차 조인의 결과에서 지정한 열의 값이 일치하는 행만 가져오는 방법을 내부 조인이라고 한다.
+
+# 기술 방법
+
+내부 조인에서는 조인하고 싶은 테이블 끼리를 INNER JOIN으로 연결하고, ON 이하에서 어떤 열을 기준으로
+데이터를 일치시킬지 지정합니다.
+
+SELECT * FROM tbl_name INNER JOIN tbl_age ON id = no;
+
+ 
+  tbl_ name               tbl_age
+  |id|name |            |no|age|
+  |--|-----|            |--|---|
+  |1 |kkoma|            |1 |16 |
+  |2 |ran  |            |2 |7  |
+  |3 |alex |            |4 |14 |
+
+            INNER JOIN
+
+  |id|name |no|age|
+  |--|-----|--|---|
+  |1 |kkoma|1 |16 |
+  |2 |ran  |2 |7  |
+
+또는 INNER JOIN~ON을 사용하지 않고 WHERE절을 사용해서 다음과 같이 기술해도 됩니다.
+
+  SELECT * FROM tbl_name, tbl_age WHERE tbl_name.id = tbl_age.no;
+
+  tbl_namelist                   tabl_grages
+|no|name  |			  |no|history|science|
+|--|------|			  |--|-------|-------|
+|1 |강유미|			  |1 |78     |65     |
+|2 |전상철|		          |2 |81     |93     |
+|3 |박나리|			  
+
+|no|name  |no|history|science|
+|--|------|--|-------|-------|
+|1 |강유미|1 |78     |65     |
+|2 |전상철|2 |81     |93     |
+
+Lesson-04 외부 조인 (1)
+----------------------
+
+# 외부 조인
+ 외부 조인을 사용하면 내부 조인한 결과에 것붙여 일치하지 않은 데이터도 가져올수 있습니다.
+ 외부 조인에는 왼쪽 외부 조인, 오른쪽 외부 조인, 전체 외부 조인의 3가지 종류가 있습니다.
+
+# 왼쪽 외부 조인
+ 왼쪽 외부 조인 (Left Join)에서는 왼쪽 테이블을 기준으로 조인합니다. 오른쪽 테이블에 일치하는
+ 값이 없어도 왼쪽 테이블의 데이터는 모두 가져옵니다.
+
+ SELECT * FROM tbl_name LEFT JOIN tbl_age ON id = no;
+
+  tbl_ name               tbl_age
+  |id|name |            |no|age|
+  |--|-----|            |--|---|
+  |1 |kkoma|            |1 |16 |
+  |2 |ran  |            |2 |7  |
+  |3 |alex |            |4 |14 |
+
+            LEFT JOIN
+
+  |id|name |no  |age |
+  |--|-----|----|----|
+  |1 |kkoma|1   |16  |
+  |2 |ran  |2   |7   |
+  |3 |alex |NULL|NULL|
+
+  USE db_picbook;
+  SELECT * FROM tbl_namelist LEFT JOIN tbl_grades ON tbl_namelist.no = tbl_grades.no;
+
+  tbl_namelist                   tabl_grages
+
+|no|name  |			  |no|history|science|
+|--|------|			  |--|-------|-------|
+|1 |강유미|			  |1 |78     |65     |
+|2 |전상철|		          |2 |81     |93     |
+|3 |박나리|			  
+
+|no|name  |no  |history|science|
+|--|------|----|-------|-------|
+|1 |강유미|1   |78     |65     |
+|2 |전상철|2   |81     |93     |
+|3 |박나리|NULL|NULL   |NULL   |
+
+Lesson-05 외부 조인 (2)
+
+# 오른쪽 외부 조인
+오른쪽 외부 조인(Right Join)에서는 오른쪽 테이블을 기준으로 조인합니다. 왼쪽 테이블에 일치하는 값이
+없어도 오른쪽 테이블의 데이터는 모두 가져옵니다.
+
+SELECT * FROM tbl_name RIGHT JOIN tbl_age ON id = no;
+
+  tbl_ name               tbl_age
+  |id|name |            |no|age|
+  |--|-----|            |--|---|
+  |1 |kkoma|            |1 |16 |
+  |2 |ran  |            |2 |7  |
+  |3 |alex |            |4 |14 |
+
+            RIGHT JOIN
+
+  |id  |name |no  |age |
+  |----|-----|----|----|
+  |1   |kkoma|1   |16  |
+  |2   |ran  |2   |7   |
+  |NULL|NULL |4   |14  |
+
+# 전체 외부 조인
+ 오른쪽 외부 조인과 왼쪽 외부 조인을 합친 기능을 하는 것이 전체 외부 조인(Full Join) 입니다.
+ 전체 외부 조인에서는 값이 일치하든 안 하든 상관없이 모든 데이터를 가져옵니다. 단, Access에서는
+ 전체 외부 조인을 사용할 수 없습니다.
+
+ SELECT * FROM tbl_name FULL JOIN tbl_age ON id = no;
+
+
+  tbl_ name               tbl_age
+  |id|name |            |no|age|
+  |--|-----|            |--|---|
+  |1 |kkoma|            |1 |16 |
+  |2 |ran  |            |2 |7  |
+  |3 |alex |            |4 |14 |
+
+            FULL JOIN
+
+  |id  |name |no  |age |
+  |----|-----|----|----|
+  |1   |kkoma|1   |16  |
+  |2   |ran  |2   |7   |
+  |NULL|NULL |4   |14  |
+  |3   |alex |NULL|NULL|
+
+
+  USE db_picbook;
+  SELECT * FROM tbl_namelist FULL JOIN tbl_grades ON tbl_namelist.no = tbl_grades.no;
+
+|no  |name  |no  |history|science|
+|----|------|----|-------|-------|
+|1   |강유미|1   |78     |65     |
+|2   |전상철|2   |81     |93     |
+|NULL|NULL  |4   |85     |100    |
+|3   |박나리|NULL|NULL   |NULL   |
+
+Lesson-06 WHERE절을 사용한 외부 조인
+-----------------------------------
+
+# WHERE절을 사용한 외부 조인
+SQL server 에서는 '=' 연산자의 왼쪽에 '*'를 붙이면 LEFT JOIN, 오른쪽에 붙이면 RIGHT JOIN과 같은 기능을 합니다.
+다음은 LEFT JOIN의 지정 예입니다.
+
+SELECT * FROM tbl_name, tbl_age WHERE id *= no;
+
+# Oracle의 경우
+Oracle 에서는 오른쪽 열 이름 뒤에 (+)를 붙이면 LEFT JOIN, 왼쪽 열 이름 뒤에 붙이면 RIGHT JOIN과 같은 기능을 합니다.
+다음은 LEFT JOIN의 지정 예입니다.
+
+SELECT * FROM tbl_name, tbl_age WHERE id = no(+);
+
+USE db_picbook;
+SELECT * FROM tbl_namelist, tbl_grades WHERE tbl_namelist.no *= tbl_grades.no;
+
+|no  |name  |no  |history|science|
+|----|------|----|-------|-------|
+|1   |강유미|1   |78     |65     |
+|2   |전상철|2   |81     |93     |
+|3   |박나리|NULL|NULL   |NULL   |
+
+SELECT * FROM tbl_namelist, tbl_grages WHERE tbl_namelist.no =* tbl_grages.no;
+
+|no  |name  |no  |history|science|
+|----|------|----|-------|-------|
+|1   |강유미|1   |78     |65     |
+|2   |전상철|2   |81     |93     |
+|NULL|NULL  |4   |85     |100    |
+
+
+Lesson-07 뷰의 작성
+------------------
+
+# 뷰의 장점
+예를 들어 어떤 테이블에서 데이터를 가져올 때 자주 사용하는 SELECT 문이 있다고 가정합시다. 이 때 그 SELECT문에는
+여러 가지 절이나 연산자를 사용하고 있으므로 매번 같은 기술을 하는것이 매우 번거롭습니다.
+이런 경우 그 SELECt 문을 사용하여 미리 뷰를 작성해 둡니다. 그러면 복잡한 SELECt 문을 매번 기술하지
+않고도 데이터를 가져올 수 있게 됩니다.
+
+# 뷰 작성하기
+
+## 하나의 테이블로 작성하기
+하나의 테이블에서 필요한 부분만 가져와서 뷰를 작성하려면 다음과 같이 기술 합니다.
+OSQL 에서는 문장의 맨 끝에 세미 콜론을 붙이지 않습니다.
+
+CREATE VIEW viw_ateam AS SELECT lname, fname FROM tbl_namelist WHERE team = 'A'
+
+tbl_namelist                    view_ateam
+|team|no|lname|fname|           |lname|fname|
+|----|--|-----|-----|           |-----|-----|
+|A   |1 |김   |창수 |           |김   |창수 |
+|A   |2 |전   |말희 |           |전   |말희 |
+|B   |3 |이   |준희 |
+
+## 여러 테이블로 작성하기
+여러 개의 테이블에서 각각 필요한 부분을 가져와서 그것들을 조합하여 뷰를 작성할 수 도 있습니다.
+여기서도 OSQL에서는 문장의 맨 끝에 세미콜론을 붙이지 않습니다.
+
+CREATE VIEW viw_namelist AS SELECT lname, fname FROM tbl_namelist,  tbl_age WHERE tbl_namelist.no = tbl_age.no
+
+Lesson-08 뷰의 이용
+------------------
+
+# 뷰를 사용한 데이터의 등록, 수정, 삭제
+뷰에서는 테이블과 똑같이 INSERT문, UPDATE문, DELETE문을 사용하여 데이터를 조작할 수 있습니다. 뷰에서 수행한 조작은 원본 테이블
+에도 반영 됩니다. 하지만 다음과 같은 제한이 있습니다.
+
+* 데이터의 수정은 하나의 테이블로 작성한 뷰에 대해서만 수행할 수 있씁니다.
+* GROUP BY절, HAVING절, DISTINCT절을 사용해 만들어진 뷰에서는 데이터를 변경할 수 없습니다.(그룹화 되어 있어서 특정할 수가 없기 때문)
+
+기술 방법
+
+등록
+INSERT INTO viw_tea (code, name, price) VALUSE (1, '현미차', 1050);
+
+수정
+UPDATE viw_tea SET name = '우롱차' WHERE code = 1;
+
+삭제
+DELETE FROM viw_tea WHERE code = 1;
+
+# 뷰 삭제하기
+뷰 자체를 삭제할 수도 있습니다. 뷰를 삭제해도 원본 테이블의 데이터는 사라지지 않습니다.
+DROP VIEW viw_tea;
+
+USE db_picbook;
+CREATE VIEW viw_winner AS SELECT * FROM tbl_race WHERE result <= 3
+SELECT * FROM viw_winner;
+
+INSERT INTO viw_winner VALUES (23, 'team2323', 2)
+UPDATE viw_winner SET team = 'team5884' WHERE no = 92;
+DELETE FROM viw_winner WHERE no = 10;
+SELECT * FROM viw_winner;
+
+|no|team    |result|
+|--|--------|------|
+|92|team9292|1     |
+|10|nonstop |3     |
+
+|no|team    |result|
+|--|--------|------|
+|92|team9292|1     |
+|23|team2323|2     |
+
+
+USE db_picbook
+DROP VEIW viw_winner;
+SELECT * FROM viw_winner;
+
+개체 이름 'viw_winner'이(가) 잘못되었습니다.
+
+Lesson-09 집합 연산자 (1)
+-------------------------
+
+# 집합 연산자란?
+집합 연산자는 두 개의 SELECT문의 결과에 대해 합집합, 교집합, 차집합을 구하는 연산자입니다. 이때 결합하는 SELECT문의
+결과는 열의 수나 각각의 데이터형이 똑같아야 합니다.
+
+# UNION
+UNION이란 '합집합'을 의미합니다. SELECT문을 UNION으로 연결하면 중복되는 데이터를 정리한 후 가져옵니다.
+
+SELECT lname, fname FROM tbl_club_a UNION SELECT sung, irum FROM tbl_club_b;
+
+|lname|fname|                |sung|irum|
+|-----|-----|                |----|----|
+|이   |태일 |                |황  |민준|
+|박   |준희 |                |박  |준희|
+|김   |광수 |                |김  |지영|
+                  UNION
+ |lname|fname|            
+ |-----|-----|
+ |김   |광수 |
+ |김   |지영 |
+ |박   |준희 |
+ |이   |태일 |
+ |황   |민준 |
+ 
+# UNION ALL
+중복되는 데이터를 정리하지 않고 모든 데이터를 가져오려면 UNION ALL을 사용합니다.
+
+SELECT lname, fname FROM tbl_club_a UNION ALL SELECT sung, irum FROM tbl_club_b;
+
+ |lname|fname|            
+ |-----|-----|
+ |김   |광수 |
+ |김   |지영 |
+ |박   |준희 |
+ |이   |태일 |
+ |황   |민준 |
+ |박   |준희 |
+
+
+ USE db_picbook;
+ SELECT * FROM tbl_club1 WHERE no < 3 UNION SELECT * FROM tbl_club2 WHERE no < 3 ORDER BY no DESC;
+
+|no|fname   |sname|
+|--|--------|-----|
+|2 |yumi    |kang |
+|1 |juhee   |kim  |
+|1 |youngjun|park |
+
+Lesson-10 집합 연산자 (2)
+------------------------
+
+# INTERSECT
+Oracle과PostgreSQL에서는 교집합을 구하는 INTERSECT를 사용할 수 있씁니다.
+이것은 SELECt문으로 가져온 데이터를 비교해서 일치하는 데이터만 가져오는 연산자 입니다.
+
+SELECT lname, fname FROM tbl_club_a INTERSECT SELECT sung, irum FROM tbl_club_b;
+
+# EXCEPT와 MINUS
+PostgreSQL에서는 차집합을 구하는 EXCEPT를 사용할 수 있습니다. 이것은 왼쪽의 SELECT문으로 가져온 데이터
+중에서 오른쪽 SELECT문으로 가져온 데이터와 일치하지 않는 데이터만을 가져옵니다. 그리고 Oracle에서 같은 일
+을 수행하려면 MINUS를 사용합니다.
+
+SELECT lname, fname FROM tbl_club_a EXCEPT SELECT sung, irum FROM tbl_club_b;
+
+|lname|fname|                         |sung|irum|
+|-----|-----|                         |----|----|
+|이   |태일 |                         |황  |민준|
+|박   |준희 |                         |박  |준희|
+|김   |광수 |                         |김  |지영|
+
+                   EXCEPT
+
+		|lname|fname|
+		|-----|-----|
+		|이   |태일 |
+		|김   |광수 |
+
+Lesson-11 한정 술어 (1)
+----------------------
+
+# ALL 연산자
+ALL은 '모든 값과 비교한다' 라는 의미의 연산자 입니다. 즉, 서브 쿼리에 의해 구해진 모든 값과 비교합니다.
+
+SELECT menu FROM tbl_menu1 WHERE price > ALL (SELECT price FROM tbl_menu1 WHERE menu LIKE '% 닭고기 %');
+
+<>ALL, !=ALL에 관해
+제 3장에서 소개한 '같지 않다' 라는 의미를 가진 연산자인 <>나 != ALL연산자와 조합하면 제 3장에서 소개한 NOT IN
+연산자와 똑같은 기능을 합니다.
+
+SELECT * FROM tbl_dinner WHERE price < ALL (SELECT price FROM tbl_lunch WHERE menu LIKE '% 찹 %');
+
+|no  |menu         |price|
+|----|-------------|-----|
+|1112|닭고기 프라이|9000 |
+
+서브: tbl_lunch 테이블의 meny 열에서 '찹'이라는 말이 붙은 데이터를 찾아 그 price열의 값을 산출 합니다.
+메인: tbl_dinner의 price 열의 값이 서브 쿼리의 결과 보다 작은 데이터를 표시합니다.
+
+# EXISTS 연산자
+EXISTS 연산자는 서브 쿼리에 의해 구해진 데이터가 하나라도 있으면 TRUE를, 없으면 FALSE를 반환합니다. 이때 TRUE
+인경우에는 메인 쿼리가 실행되지만, FALSE인 경우에는 실행되지 않습니다.
+
+SELECT * FROM tbl_member WHERE EXISTS (SELECT name FROM tbl_member WHERE no = 5);
+
+NOT EXISTS
+EXISTS 연산자 앞에 NOT을 붙이면 EXISTS 연산자와 반대의 의미를 가집니다. 즉, 서브 쿼리에 의해 구해진 데이터가
+아무것도 없으면 TRUE를 반환하고, 하나라도 있으면 FALSE를 반환합니다.
+
+SELECT * FROM tbl_lunch WHERE EXISTS (SELECT * FROM tbl_dinner WHERE price > 15000);
+SELECT * FROM tbl_lunch WHERE NO EXISTS (SELECT * FROM tbl_dinner WHERE price > 15000);
+
+p150-----------------

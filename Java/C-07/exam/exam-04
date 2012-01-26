@@ -1,0 +1,4 @@
+4. 이름 필드에 문자/공백 문자만을 입력 받으려면 어떻게 해야 하는가?
+
+var rgExa = /^[A-Za-z\s]*$/g;
+var OK = rfgEx.exac(document.somefoem.txtx1.value);

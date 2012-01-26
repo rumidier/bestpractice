@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Build-o-Table</title>
+    <script type="text/javascript">
+    //<![CDATA[
+
+    function procImage() {
+	    //테이블과 이미지 엘리먼트의 접근
+	    var tbl = document.getElementById('table1');
+	    tbl.border = "5px";
+	    tbl.cellPadding="5px";
+
+	    var img = document.getElementById("img1");
+	    img.vspace="10";
+
+	    // 각 속성에 대하여 테이블에 줄을 추가
+	    var row1 = tbl.insertRow(-1);
+
+	    // 두 개의 셀 생성
+	    var cell1 = row1.insertCell(0);
+	    var cell2 = row1.insertCell(1);
+
+	    // 텍스트 생성
+	    var txtAttr1 = document.createTextNode("src");
+	    var txtAttr1Val = document.createTextNode(img.src);
+
+	    // 각 셀에 텍스트 삽입
+	    cell1.appendChild(txtAttr1);
+	    cell2.appendChild(txtAttr1Val);
+    }
+    //]]>
+    </script>
+  </head>
+
+  <body onload="procImage();">
+  <img id="img1" src="dotty.gif" />
+  <table id="table1">
+  </table>
+  </body>
+</html>

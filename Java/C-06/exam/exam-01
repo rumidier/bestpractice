@@ -1,0 +1,14 @@
+특정 이벤트에 이벤트 핸들러 함수를 설정하는 세 가지 방법을 설명하시오
+
+페이지 로드 이벤트(onload)에 대해 이벤트 핸들러(loadData)를 추가하는 경우
+1) 인라인(inline) : <body onload="loadData();">
+2) DOM 레벨 0 : window.onload=loadData;
+3) DOM 레벨2 : addEventListener 또는 attachEvent 사용
+
+window.onload=setup
+funcition setup(evnt)
+if( window. addEventLisener ) {
+	window. addEventListener("load", loadData, false);
+} else if ( window. attachEvent ) {
+	window.attachEvent("onload", loadData);
+}

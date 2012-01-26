@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+  <head>
+    <title>Pass Me</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+
+  <body>
+  <script type="text/javascript">
+
+  //<![CDATA[
+    function alterArgs(strLiteral, aryObject) {
+	    strLiteral = "Override"; // 원래의 문자열을 변경하지 않는다.
+	    aryObject[aryObject.length] = "three"; // 원래의 문자열을 덮어 쓴다.
+    }
+
+    var str = "Original Literal";
+    var ary = new Array("one", "two");
+
+    alterArgs(str, ary);
+    document.writeln("string literal is " + str + "<br /> ");
+    document.writeln("Array object is " + ary);
+  //]]>
+
+  </script>
+  </body>
+</html>

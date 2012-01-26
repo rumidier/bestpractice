@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+  <head>
+    <title>Input form</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8 " />
+      <script type="text/javascript">
+      //<![CDATA[
+
+      if (window.addEventListener) {
+	      window.addEventListener("load", setupEvents, false);
+      } else if (window.attachEvent) {
+	      window.attachEvent("onload", setupEvents);
+      } else {
+	      window.onload=setupEnevts;
+      }
+
+      function setupEvents(evnt) {
+	      document.someForm.onsubmit=checkForm;
+      }
+
+      function checkForm(evnt) {
+	      var opts = document.someForm.selectOpts.options;
+
+	      for (var i = 0; i < opts.length; i++) {
+		      if (opts[i].selected) {
+			      alert(opts[i].text + " " + opts[i].value);
+		      }
+	      }
+	      // 서버측에서 처리해주지 않으면 submit 이벤트를 취소한다.
+	      return false;
+      }
+
+      //]]>
+      </script>
+  </head>
+
+  <body>
+  <form name="someForm">
+    <select name="selectOpts" multiple>
+    <option value="Opt1">Option One</option>
+    <option value="Opt2">Option Two</option>
+    <option value="Opt3">Option Three</option>
+    </select>
+    <input type="submit" value="Submit" />
+  </form>
+  </body>
+</html>

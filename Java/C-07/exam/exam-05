@@ -1,0 +1,14 @@
+
+5. 라디오 버튼이 두 개 있다. 첫 번째 버튼이 선택되면 텍스트 입력 필드를 활성화시키고, 두 번째
+버튼이 선택 되면 비활성화 시키는 자바 스크립트를 작성하시오
+
+document.someForm.radiogroup[0].onclik=handleClick;
+document.someForm.radiogroup[1].onclik=handleClick;
+
+function handleClick) {
+	if (document.someForm.radiogroup[1].checked) {
+		document.someForm.submit.disabled=true;
+	} else {
+		document.someForm.submit.disabled=false;
+	}
+}

@@ -1,0 +1,4 @@
+function invokeFunction(dataObject, functionToCall) {
+	functionToCall(dataObject);
+}var funcCall = new Function('x', 'alert(x)');
+invokeFunction('hello', funcCall);

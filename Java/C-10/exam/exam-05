@@ -1,0 +1,4 @@
+innerHTML을 사용하지 않고 헤더 엘리먼트를 다음 DIV 문단으로 대체하려면 어떻게 해야 하는가?
+  <div id="elem1">
+  <h1>This is a header</h1>
+  </div>

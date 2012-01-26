@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>iFrame</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+
+  <body>
+    <script type="text/javascript">
+    //<![CDATA[
+
+    function handleResponse(choice) {
+	    var pick = frames["MyFrame"];
+	    pick.document.writeln(choice);
+    }
+
+    //]]>
+    </script>
+
+    <iframe id="MyFrame"
+        name="MyFrame"
+	      style="width:100px; height:100px; border: 0px"
+	      src="blank.html"></iframe>
+	<p>
+	<a href="" onclick="parent.MyFrame.location.replace('choice1.html'); return false">Red Pill</a><br />
+	<a href="" onclick="parent.MyFrame.location.replace('choice2.html'); return false">Blue Pill</a><br />
+     </p>
+  </body>
+</html>

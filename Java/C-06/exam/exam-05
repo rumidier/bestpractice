@@ -1,0 +1,10 @@
+문서에서 keydown 이벤트 발생시, document.writeln 함수를 사용하여 눌린 키를 출력하는 코드를 작성하시오
+ if (document.addEventListener) {
+	 document.addEventListener("keydown", getKey, true);
+ } else if (document.attachEvent) {
+	 document.attachEvent("onkeydown", getKey);
+ }
+
+ function getKey(evnt) {
+	 alert(evnt.which);
+ }

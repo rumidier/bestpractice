@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml-transitional.dtd">
+<html>
+  <head>
+    <title></title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTf-8" />
+  </head>
+
+  <body>
+    <script type="text/javascript">
+
+    //<![CDATA[
+
+    // 세 번째 인자를 함수로 호출
+    function funcObject(x,y,z) {
+	    alert(z(x,y));
+    }
+
+    // 세 번째 인자는 함수다
+    funcObject(1, 2, function(x,y) { return x * y});
+
+    //]]>
+
+    </script>
+  </body>
+
+</html>

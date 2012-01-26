@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>if...else...if...else</title>
+    <meta http-equiv="Content-Type" Content="text/html; charset=UTF-8" />
+    <script type="text/javascript">
+    //<![CDATA[
+
+    var stateCode = 'MO';
+
+    if (stateCode == 'OR') {
+	    taxPercentage = 3.5;
+    } else if (stateCode == 'CA') {
+	    taxPercentage = 5.0;
+    } else if (stateCode == 'MO') {
+	    taxPercentage = 1.0;
+    } else {
+	    taxPercentage = 2.0;
+    }
+
+    alert(taxPercentage);
+    //]]>
+    </script>
+  </head>
+
+  <body>
+  <p>Imagine a form with options to pick state code</p>
+  </body>
+</html>

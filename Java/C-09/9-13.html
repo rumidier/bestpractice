@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xthml1-transitional.dtd">
+<html>
+  <head>
+    <title>Slideshow</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script type="text/javascript">
+    //<![CDATA[
+
+    var currentPhoto = 0;
+    var pics = new Array();
+    for (var i = 0; i < 5; i++) {
+	    pics[i] = new Image();
+    }
+    pics[0].src = "fig01-1.jpg";
+    pics[1].src = "fig01-2.jpg";
+    pics[2].src = "fig01-3.jpg";
+    pics[3].src = "fig01-4.jpg";
+    pics[4].src = "fig01-5.jpg";
+
+    function changePhoto(photo) {
+	    document.images[0].src = pics[photo].src;
+    }
+
+    function nextPic() {
+	    currentPhoto++;
+	    if (currentPhoto < pics.length) {
+		    changePhoto(currentPhoto);
+	    } else {
+		    alert("at the end of the photo list");
+	    }
+    }
+
+    function prevPic() {
+	    if (currentPhoto > 0) {
+		    currentPhoto--;
+		    changePhoto(currentPhoto);
+	    } else {
+		    alert("at the beginning of the photo list");
+	    }
+    }
+
+    //]]>
+    </script>
+    <img src="fig01-1.jpg" />
+    <p>
+    <a href="" onclick="nextPic(); return false">다음 사진</a> <a href="" onclick="prevPic(); return false">이전 사진</a>
+    <p>
+  </head>
+
+  <body>
+  </body>
+</html>

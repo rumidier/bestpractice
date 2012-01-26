@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD xthml1-transitional.dtd">
+
+<html>
+  <head>
+    <title></title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+      <script type="text/javascript">
+      //<![CDATA[
+
+      function mouseDown(nsEvent) {
+	      var theEvent = nsEvent ? nsEvent : window.event;
+	      var locString = "X = " + theEvent.screenX + " Y = " + theEvent.screenY;
+	      var theSrc = theEvent.target ? theEvent.target : theEvent.srcElement;
+	      alert(locString + "" + theSrc);
+      }
+
+      document.onmousedown=function (evnt) {
+	      var theEvnt = evnt ? evnt : window.event;
+	      alert(theEvnt.type);
+      }
+
+      window.onload=setupEvents;
+
+      function setupEvents() {
+	      document.getElementById("first").onmousedown=mouseDown;
+	      document.getElementById("second").onmousedown=function () {
+		      alert("Second event handler");
+	      }
+      }
+      //]]>
+      </script>
+  </head>
+
+  <body>
+    <div id="first" style="padding: 20px; background-color: #ff0; width: 150px">
+    <div id="second" style="background-color: #f00; width: 100px; height: 100px">
+    </div>
+    </div>
+  </body>
+</html>

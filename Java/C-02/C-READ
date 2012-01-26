@@ -1,0 +1,51 @@
+2장. 자바스크립트의 데이터 타입과 변수
+  Section-01
+    데이터 타입의 개요
+      자바스크립트의 데이터 타입 변환에 있어서는 컨텍스트가 중요하며
+      기본적인 엘리먼트인 변수도 마찬가지다.
+      이장에서는 자바스크립트의 기본 데이터 타입인 string, boolean, number에
+      대해서 다룬다.
+  Section-02
+
+    변수 식별
+      [표 2-1]자바스크립트 키워드
+     | break    | else       | new    | var  |
+     | case     | finally    | return | void |
+     | catch    | for        | switch | while| 
+     | continue | function   | this   | with |
+     | default  | if         | throw         |
+     | delete   | in         | try           |
+     | do       | instanceof | typeof        |
+
+      [표 2-2]ECMA 262 스펙의 예약어
+     | abstract | enum       | int       | short       |
+     | boolean  | export     | interface | static      |
+     | byte     | extends    | long      | super       |
+     | char     | final      | native    | synchronized|
+     | class    | float      | package   | throws      |
+     | const    | goto       | private   | transient   |
+     | debugger | imolements | protected | volatile    |
+     | double   | import     | public    | public      |
+
+      [표 2-3]브라우저의 예약어
+     | alert    | eval     | location  | open       | 
+     | array    | focus    | math      | outerHeight| 
+     | blur     | function | name      | parent     | 
+     | boolean  | history  | navigator | parseFloat | 
+     | date     | image    | number    | regExp     | 
+     | document | isNaN    | object    | status     | 
+     | escape   | length   | onLoad    | string     | 
+
+   이름 짓기
+
+  Section-03
+    영역
+
+  Section-04
+    기본 데이터 타입
+  Section-05
+    상수
+
+
+-------------------------------------------------------
+ECMA 262가 뭐지?

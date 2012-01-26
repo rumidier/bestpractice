@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+  <head>
+    <title>Build a Function</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+
+  <body>
+    <script type="text/javascript">
+
+      //<![CDATA[
+      // 대화상자를 띄워 함수 몸체와 인자 값을 입력 받는다.
+      var func = prompt("Enter function body:");
+      var x = prompt("Enter value of x:");
+      var y = prompt("Enter value of Y:");
+
+      // 익명 함수를 호출한다
+      var op = new Function("x", "y", func);
+      var theAnswer = op(x, y);
+
+      // 결과를 출력한다.
+      document.writeln("Function is: " + func + "<br />");
+      document.writeln( " x is: " + x + " y is: " + y + "<br />");
+      document.writeln("The answer is : " + theAnswer);
+      //]]>
+
+    </script>
+  </body>
+</html>

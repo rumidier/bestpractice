@@ -1,0 +1,8 @@
+다음은 DOM 레벨 0 이벤트 핸들러이다. 이를 여러 브라우저에서 호환가능하도록 DOM 레벨 2 방식으로 바꾸시오
+  <body onload="functionCall();"> 
+
+  if (window.addEventListener) {
+	  window.addEventListener("load", functionalCall, false);
+  } else if (window.attachEvent) {
+	  window.attachEvent("onload", functionalCall);
+  }

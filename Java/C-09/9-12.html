@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD xhtml1-transitional.dtd">
+<html>
+  <head>
+   <title>Reference</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+
+  <body>
+  <p>The <a
+  href="http://msdn.microsoft.com/workshop/author/dhtml/reference/objects/link.asp">links</a> collection off of the document <a href="http://www.w3.org/TR/html4/struct/objects.html">object</a>
+  consists of all hypertext links in the page, accessible as an array, starting with the first link in the page and movving down and to the right. However, you can also add an identifier for each hypertext link and access it in the array through this identifier.</p><p>Each item in the collection is a <a href="http://www.devguru.com/Technologies/ecmascript/quickref/link.html">link</a> object, which has properties of its own. Among these are those similar to what we found with location: host, protocol, port, search, and hash, each of which returns that specific piece of the hypertext link. You can also access the complete link through the href property, and the associated linked object (text) through text. This can be handy if You're pulling links from a document in a web page, into a handy sidebar reference or other functionality such as this
+  </p>
+  <h5>References</h5>
+  <p>
+  <script type="text/javascript">
+  //<![CDATA[
+
+  for (var i = 0; i < document.links.length; i++) {
+	  var link = document.links[i];
+	  document.writeln(link.text + " : " + link.href + "<br />");
+  }
+  //]]>
+  </script>
+  </p>
+  </body>
+</html>

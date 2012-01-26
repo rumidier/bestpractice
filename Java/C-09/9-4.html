@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Timers</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <script type="text/javascript">
+      //<![CDATA[
+
+      var ct = 0;
+      var imgs = new Array("impatient.gif","doomed.gif","upright.gif");
+      setTimeout("progress()", 1000);
+
+      function progress() {
+	      if (ct < 3) {
+		      document.images[0].src=imgs[ct];
+		      ct++;
+		      setTimeout("progress()", 1000);
+	      }
+      }
+
+      //]]>
+      </script>
+  </head>
+
+  <body>
+    <img src="mad.gif" />
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+  <head>
+    <title></title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <script type="text/javascript">
+      //<![CDATA[
+        if (window.addEventListener) {
+		window.addEventListener("load", setupEvents, false);
+	} else if (window.attachEvent) {
+		window.attachEvent("onload", setupEvents);
+	} else {
+		window.onload=setupEvents;
+	}
+
+        function setupEvents(evnt) {
+		document.someForm.text1.onchange = validateField;
+		document.someForm.text2.onblur=checkRequired;
+	}
+
+        function validateField(evnt) {
+		var theEvent = evnt ? evnt : window.event;
+		var target = evnt.target ? evnt.target : evnt.srcElement;
+		var rgEx = /[01](0|1|6|7|8|9)[-](\d{4}|\d{3})[-]\d{4}$/g;
+
+		var OK = rgEx.exec(target.value);
+
+		if (!OK) {
+			alert("올바른 휴대폰번호가 아닙니다.");
+		}
+	}
+
+        function checkRequired (evnt) {
+		var theEvent = evnt ? evnt : window.event;
+		var target = evnt.target ? evnt.target : evnt.srcElement;
+
+		var txtInput = target.value;
+		if (txtInput == null | txtInput == "") {
+			alert("데이터가 입력되지 않았습니다.");
+		}
+	}
+      //]]>
+      </script>
+  </head>
+
+  <body>
+  휴대폰 번호를 입력하세요<br />
+  <form name="someForm">
+  <input type="text" name="text1" /><br />
+  <input type="text" name="text2" /><br />
+  <input type="submit" value="Submit" />
+  </form>
+  </body>
+</html>

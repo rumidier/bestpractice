@@ -1,0 +1,12 @@
+DOM 레벨 2 이벤트 시스템의 경우, 이벤트가 다른 엘리먼트로 전파되는 것을 막는 방법은?
+
+IE 브라우저에서는 stipPropagation 메소드를 사용하고 다른 브라우저의 경우에는 cancelBubble 프로퍼티를 사용하여 이벤트
+처리를 중단시킬 수 있다. stipPropagation메소드의 존재 여부로 브라우저를 판별한다.
+
+function stopEvent(evnt) {
+	if( evnt.stopPropagation ) {
+		evnt.stopPropagation();
+	} else {
+		evnt.cancelBubble = true;
+	}
+}

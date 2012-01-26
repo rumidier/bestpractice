@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xthml1-transitional.dtd">
+
+<html>
+  <head>
+    <title></title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+      <script type="text/javascript">
+      //<![CDATA[
+
+// 윈도우 IE
+//      function mouseDown() {
+//	      var locString = "X = " + window.event.screenX + " Y = " + window.event.screenY;
+//	      alert(locString);
+//      }
+//
+//      document.onmousedown=mouseDown;
+      function mouseDown (theEvent) {
+	      var locString = "X = " + theEvent.screenX + " Y = " + theEvent.screenY;
+	      alert(locString);
+      }
+      document.onmousedown=mouseDown;
+      //]]>
+      </script>
+  </head>
+
+  <body>
+  </body>
+</html>

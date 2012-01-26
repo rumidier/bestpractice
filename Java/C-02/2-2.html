@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Coinvert Object to String</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR" />
+    <body>
+    <script type="text/javascript">
+    //<![CDATA[
+
+    var sOne = escape("http://oreilly.com");
+    document.writeln("<p>" + sOne + "</p>");
+
+    var sTwo =
+    escape("http://burningbird.net/index.php?pagename=$1page=$2");
+    document.writeln("<p>" + sTwo + "</p>");
+
+    var sURL = "http://oreilly.com/this_is_a_value&some-value='somevalue'";
+    sURL = encodeURI(sURL);
+    document.writeln("<p>" + sURL + "</p>");
+
+    //]]>
+    </script>
+    </body>
+</html>

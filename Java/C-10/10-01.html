@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Accessing/Modifying HTML Elements</title>
+    <script type="text/javascript">
+    //<![CDATA[
+
+    function procImage() {
+	    var img = document.images[0];
+
+	    // 현재의 이미지 속성을 가져온다
+	    var imgAttr = img.align + " " + img.alt + " " + img.src + " " + img.width + " " + img.height;
+	    alert(imgAttr);
+
+	    // 이미지 속성을 변경한다.
+	    img.src = "upright.gif";
+	    img.width = "100";
+	    img.height = "100";
+	    img.alt = "Alternative";
+	    img.align = "left";
+	    img.title = "Upringht";
+	    document.close();
+    }
+    //]]>
+    </script>
+  </head>
+
+  <body onload="procImage();">
+  <img src="dotty.gif" alt="Dotty" />
+  </body>
+</html>

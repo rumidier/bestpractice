@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xthml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+
+  <body>
+    <p>Helpful Information.</p>
+    <script type="text/javascript">
+    //<![CDATA[
+
+    var nmStr = opener.document.forms[0].elements[0].value;
+    document.writeln("Hello " + nmStr + "!");
+
+    //]]>
+    </script>
+
+    <p><a href="javascript:self.close();opener.resizeTo('100','100')">
+    close window</a></p>
+  </body>
+</html>

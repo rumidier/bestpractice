@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transtional.dtd">
+<html>
+  <head>
+  <title>Testing value in range</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTf-8" />
+  <script type="text/javascript">
+  //<![CDATA[
+
+  var nValue = 0;
+
+  if (nValue >= 0 && nValue <= 100) {
+	  alert("value between 0 and 100, inclusive");
+  } else if (nValue > 0 && nValue < 100) {
+	  alert("value between 0 and 100 exclusive");
+  } else if (nValue > 100) {
+	  alert ("value over 100");
+  } else if (nValue < 0) {
+	  alert ("value is negative");
+  }
+  //]]>
+  </script>
+  </head>
+
+  <body>
+  <p>Some page content</p>
+  </body>
+</html>

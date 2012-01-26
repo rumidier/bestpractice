@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transtional.dtd">
+<html>
+  <head>
+    <title>Scope</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR" />
+
+      <script type="text/javascript" src="global.js">
+      </script>
+      <script type="text/javascript" src="global2.js">
+      </script>
+      <script type="text/javascript">
+
+        message = "I'm in the page";
+
+        function testScope() {
+          message += " called in testScope()";
+          alert(message);
+        }
+      </script>
+  </head>
+
+    <body onload="testScope();global2Print();globalPrint()">
+      <script type="text/javascript">
+        message += " embedded in page";
+        document.writeln(message);
+      </script>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+메소드     : createElement(tagname)
+생성된 객체: Element
+설명       : 특정 태그에 해당하는 엘리먼트 생성
+
+메소드     : createDocumentFragment
+생성된 객체: DocumentFragment
+설명       : document 트리의 특정 부분을 추출할 때 사용하는 document
+
+메소드     : createTextNode(data)
+생성된 객체: Text
+설명       : 페이지 내의 텍스트
+
+메소드     : createComment(data)
+생성된 객체: Comment
+설명       : XML 주석
+
+메소드     : createProcessinglnstructions(target, data)
+생성된 객체: Processinglnstruction
+설명       : XML 처리 지시 사항
+
+메소드     : createAttribute(name)
+생성된 객체: Attr
+설명       : 엘리먼트 속성
+
+메소드     : createEntityReference(name)
+생성된 객체: EntityReference
+설명       : 나중에 추가될 엘리먼트에 대한 공간 확보
+
+메소드     : createElementNS(namespaceURL,qualifiedName)
+생성된 객체: Element
+설명       : Element에 대한 네임스페이스
+
+-----------------------------------------------------------------
+insertBefore(newChild,refChild)
+현재 노드 앞에 새 노드를 추가한다
+
+replaceChild(newChild,oldChild)
+현재 노드를 대체한다.
+
+removeChild(oldChild)
+현재 노드의 자식을 제거한다.
+
+appendChild(newChild)
+문서에 자식 노드를 추가한다.

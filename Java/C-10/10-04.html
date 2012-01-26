@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xthml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTf-8" />
+    <title>The Node</title>
+    <script type="text/javascript">
+    //<![CDATA[
+
+    // 임의의 색상을 만드는 함수
+    function randomColor() {
+	    r=Math.floor(Math.random() * 255).toString(16);
+	    g=Math.floor(Math.random() * 255).toString(16);
+	    b=Math.floor(Math.random() * 255).toString(16);
+
+	    return "#"+r+g+b;
+    }
+
+    // 노드 프로퍼티의 일부를 출력
+    function outputNodeProps(nd) {
+	    var strNode = "Node Type: " + nd.nodeType;
+	    strNode += "\nNode Name: " + nd.nodeName;
+	    strNode += "\nNode Value: " + nd.nodeValue;
+
+	    // style이 설정된 경우에만 에러를 수행
+	    if (nd.style) {
+		    var clr = randomColor();
+		    nd.style.backgroundColor=clr;
+		    strNode += "\nbackgroundColor: " + clr;
+	    }
+
+	    // 해당 노드의 프로퍼티 출력
+	    alert(strNode);
+
+	    // 현 노드의 자식 노드를 처리한다
+	    var children = nd.childNodes;
+	    for (var i=0; i < children.length; i++) {
+		    outputNodeProps(children[i]);
+	    }
+    }
+    //]]>
+    </script>
+  </head>
+    <body onload="outputNodeProps(document)">
+    <div id="div1">
+    <h1>Header</h1>
+    <!-- pargraph one -->
+    <p>To better understand the document tree, consider a web page that has a head and body section, has a page title, and contains a DIV element that itself contains an H1 header and two paragraphs. One of the paragraphs contains <i>italicized text</i>; the other has an image--not an uncommon web page.</p>
+    <!-- paragraph two -->
+    <p>Second paragraph with image following.</p>
+    <img src="dotty.gif" alt="dotty" />
+    </div>
+    </body>
+</html>

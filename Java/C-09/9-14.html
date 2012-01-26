@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitinoal//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+    <title>Modifiying Elements agter Page loads</title>
+
+    <script type="text/javascript">
+    //<![CDATA[
+
+    function changeDiv() {
+	    // get all elements idd 'elem1'
+	    var elem1 = document.getElementById("elem1");
+	    elem1.innerHTML = "<h1>Hello World</h1>";
+
+	    var elem2 = document.getElementById("elem2");
+	    elem2.innerHTML = "<ol><li>Option 1</li><li>Option2</li><ol>";
+
+	    var elem3 = document.getElementById("elem3");
+	    elem3.innerHTML = "<img src='dotty.gif' alt='dotty' />";
+    }
+
+    //]]>
+    </script>
+  </head>
+
+  <body onload="changeDiv();">
+  <div id="elem1">
+  <p>Paragraph text.</p>
+  </div>
+  <div>
+  <ul id="elem2">
+  <li>option 1</li>
+  <li>option 2</li>
+  </ul>
+  </div>
+  <div>
+  <a href="9-12.html" id="elem3">Example 9-12</a>
+  </div>
+  </body>
+</html>

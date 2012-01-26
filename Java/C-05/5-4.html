@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xthml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+  <head>
+    <title>Array filter and callback functions</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+
+  <body>
+    <script type="text/javascript">
+
+    //<![CDATA[
+    // 컬러 범위 체크 콜백 함수
+    function checkColor(element, index, array) {
+	    return (element >= 0 && element < 256);
+    }
+
+    // RGB 세 개의 값을 모두 갖고 있는지 확인
+    function checkCount(element, index, array) {
+	    return (element.length == 3);
+    }
+
+    // 컬러 배열
+    var colors = new Array();
+    colors[0]  = [0, 262, 255];
+    colors[1]  = [255, 255, 255];
+    colors[2]  = [255, 0, 0];
+    colors[3]  = [0, 255, 0];
+    colors[4]  = [0, 0, 255];
+    colors[5]  = [-5, 999, 255];
+
+    // 컬러 범위를 필터링한다.
+    var testedColors = new Array();
+    for (var i in colors) {
+	    testedColors[i] = colors[i].filter(checkColor);
+    }
+
+    // 세 값에 대한 필터링
+    var newTested = testedColors.filter(checkCount);
+    for (i in newTested) {
+	    document.writeln(newTested[i] + "<br />");
+    }
+    //]]>
+
+    </script>
+  </body>
+</html>

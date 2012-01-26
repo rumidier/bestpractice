@@ -1,0 +1,9 @@
+인자 목록을 정의 하기보다는, 인자 배열에 접근한다. 이로써, 함수에 전달되는 인자는 쉽게 변경할수 있다.
+
+function test() {
+	for (var i = 0; i < arguments.length; i++) {
+		alert(arguments[i]);
+	}}test(1,2,3);
+
+        test(1,2,3,4);
+}

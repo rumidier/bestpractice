@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Exceptions</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script type="text/javascript">
+    //<![CDATA[
+
+    var div1;
+    function alphaOpacity(value) {
+	    if (typeof value == "number") {
+		    var opacity = value * 100;
+		    this.style.filter = "alpha(opacity:"+opacity+");
+	    } else {
+		    throw "NotANumber";
+	    }
+    }
+
+    function cssOpacity(value) {
+	    if (typeof value == "number") {
+		    this.obj.style.opacity = value;
+	    } else {
+		    throw "NotANumber";
+	    }
+
+    }
+
+    function getOpacity() {
+	    if (this.obj.style.filter) {
+		    var filterString = this.obj.style.filter;
+		    varderivedVal = filterString.substring(filterString.indexOf(':')+1,filterString.indexOf(')'));
+		    return derivedVal / 100;
+	    } else {
+		    return this.obj.style.opacity;
+	    }
+    }
+    //]]>
+    </script>
+  </head>
+
+  <body>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xthml1-transitional.dtd">
+<html>
+  <head>
+    <title>Inheritance</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script type="text/javascript">
+    //<![CDATA[
+
+    function tune (title, type) {
+	    this.title = title;
+	    this.type = type;
+	    this.getTitle=function() {
+		    return "Song: " + this.title + " Type: " + this.type;
+	    }
+    }
+
+    function artist_tune(title,type,artist) {
+	    this.artist = artist;
+	    this.toString("Artist is " + artist);
+	    this.apply(this,arguments);
+	    this.toString = function () {
+		    return "Artist: " + this.artist + " " + this.getTitle();
+	    }
+    }
+
+    artist_tune.prototype = new tune();
+
+    var song = new artist_tune("I want to hold your hand", "rock", "Beatles");
+    alert(song.toString());
+    //]]>
+    </script>
+  </head>
+
+  <body>
+  </body>
+</html>

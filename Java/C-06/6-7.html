@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title></title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <script type="text/javascript">
+      //<![CDATA[
+      function clickMe(evnt) {
+	      evnt = evnt ? evnt : window.event;
+	      alert(evnt.target + " " + evnt.type);
+	      alert("Can be caceled? " + evnt.cancelable);
+	      alert("Bubbling? " + evnt.bubbles);
+	      alert(evnt.timeStamp);
+      }
+      window.onload=setup;
+      window.onunload=cleanup;
+
+      function setup(evnt) {
+	      var evtObject = document.getElementById("clickme");
+
+	      // 객체 모델 테스트
+	      if (evtObject.addEventListener) {
+		      document.addEventListener("click", clickMe, false);
+	      } else if (evtObject.attachEvent) {
+		      evtObject.attachEvent("onclick", clickMe);
+	      } else if (evtObject.onclick) {
+		      evtObject.onclick=clickMe;
+	      }
+      }
+
+      // 이벤트 핸들러 제거
+      function cleanup() {
+	      var evtObject = document.getElementById("clickme");
+	      if (evtObject.detachEvent) {
+		      evtObject.detachEvent("onclick", clickMe);
+	      }
+      }
+      //]]>
+      </script>
+  </head>
+
+  <body>
+    <div id="clickme" style="background-color: #ff0; width: 200px; height: 200px; padding: 20px">
+    Click Me</div>
+  </body>
+</html>

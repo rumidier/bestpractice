@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+  <head>
+    <title>Recursion</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+
+  <body>
+    <script type="text/javascript">
+
+      //<![CDATA[
+
+      var addNumbers = function
+      sumNumbers (numArray, indexVal, resultArray) {
+	      // 재귀테스트
+	      if (indexVal == numArray.length)
+		      return resultArray;
+
+	      // 덧셈 연산 수행
+	      resultArray[0] += Number (numArray[indexVal]);
+
+	      // 문자열 덧붙임 수행
+	      if (resultArray[1].length > 0)
+		      resultArray[1] += " and ";
+	      resultArray[1] += numArray[indexVal].toString();
+
+	      // index증가
+	      indexVal++;
+
+	      // 함수를 다시 호출 하고, 결과를 반환
+	      return sumNumbers(numArray, indexVal, resultArray);
+      }
+
+      // 숫자 배열을 생성하고, 배열을 반환
+      var numArray = ['1', '35.4', '-14', '44', '0.5'];
+      var resultArray = new Array(0, ''); // 첫번째에 필요
+
+      // 함수 호출
+      var result = addNumbers (numArray, 0, resultArray);
+
+      // 출력
+      document.writeln(result[0] + "<br />");
+      document.writeln(result[1]);
+
+      //]]>
+
+    </script>
+  </body>
+</html>

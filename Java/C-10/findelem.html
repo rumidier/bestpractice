@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css">
+      div {
+        border: 1px solid #000;
+        padding: 5px;
+      }
+    </style>
+    <script type="text/javascript">
+    //<![CDATA[
+      var highlightColor = "#ffff00";
+      function changeColor( ) {
+	      highlightColor=prompt("Enter highlight color (hexidecimal format)");
+      }
+
+      function loadPage( ) {
+	      var pageURL = prompt("Enter page in this domain");
+	      top.docin.location.href=pageURL;
+      }
+
+      function highlightElements( ) {
+	      var elemTag = prompt("Enter tag element name to highlight:");
+	      var nodes = top.docin.document.getElementsByTagName(elemTag);
+
+	      // 배경색을 지정한다
+	      for (var i = 0; i < nodes.length; i++) {
+		      nodes[i].style.backgroundColor=highlightColor;
+	      }
+      }
+    //]]>
+    </script>
+  </head>
+
+  <body>
+    <div onclick="changeColor(  )">
+    <p>Click to change highlight color</p>
+    </div>
+    <div onclick="loadPage(  )">
+    <p>Click to load source page</p>
+    </div>
+    <div onclick="highlightElements(  )">
+    <p>Click to search for, and highlight, a specific tag</p>
+    </div>
+  </body>
+</html>

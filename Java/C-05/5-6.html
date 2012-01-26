@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xthml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+  <head>
+    <title>Getting Closure</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+
+  <body>
+    <script type="text/javascript">
+    //<![CDATA[
+
+    // 바깥쪽 함수
+    function outerFunc(base) {
+	    var punc = "!";
+
+	    // 안쪽 함수
+	    function returnString(ext) {
+		    return base + ext + punc;
+	    }
+
+	    return returnString;
+    }
+
+    // 안쪽 함수로의 접근을 생성한다
+    var baseString = outerFunc("Hello ");
+
+    // 안쪽 함수는 여전히 바깥쪽 함수 인자에 접근할 수 있다.
+    var newString = baseString("World");
+    document.writeln(newString);
+
+    // 여기서도 마찬가지다.
+    var notherString = baseString("Reader");
+    document.writeln(notherString);
+
+    // 안쪽 함수의 또다른 인스턴스를 생성한다.
+    var anotherBase = outerFunc("Hiya, Hey ");
+
+    // 새로운 지역 문자열
+    var lastString = anotherBase("you");
+    document.writeln(lastString);
+
+    //]]>
+    </script>
+  </body>
+</html>

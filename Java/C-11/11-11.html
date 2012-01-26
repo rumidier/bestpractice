@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Adding trim function to String</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTf-8" />
+  </head>
+
+  <body>
+    <script type="text/javascript">
+    //<![CDATA[
+
+    String.prototype.trim = function() {
+	    return (this.replace(/^[\s\xA0]+/,"").replace(/[\s\xA0]+$/,""));
+    }
+
+    var sObj = new String("  This is the string   ");
+    sTxt = sObj.trim();
+
+    document.writeln("--" + sTxt + "--");
+
+    //]]>
+    </script>
+  </body>
+</html>

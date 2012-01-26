@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+  <title>switch statement</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+  <script type="text/javascript">
+  //<![CDATA[
+
+  var stateCode       = 'NY';
+  var statePercentage = 0.0;
+  var taxPercentage   = 0.0;
+
+  switch (stateCode) {
+	  case 'OR', 'MA', 'WI' :
+		  statePercentage = 0.5;
+		  taxPercentage   = 3.5;
+		  break;
+          case 'MO':
+		  taxPercentage   = 1.0;
+		  statePercentage = 1.5;
+		  break;
+          case 'CA' :
+	  case 'NY' :
+	  case 'VT' :
+		  statePercentage = 2.6;
+		  taxPercentage   = 4.5;
+		  break;
+	  case 'TX' :
+		  taxPercentage   = 3.0;
+		  break;
+	  default :
+		  taxPercentage   = 2.0;
+		  statePercentage = 2.3;
+  }
+
+  alert("tax is " + taxPercentage + " and state is " + statePercentage);
+  //]]>
+  </script>
+  </head>
+  <body>
+  <p>Imagine a form with options to pick state code</p>
+  </body>
+</html>

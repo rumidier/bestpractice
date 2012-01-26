@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+
+  <body>
+    <script type="text/javascript">
+    //<![CDATA[
+
+    printTags(0,top.docin.document);
+
+    function printTags(domLevel,n) {
+	    document.writeln("<br /><br />Level " + domLevel + ":<br />");
+	    document.writeln(n.nodeName + " ");
+
+	    if (n.nodeType == 3) {
+		    document.writeln(n.nodeValue);
+	    }
+	    if (n.hasChildNodes()) {
+		    var child = n.firstChild;
+		    document.writeln(" { ");
+		    do {
+			    document.writeln(child.nodeName + " ");
+			    child = child.nextSibling;
+		    } while (child);
+		    document.writeln(" } ");
+		    var children = n.childNodes;
+		    for (var i = 0; i < children.length; i++) {
+			    printTags(domLevel + 1, children[i]);
+		    }
+	    }
+    }
+    //]]>
+    </script>
+  </body>
+</html>

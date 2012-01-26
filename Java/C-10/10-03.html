@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTf-8" />
+    <title>Modifying Named Elements</title>
+    <script type="text/javascript">
+    //<![CDATA[
+
+    function findName() {
+	    // elem+숫자 형태로 되어 있는 모든 엘리먼트를 가져온다.
+	    for (var i = 1; i <= 7; i++) {
+		    var nmStr = "elem" + i;
+		    var nmList = document.getElementsByName(nmStr);
+
+		    // 태그 종류 이름이 담긴 문자열을 생성한다.
+		    var typeStr = "";
+		    for (var j = 0; j < nmList.length; j++) {
+			    typeStr += nmList[j].tagName + " ";
+		    }
+
+		    // 문자열을 출력한다.
+		    alert(typeStr);
+	    }
+    }
+
+    //]]>
+    </script>
+  </head>
+
+  <body onload="findName();">
+  <div name="elem1">
+  <ul name="elem2">
+  <li>option 1</li>
+  <li name="elem3">option 2</li>
+  </ul>
+  </div>
+  <a href="10-02.html" name="elem4">Example 1</a>
+  <p name="elem5">Paragraph</p>
+  <form name="elem6">
+  <input type="text" name="elem7" />
+  </form>
+  </body>
+</html>

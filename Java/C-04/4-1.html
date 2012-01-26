@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBlic "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title>The Number Object</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <body>
+  <script type="text/javascript">
+  //<![CDATA[
+
+  //Number 프로퍼티
+  document.writeln(Number.MAX_VALUE + "<br />");
+  document.writeln(Number.MIN_VALUE + "<br />");
+  document.writeln(Number.NEGATIVE_INFINITY + "<br />");
+  document.writeln(Number.POSITIVE_INFINITY + "<br />");
+
+  // Number 메소드 사용 예
+  var newValue = new Number("34.8896");
+
+  document.writeln(newValue.toExponential(3) + "<br />");
+  document.writeln(newValue.toPrecision(3) + "<br />");
+  document.writeln(newValue.toFixed(6) + "<br />");
+
+  //]]>
+  </script>
+  </body>
+</html>

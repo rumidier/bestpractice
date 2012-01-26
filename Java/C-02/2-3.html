@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+  <title>Convert String to Number</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+
+  <body>
+  <p>
+  <script type="text/javascript">
+  //<![CDATA[
+
+  var sNum = "1.23e-2";
+  document.writeln(parseFloat(sNum));
+
+  var fValue = parseFloat("1.45inch");
+  document.writeln("<p>" + fValue + "</p>");
+
+  var iValue = parseInt("33.00");
+  document.writeln("<p>" + iValue + "</p>");
+
+  var iValue2 = parseInt("0266", 8);
+  document.writeln("<p>" + iValue2 + "</p>");
+
+  var iValue3 = parseInt("0x5F", 16);
+  document.writeln("<p>" + iValue3 + "</p>");
+
+  //]]>
+  </script>
+  </p>
+  </body>
+</html>

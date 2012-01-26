@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>A dated Example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <body>
+  <script type="text/javascript">
+  //<![CDATA[
+
+  var dtNow = new Date( );
+
+  // 일, 월, 년을 설정한다.
+  dtNow.setDate(18);
+  dtNow.setMonth(10);
+  dtNow.setYear(1954);
+  dtNow.setHours(7);
+  dtNow.setMinutes(2);
+
+  // 출력값을 설정한다.
+  document.writeln(dtNow.toString() + "<br />");
+  document.writeln(dtNow.toLocaleString() + "<br />");
+  document.writeln(dtNow.toLocaleDateString() + "<br />");
+  document.writeln(dtNow.toLocaleTimeString() + "<br />");
+  document.writeln(dtNow.toGMTString() + "<br />");
+  document.writeln(dtNow.toUTCString());
+
+  //]]>
+  </script>
+  </body>
+</html>

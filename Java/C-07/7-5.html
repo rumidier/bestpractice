@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C/DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>The Jit RegEx Machine</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <script type="text/javascript">
+      //<![CDATA[
+
+      if (window.addEventListener) {
+	      window.addEvenListener("load", setupEvents, false);
+      } else if (window.attachEvent) {
+	      window.attachEvent("onload", setupEvents);
+      } else {
+	      window.onload=setupEvents;
+      }
+
+      function setupEvents(evnt) {
+	      document.someForm.onsubmit=validateField;
+      }
+
+      function validateField(evnt) {
+	      var rgEx = new RegExp(document.someForm.text1.value);
+	      var OK = rgEx.exec(document.someForm.text2.value);
+
+	      // 결과 출력
+	      if (!OK) {
+		      document.someForm.text3.value = "정규표현식에 매치되지 않는 데이터 입니다.";
+	      } else {
+		      document.someForm.text3.value = "정규표현식에 배치되는 데이터 입니다.";
+	      }
+
+	      return false;
+      }
+      //]]>
+      </script>
+  </head>
+
+  <body>
+    <form name="someForm" style="padding: 10px">
+    정규표현식: <br />
+    <textarea name="text1" cols=50 rows=1></textarea><br />
+    정규표현식으로 검사할 데이터<br />
+    <textarea name="text2" cols=50 rows=3></textarea><br /><br />
+    검사결과: <input type="text" name="text3" /><br /><br />
+    <input type="submit" value="Check RegExp" />
+    </form>
+  </body>
+</html>

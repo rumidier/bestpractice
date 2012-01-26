@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Object Detection</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTf-8" />
+    <style type="text/css">
+    div {
+	position: absolute;
+	top: 30px;
+	left: 50px;
+    }
+    </style>
+
+    <script type="text/javascript">
+    //<![CDATA[
+
+    var theobjs = new Array();
+
+    function alphaOpacity(value) {
+	    var opacity = value * 100;
+	    this.style.filter = "alpha(opacity:"+opacity+")";
+    }
+
+    function cssOpacity(value) {
+	    this.obj.style.opacity = value;
+    }
+
+    function getOpacity() {
+	    if (this.obj.style.filter) {
+		    var filterString = this.obj.style.filter;
+		    var derivedVal = filterString.substring(filterString.indexOf(':')+1, filterString.indexOf(')'));
+		    return derivedVal / 100;
+	    } else {
+		    return this.obj.style.opacity;
+	    }
+    }
+
+    function changeOpacity() {
+
+	    // div1
+	    var currentOpacity = parseFloat(theobjs["div1"].objGetOpacity());
+	    currentOpacity-=0.1;
+	    theobjs["div1"].objSetOpacity(currentOpacity);
+
+	    // div2
+	    currentOpacity = parseFloat(theobjs["div2"].objGetOpacity());
+	    currentOpacity+=0.1;
+	    theobjs["div2"].objSetOpacity(currentOpacity);
+    }
+
+    function DivObj(obj) {
+	    this.obj = obj;
+	    this.objGetOpacity = getOpacity;
+	    this.objSetOpacity = obj.style.filter ? alphsOpacity : cssOpacity;
+    }
+
+    function setup() {
+	    theelements = document.getElementsByTagName("DIV");
+	    for (i = 0; i < theelements.length; i++) {
+		    var obj = theelements[i];
+		    if (obj.id) {
+			    theobjs[obj.id] = new DivObj(obj);
+		    }
+	    }
+
+	    // opacity의 초기값 설정
+	    theobjs["div1"].objSetOpacity(1.0);
+	    theobjs["div2"].objSetOpacity(0.0);
+    }
+
+    // 이벤트 핸들러
+    document.onclick=changeOpacity;
+
+    //]]>
+    </script>
+
+  </head>
+
+  <body onload="setup()">
+  <div id="div1">
+  <img src="pic_deokchohyun1.jpg" />
+  </div>
+  <div id="div2" style="opacity: 0.0; filter: alpha(opacity=0)">
+  <img src="pic_deokchohyun2.jpg" />
+  </div>
+  </body>
+</html>

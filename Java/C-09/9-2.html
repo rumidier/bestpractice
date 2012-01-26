@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Cross-Window Communication</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+
+  <body>
+    <script type="text/javascript">
+    //<![CDATA[
+      window.onload=setObjects;
+
+      function setObjects() {
+	      document.forms[0].elements[0].focus();
+
+	      var evtObject = document.getElementById("panicbutton");
+
+	      // 객체 모델을 테스트한다.
+	      if (evtObject.addEventListener) {
+		      evtObject.addEventListener("click", openHelp, false);
+	      } else if (evtObject.attachEvent) {
+		      evtObject.attachEvent("onclick", openHelp);
+	      } else if (evtObject.onclick) {
+		      evtObject.onclick=openHelp;
+	      }
+      }
+
+      function openHelp(x) {
+	      var optionString = "width=200, height=100, menubar=no, toolbar=no, scrollbars=no, location=no, resizeable=no";
+	      var helpWindow = window.open("help.html","test",optionString);
+	      helpWindow.focus();
+	      helpWindow.moveTo(x.screenX,x.screenY);
+	      return false;
+      }
+
+    //]]>
+    </script>
+
+    <form name="currentForm">
+    Your name: <input type="text" size="50">
+    </form>
+    <div id="panicbutton" style="width:100px;height:20px;background-color:#f00; padding: 5px;margin:10px auto">
+    Push for Help
+    </div>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD xhtml1-transitional.dtd">
+
+<html>
+  <head>
+    <title>FIFO</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+
+  <body>
+    <script type="text/javascript">
+    //<![CDATA[
+    //FIFO 큐를 생성하고 push를 사용해서 원소를 추가한다
+    var fifoArray = new Array();
+    fifoArray.push("Apple");
+    fifoArray.push("Banana");
+    var ln = fifoArray.push("Cherry");
+
+    // 길이와 배열을 출력한다.
+    document.writeln("length is " + ln + " and array is " + fifoArray + "<br />");
+
+    // shift 메소드를 사용해 배열에서 원소를 제거한다(제거하는 값은 그 때마다 반환되어 화면에 출력된다.)
+    for (var i = 0; i < ln; i++) {
+	    document.writeln(fifoArray.shift() + "<br />");
+    }
+
+    // 길이를 출력한다.
+    document.writeln("length now is " + fifoArray.length + "<br /><br />");
+
+    // 새 배열을 만들어, unshift와 pop 메소드를 이용해 보자.
+    var fifoNewArray = new Array();
+
+    // unshift 메소드로 배열의 앞 부분에 원소를 추가한다.
+    fifoNewArray.unshift("Learning");
+    fifoNewArray.unshift("Java");
+    ln = fifoNewArray.unshift("Script")
+
+    document.writeln("length is " + ln + " and array is " + fifoNewArray + "<br />");
+
+    // pop 메소드를 사용해 배열에서 원소를 제거한다(제거하는 값은 그 때마다 반환되어 화면에 출력된다.)
+    for ( i = 0; i < ln; i++) {
+	    document.writeln(fifoNewArray.pop() + "<br />");
+    }
+    document.writeln("new length is " + fifoNewArray.length );
+    //]]>
+    </script>
+  </body>
+</html

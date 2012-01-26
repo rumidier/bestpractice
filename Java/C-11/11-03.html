@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xthml1-transitional.dtd">
+<html>
+  <head>
+    <title>Second Object</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTf-8" />
+
+    <script type="text/javascript">
+    //<![CDATA[
+
+    function Tune (title) {
+	    this.title = title;
+    }
+    function printTitle () {
+	    alert(this.title);
+    }
+    var someTune = new Tune("Title");
+    Tune.prototype.print = printTitle;
+    someTune.print();
+
+    var anotherTune = new Tune("Another Title");
+    anotherTune.print();
+
+    //]]>
+    </script>
+  </head>
+
+  <body>
+  </body>
+</html>

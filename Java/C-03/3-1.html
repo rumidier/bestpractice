@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C/DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+  <head>
+    <title>Using Binary Flags</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script type="text/javascript">
+    //<![CDATA[
+
+    var FIELD_A = 0x1;  // 00001
+    var FIELD_B = 0x2;  // 00010
+    var FIELD_C = 0x4;  // 00100
+    var FIELD_D = 0x8;  // 01000
+    var FIELD_E = 0x10; // 10000
+
+    // 필드 A, C, E 값이 채워져 있다(1로 설정됨)고 가정
+    var fieldsSet = FIELD_A | FIELD_C | FIELD_E; // 00001 | 00100 | 10000 => 1-1-1
+
+    if ((fieldsSet & FIELD_A) && (fieldsSet & FIELD_C)) {
+	    alert("Fields A and C are set");
+    }
+    //]]>
+    </script>
+  </head>
+  </body>
+  <p><p>Imagine a form five fields and a button here....</p></p>
+</html>

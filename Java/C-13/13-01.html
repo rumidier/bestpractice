@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Hello Ajax World</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <style type="text/css">
+    div.elem { margin: 20px; }
+    </style>
+
+    <script type="text/javascript">
+    //<![CDATA[
+
+    var xmlhttp = false;
+    if (window.XMLHttpRequest) {
+	    xmlhttp = new XMLHttpRequest();
+	    xmlhttp.overrideMimeType('text/xml');
+    } else if (window.ActiveXObject) {
+	    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    function populateList() {
+	    var state = document.forms[0].elements[0].value;
+	    var url = 'ajax.php?state=' + state;
+	    xmlhttp.open('GET', url, true);
+	    xmlhttp.onreadystatechange = getCities;
+	    xmlhttp.send(null);
+    }
+
+    function getCities() {
+	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+		    document.getElementById('cities').innerHTML = "<select>" + xmlhttp.responseText + "</select>";
+	    } else {
+		    document.getElementById('cities').innerHTML = 'Error: preSearch Failed!';
+	    }
+    }
+    //]]>
+    </script>
+  </head>
+
+  <body>
+  <h3>Select StateL</h3>
+  <form action="ajax.php" method="get">
+  <div class="elem">
+  <select onchange="populateList()">
+  <option value="CA">California</option>
+  <option value="MO">Missouri</option>
+  <option value="WA">Washington</option>
+  <option value="ID">Idaho</option>
+  </select>
+  </div>
+  <h3>Cities:</h3>
+  <div class="elem" id="cities">
+  <select>
+  </select>
+  </div>
+  </form>
+
+  </body>
+</html>

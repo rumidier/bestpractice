@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Hello Ajax World, Too</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <style type="text/css">
+    div.elem { margin: 20px; }
+    </style>
+
+    <script type="text/javascript">
+    //<![CDATA[
+
+    var xmlhttp = false;
+    if (window.XMLHttpRequest) {
+	    xmlhttp = new XMLHttpRequest();
+	    xmlhttp.overrideMimeType('text/xml');
+    } else if (window.ActiveXObject) {
+	    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    function populateList() {
+	    var state = document.forms[0].elements[0].value;
+	    var url = 'ajaxxml.php?state=' + state;
+	    xmlhttp.open('GET', url, true);
+	    xmlhttp.onreadystatechange = getCities;
+	    xmlhttp.send(null);
+    }
+
+    function getCities() {
+	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+		    try {
+			    var citynodes = xmlhttp.responseXML.getElementsByTagName('city');
+			    for (var i = 0; i < citynodes.length; i++) {
+				    var name = value = null;
+				    for (var j = 0; j < citynodes[i].childNodes.length; j++) {
+					    var elem = citynodes[i].childNodes[j].nodeName;
+					    var nodevalue = citynodes[i].chilNodes[j].firstChild.nodeValue;
+
+					    if (elem == 'value') {
+						    value = nodevalue;
+					    } else {
+						    name = nodevalue;
+					    }
+				    }
+				    document.forms[0].elements[1].options[i] = new Option(name,value);
+			    }
+		    } catch (e) {
+			    alert(e.message);
+		    }
+	    } else {
+		    document.getElementById('cities').innerHTML = 'Error: No Cities';
+	    }
+    }
+    //]]>
+    </script>
+  </head>
+
+  <body>
+
+  <h3>Select State:</h3>
+  <form action="ajaxxml.php" method="get">
+  <div class="elem">
+  <select onchange="populateList()">
+  <option value="CA">California</option>
+  <option value="MO">Missouri</option>
+  <option value="WA">Washington</option>
+  <option value="ID">Idaho</option>
+  </select>
+  </div>
+  <h3>Cities:</h3>
+  <div class="elem">
+  <select id="cities">
+  </select>
+  </div>
+  </form>
+  </body>
+</html>

@@ -1,0 +1,4 @@
+5. 세 개의 public 메소드(changeState, getColor, getState)와 두 개의 private 데이터 멤버
+(background, state)를 갖는 사용자 정의 객체를 생성하라. 상태를 나타내는 state의 초기값은
+on, 배경색을 나타내는 color의 초기값은#fff이다. changeState 메소드는 state가 on이면 off로
+바꾸고 color를 #000으로 바꾼다. getColor는 색깔을 반환하고, getState는 상태를 반환한다.

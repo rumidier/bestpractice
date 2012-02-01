@@ -18,7 +18,7 @@
     function artist_tune(title,type,artist) {
 	    this.artist = artist;
 	    this.toString("Artist is " + artist);
-	    this.apply(this,arguments);
+	    tune.apply(this,arguments);
 	    this.toString = function () {
 		    return "Artist: " + this.artist + " " + this.getTitle();
 	    }

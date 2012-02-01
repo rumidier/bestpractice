@@ -11,7 +11,7 @@
     function alphaOpacity(value) {
 	    if (typeof value == "number") {
 		    var opacity = value * 100;
-		    this.style.filter = "alpha(opacity:"+opacity+");
+		    this.style.filter = "alpha(opacity:"+opacity+")";
 	    } else {
 		    throw "NotANumber";
 	    }
@@ -35,10 +35,41 @@
 		    return this.obj.style.opacity;
 	    }
     }
+
+    function changeOpacity() {
+      try {
+        // div1
+        var currentOpacity = div1.objGetOpacity();
+        currentOpacity += 0.1;
+        div1.objSetOpacity(currentOpacity);
+      } catch (e) {
+        alert(e);
+      }
+    }
+
+    function DivObj(obj) {
+      this.obj = obj;
+      this.objGetOpacity = getOpacity;
+      this.objSetOpacity = obj.style.filter ? alphaOpacity : cssOpacity;
+    }
+
+    function setup() {
+      div = document.getElementById("div1");
+      div1 = new DivObj(div);
+
+      // 최초 불투명도 설정
+      div1.objSetOpacity(0.0);
+    }
+
+    // 이벤트 핸들러
+    document.onclick=changeOpacity;
+
     //]]>
     </script>
   </head>
 
-  <body>
+  <body onload="setup()">
+  <div id="div1">
+  <img src="pic_deokchohyun1.jpg" />
   </body>
 </html>

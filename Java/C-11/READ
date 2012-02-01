@@ -1,0 +1,19 @@
+자바 스크립트 1.5 엔진 에러 6가지 구분
+
+EvalError
+eval을 잘못 사용했을 때
+
+RangeError
+숫자 값이 범위를 초과했을 때
+
+ReferenceError
+잘못된 참조를 사용했을 때
+
+SyntaxError
+구문이 잘못 되었을 때
+
+TypeError
+변수의 타입이 예상한 타입과 다를 때
+
+URIError
+encodeURI()나 decodeURI()를 잘못 사용했을 때

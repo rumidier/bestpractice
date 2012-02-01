@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Fly-Ins</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <style type="text/css">
+
+      div { padding: 10px; }
+
+      #div1 {
+	background-color: #00f;
+	color: #fff;
+        font-size: larger;
+	position: absolute;
+	width: 400px;
+	height: 200px;
+	left: -410px;
+	top: -400px;
+      }
+
+      #div2 {
+        background-color: #ff0;
+        color: #;
+        font-size: larger;
+	position: absolute;
+	width: 400px;
+	height: 200px;
+	left: -410px;
+	top: -400px;
+      }
+
+      #div3 {
+        background-color: #f00;
+        color: #fff;
+        font-size: larger;
+	position: absolute;
+	width: 400px;
+	height: 200px;
+	left: -410px;
+	top: -400px;
+      }
+  </style>
+
+  <script type="text/javascript">
+  //<![CDATA[
+
+  var element = ["div1", "div2", "div3"];
+
+  function next() {
+	  setTimeout("moveBlock()", 1000);
+  }
+
+  var x = 0;
+  var y = 0;
+  var elem = 0;
+
+  function moveBlock() {
+	  x+=20;
+	  y+=20;
+	  var obj = document.getElementById(element[elem]);
+	  obj.style.top = x+"px";
+	  obj.style.left = y+"px";
+	  if (x < (100 + elem * 60)) {
+		  setTimeout("moveBlock()", 100);
+	  } else {
+		  elem++;
+		  x = 0; y = 0;
+	  }
+
+  }
+  //]]>
+  </script>
+  </head>
+
+  <body>
+  <p>
+  <a href="javascript:next();">Next slide</a>
+  </p>
+  <div id="div1">
+  Now is the time for all good wo-men to come to the aid of their country.
+  </div>
+  <div id="div2">
+  99 bottles of beer on the wall, 99 bootles of beer.<br />
+  Take one down, pass it around, 98 bottles of beer one...
+  </div>
+  <div id="div3">
+  web 2.0 WEB 2.0 Web 222....0000<br />
+  i'm so cool,
+  <h2>Learning JavaScript!</h2>
+  </div>
+  </body>
+</html>

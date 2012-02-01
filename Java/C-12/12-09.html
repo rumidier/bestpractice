@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Collapsing Forms</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css">
+
+    .label {
+	    background-color: #033; width: 400px; border-right: 1px solid #fff;
+	    padding: 10px; margin: 0 20px; color: #fff; text-align: center;
+	    border-bottom: 1px solid #fff;
+    }
+    .label a { color: #fff }
+    .elements {
+	    background-color: #CCD9FF; margin: 0 20px; padding: 10px;
+	    width: 400px; display: none
+    }
+    </style>
+
+    <script type="text/javascript">
+    //<![CDATA[
+
+    window.onload=setup;
+
+    function setup() {
+	    document.getElementById('one').style.display='none';
+	    document.getElementById('two').style.display='none';
+    }
+
+    function show(newItem) {
+	    var item = document.getElementById(newItem);
+	    if (item.style.display=='none') {
+		    item.style.display='block';
+	    } else {
+		    item.style.display='none';
+	    }
+    }
+
+    //]]>
+    </script>
+  </head>
+
+  <body>
+  <form action="GET">
+  <div class="label" onclick="show('one')">
+  <a href="#name" onclick="return false">Name</a>
+  </div>
+  <div class="elements" id="one">
+  <label>First Name:</label><br /><input type="text" name="firstname" /><br /><br />
+  <label>Last Name:</label><br /><br /><input type="text" name="lastname" /><br /><br />
+  </div>
+  <div class="label" onclick="show('two')">
+  <a href="#address" onclick="return false">Address</a>
+  </div>
+  <div class="elements" id="two">
+  <label>Street Address:</label><br /><input type="text" name="street" /><br /><br />
+  <label>City:</label><br /><input type="text" name="city" /><br /><br />
+  <label>State:</label></br /><input type="text" name="state" /><br /><br />
+  </div>
+  </form>
+
+  <p>Other data or information.</p>
+  </body>
+</html>

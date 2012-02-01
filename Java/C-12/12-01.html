@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Changing Styles</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <script type="text/javascript">
+      //<![CDATA[
+
+      function changeElement() {
+	      var div = document.getElementById("div1");
+
+	      div.style.backgroundColor="#f00";
+	      div.style.width="500px";
+	      div.style.color="#fff";
+	      div.style.height="200px";
+	      div.style.paddingLeft="50px";
+	      div.style.paddingTop="50px";
+	      div.style.fontFamily="Verdana";
+	      div.style.borderColor="#000";
+      }
+
+      //]]>
+      </script>
+  </head>
+
+  <body onload="changeElement();">
+  <div id="div1">
+  This is a DIV element.
+  </body>
+</html>

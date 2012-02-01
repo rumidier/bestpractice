@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script type="text/javascript">
+    //<![CDATA[
+
+    function makeMore() {
+	    var div = document.getElementById("div1");
+	    div.style.fontSize="larger";
+	    div.style.letterSpacing="10px";
+	    div.style.textAlign="justify";
+	    div.style.textTransform="uppercase";
+	    div.style.fontSize="xx-large";
+	    div.style.fontWeight="900";
+	    div.style.lineHeight="40px";
+    }
+
+    function makeLess() {
+	    var div = document.getElementById("div1");
+	    div.style.fontSize="smaller";
+	    div.style.letterSpacing="normal";
+	    div.style.textAlign="left";
+	    div.style.textTransform="none";
+	    div.style.fontSize="medium";
+	    div.style.fontWeight="normal";
+	    div.style.lineHeight="normal";
+    }
+    //]]>
+    </script>
+  </head>
+
+  <body>
+  <p>
+  <a href="" onclick="makeMore(); return false;">make it more</a>
+  <a href="" onclick="makeLess(); return false;">Make it less</a>
+  </p>
+
+  <div id="div1">
+  <p>
+  One of the first presentation-specific HTML elements was font, and it's also one of the older
+  HTML elements you still find, all too frequently, in web pages. It's not surprising that font and text properties were of sush interset in building web pages. Fewchanges you can make to an element's style attributes can have such an effect as changing the text or font properties.
+  </p><p>Notice I say text or font properties. The font has to do with the characters themselves: their family, size, type, and otherelements of the characters' appearance. The text attributes, though, have mor to do with decoration attached tothe text and include text decoration, alignment, and so on.</p>
+  </div>
+  </body>
+</html>

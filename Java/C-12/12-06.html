@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Overflow</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <style type="text/css">
+        #div1 { width: 700px; height: 150px }
+        #div2 { width: 600px; height: 100px; overflow: auto }
+      </style>
+
+      <script type="text/javascript">
+      //<![CDATA[
+
+      function switchContent( ) {
+	      var div1 = document.getElementById("div1").innerHTML;
+	      var div2 = document.getElementById("div2").innerHTML;
+	      document.getElementById("div1").innerHTML = div2;
+	      document.getElementById("div2").innerHTML = div1;
+      }
+
+      //]]>
+      </script>
+  </head>
+
+  <body>
+  <p>
+  <a href="javascript:switchContent();">Switch</a>
+  </p>
+  <div id="div1">
+  <p>
+  Onew of the first presentation-specific HTML elements was font,
+  and it's also one of the older HTML elements you still find, all
+  too frequently, in web pages. It's not surprising that font and
+  text properties were of such interset in building web pages. Few
+  changes you can make to an element's style attributes can have
+  such an effect as changing the text or font properties. </p>
+  <p>
+  Notice I say text or font properties. The font has to do with the
+  characters themselves: their family, size, type, and other
+  elements of the characters' appearance. The text attributes,
+  though, have more to do with decoration attached to the text and
+  include text decoration, alignment, and so on.
+  </div>
+  <div id="div2">
+  <p>Smaller item.</p>
+  </body>
+</html>

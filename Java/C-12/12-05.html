@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>GoogleMapEffect</title>
+    <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
+    <style type="text/css">
+    #div1 {
+      overflow: hidden;
+      position: absolute;
+      top: 100px;
+      left: 100px;
+      border: 5px solid #000;
+      width: 400px;
+      height: 350px;
+    }
+    img {
+      border: 1px solid #000;
+    }
+    </style>
+
+    <script type="text/javascript">
+    //<![CDATA[
+
+    // 전역 변수
+    var dragObject = null;
+    var mouseOffset = null;
+
+    // 마우스 이벤트 캡처
+    document.onmousemove = mouseMove;
+    document.onmouseup = mouseUp;
+
+    // 마우스 포인트 생성
+    function mousePoint (x, y) {
+      this.x = x;
+      this.y = y;
+    }
+
+    // 마우스 위치 검색
+    function mousePosition (evnt) {
+      var x = parseInt(evnt.clientX);
+      var y = parseInt(evnt.clientY);
+      return new mousePoint(x,y);
+    }
+
+    // 페이지 내에서의 엘리먼트의 위치 찾기
+    function getMouseOffset(target, evnt) {
+      evnt = evnt || window.event;
+      var mousePos = mousePosition(evnt);
+
+      var x = mousePos.x - target.offsetLeft;
+      var y = mousePos.y - target.offsetTop;
+      return new mousePoint(x,y);
+    }
+
+    // 드래그 종료
+    function mouseUp(evnt) {
+      dragObject = null;
+    }
+
+    // 드래그 할 때만 마우스 이동 캡처
+    function mouseMove (evnt)  {
+      if (!dragObject) return;
+      evnt = evnt || window.event;
+      var mousePos = mousePosition(evnt);
+
+      // 드래그 가능하면 새로운 절대 좌표를 설정한다.
+      if (dragObject) {
+        dragObject.style.position = 'absolute';
+
+        dragObject.style.top = mousePos.y - mouseOffset.y + "px";
+        dragObject.style.left = mousePos.x - mouseOffset + "px";
+        return false;
+      }
+    }
+
+    // 객체 드래그 활성화
+    function makeDraggable(item) {
+      if (item) {
+        item = document.getElementById(item);
+        item.onmousedown = function(evnt) {
+          dragObject = this;
+          mouseOffset = getMouseOffset(this, evnt);
+          return false;
+        };
+      }
+    }
+
+    //]]>
+    </script>
+  </head>
+
+  <body onload="makeDraggable('img1');">
+  <div id="div1">
+  <img id="img1" src="pic_gayagum.jpg" />
+  </div>
+  </body>
+</html>

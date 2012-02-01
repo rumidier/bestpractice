@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>In-Place Help</title>
+    <meta http-equiv="Content-Type" content-"text/html; charset=UTF-8" />
+
+    <style type="text/css">
+    .help{
+	position: absolute;
+	left: 300px;
+	visibility: hidden;
+	width; 100px;
+	padding: 10px;
+	border: 1px solid #f00;
+    }
+
+    form {
+	margin: 20px; background-color: #DFE1CB;
+	padding: 20px; width: 200px
+    }
+    form a {
+	color: #060; text-decoration: none }
+
+    form a:hover { cursor : help }
+
+    </style>
+
+    <script type="text/javascript">
+    //<![CDATA[
+
+    var item = null;
+
+    function showHelp(newItem) {
+	    if (item) {
+		    item.style.visibility = 'hidden';
+	    }
+	    item=document.getElementById(newItem);
+	    item.style.visibility = 'visible';
+    }
+
+    //]]>
+    </script>
+  </head>
+
+  <body>
+  <form>
+  <label><a href="javascript:showHelp('item1')" alt="get help">Item One</a></label>
+  <input type="text"><br /><br />
+  <label><a href="javascript:showHelp('item2')" alt="get help">Item Two</a></label>
+  <input type="text">
+  </form>
+  <div id="item1" class="help">
+  This is the help for the first item. It only shows when you click on the label for the item.
+  </div>
+  <div id="item2" class="help">
+  This is the help for the second item. It only shows when you click
+  one the label for the item.
+  </div>
+  </body>
+</html>

@@ -1,0 +1,91 @@
+폰트 스타일 프로퍼티
+
+font-family
+자바스크립트에서는 fontFamily로 접근한다. 폰트의 종류(Serif, Arial, Verdana 등)를 지정하는 것으로,
+폰트명이 여러 단어로 이루어진 경우에는 공백까지도 정확히 입력해야 한다.
+
+font-size
+자바스크립트에서는 fontSize로 접근한다. 폰트의 크기를 지정하는 것으로, 단위는 여러 가지를 사용
+할수 있다. 웹페이지 사용자의 개인 설정에 따라 상대적으로 결정하려면 em이나 pt 단위를 사용하고
+(예를 들어, 12pt나 2.5em등), 사용자 개인 설정과 상관없이 일정한 크기를 유지하려면, px(pixel)을
+사용한다.
+
+font-size-adjust
+자바스크립트에서는 fontSizeAdjust로 접근한다. 영문 소문자 x의 높이와 font-size에 지정된 높이의 비율
+을 지정하는 것으로, 실제로는 거의 사용하지 않는다.
+
+font-stretch
+자바스크립트에서는 fontStretch로 접근한다. 폰트의 장평을 지정하는 것으로, 사용할 수 있는 값은 다음의
+11가지다. normal, wider, narrower, ultra-condensed, extra-condensed, condensed, semi-condensed,
+semi-expanded, expanded, ultra-expanded, extra-expanded.
+
+font-style
+자바스크립트에서는 fontStyle로 접근한다. 폰트에 간단한 효과를 주는 것으로, 값은 nomail(기본값), italic,
+
+font-variant
+자바스크립트에서는 fontVariant로 접근한다. 글씨를 작은 대문자로 표기하고 싶으면 small-caps를 사용한다.
+
+font-weight
+자바스크립트에서는 fontWeight로 접근한다. 폰트의 굵기를 지정하는 것으로, normal, bold, bolder, lighter,
+또는 100, 200, 300, 400, 500, 600, 700, 800, 900를 값으로 사용한다.
+
+텍스트 프로퍼티(CSS 텍스트 프로퍼티)
+
+color
+자바스크립트에서 color로 접근한다. 텍스트의 색상을 지정할 때 사용한다.
+
+line-height
+자바스크립트에서 lineHeight로 접근한다. 줄 간격(윗줄의 아래 부분과 아랫줄의 윗 부분 사이)을 지정하는 것으로
+,폰트 크기를 지정하는 방법과 같은 방식으로 값을 지정하거나 normal로 지정한다.
+
+text-decoration
+자바스크립트에서 textDecoration으로 접근한다. 텍스트를 꾸밀 때 사용하는 것으로, 값은 none,
+underline, overline, line-through 중 하나를 사용한다. blink는 사용할 수는 있지만 가급적 사용하지
+않는 것이 좋다.
+
+text-indent
+자바스크립트에서 textIndent로 접근한다. 들여쓰기를 지정하는 데 사용한다.
+
+text-transform
+자바스크립트에서 textTransform으로 접근한다. none, capitalize(모든 단어의 첫 글자를 대문자로 바꿈),
+uppercase, lowercase 중 하나로 지정한다.
+
+white-space
+자바스크립트에서 whiteSpace로 접근한다. normal, pre, nowrap 중 하나로 지정한다.
+
+direction
+자바스크립트에서 direction으로 접근한다. ltr(왼쪽에서 오른쪽), rtl(오른쪽에서 왼쪽)중 하나로 지정한다.
+
+text-align
+자바스크립트에서 textAlign으로 접근한다. 텍스트 정렬 방식을 지정하는 것으로 left, right, center, justify와 같은
+값을 사용할 수 있다.
+
+word-spacing
+자바스크립트에서 wordSpacing으로 접근한다. 단어 사이의 간격을 지정하는 것으로, normal이나 길이 값으로 지정할 수 있다.
+
+위치 지정과 이동
+
+position
+position 프로퍼티에는 relative, absolute, static, inherit, fixed의 5가지 값을 설정할 수 있다. 대부분의 엘리먼트에는
+static이 기본값으로 설정되어 있다. 따라서 static으로 지정된 엘리먼트는 페이지 내에서 차례대로 그 위치가 결정된다. 즉,
+먼저 위치한 엘리먼트에 따라 현재 엘리먼트의 위치가 결정된다. relative는 static의 위치에서 지정된 오프셋만큼 떨어진 위치
+에 놓는 방식이다. absolute는 엘리먼트의 위치를 절대값으로 지정하기 때문에, 다른 엘리먼트에 영향을 받지 않는다. 즉, 다른
+엘리먼트와 겹쳐서 위치시키는 것도 가능해진다. fixed 방식은 absolute와 비슷하며, 특정 시야각에서 상대적인 위치에 엘리먼트
+를 놓는다는 점이 다르다. 주로 사용하는 것은 absolute와 relative이다.
+
+top
+웹페이지의 좌표에서 맨 윗쪽의 값은 0이고 아래로 내려갈수록 값이 증가한다. top 프로퍼티를 사용하여 엘리먼트의 위쪽 시작
+위치(y)를 지정할 수 있다.
+
+left
+웹페이지의 좌표에서 맨 왼쪽의 값은 0이고 오른쪽으로 갈수록 값이 증가한다. left 프로퍼티를 사용하여 엘리먼트의 왼쪽 시작
+위치(x)를 지정할 수 있다.
+
+bottom
+bottom 프로퍼티는 페이지의 맨 아래쪽을 0으로 한다. 0 이상의 값은 엘리먼트를 페이지의 위쪽으로 이동시킨다.
+
+right
+right 프로퍼티는 페이지의 맨 오른쪽을 0으로 한다. 0 이상의 값은 엘리먼트를 페이지의 왼쪽으로 이동시킨다.
+
+z-index
+z-index는 화면에 나타나 페이지의 수직선 상에 존재한다. 즉, 화면을 x-y 좌표계로 생각했을 때, z 좌표를 뜻하는 것이다. 앞에서도 언급했듯이, absolute 방식을 사용하면 여러 개의 엘리먼트를 서로 포개어 놓을 수 있다. 나중에 정의된 엘리먼트는 위쪽에 위치하고 먼저 정의된 엘리먼트는 아래에 위치한다. 이렇게 서로 포개어져서 쌓여 있는 엘리먼트는 z-index를 사용하여 접근 한다. 여기에는 음수/양수 값 모두 사용할 수 있다. 0이 기본 렌더링 레이어(relative 방식)이므로 음수를 사용하면 엘리먼트가 이 레이어 보다 아래에 위치하고 양수를 사용하면 위쪽에 위치한다.

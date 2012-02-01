@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Shy Style</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <style type="text/css">
+      #div1 { background-color: #ff0 }
+      </style>
+      <script type"text/javascript">
+      //<![CDATA[
+
+      document.onclick=changeElement;
+
+      function getStyle(obj, jsprop, cssprop) {
+	      if (obj.currentStyle) {
+		      return obj.currentStyle[jsprop];
+	      } else if (window.getComputedStyle) {
+		      return document.defaultView.getComputedStyle(obj,null).getPropertyValue(cssprop);
+	      } else {
+		      return null;
+	      }
+      }
+
+      function changeElement() {
+	      var obj = document.getElementById("div1");
+	      alert(obj.style.backgroundColor);
+	      alert(getStyle(obj,"backgroundColor","background-color"));
+	      obj.style.backgroundColor="#ff0000";
+	      alert(getStyle(obj,"backgroundColor","background-color"));
+	      alert(obj.style.backgroundColor);
+      }
+
+      //]]>
+      </script>
+  </head>
+
+  <body>
+  <div id="div1">
+  <p>This is a DIV element</p>
+  </body>
+</html>

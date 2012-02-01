@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Simple Clip Scroll</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css">
+      #data1 {
+		position: absolute;
+		top: 100px; left: 100px;
+		padding: 0;
+		width: 200px;
+		height: 200px;
+		background-color: #ff0;
+		clip: rect(0px, 200px, 200px, 0px);
+      }
+
+      #data1 h3 {
+	margin: 0; padding: 5px;
+	font-size: smaller;
+	background-color: #006;
+	color: #fff;
+      }
+
+      #contained {
+	margin: 10px;
+      }
+    </style>
+
+    <script type="text/javascript">
+    //<![CDATA[
+
+    var bottom = 200;
+    var hidden = false;
+    var obj = null;
+
+    function clipItem() {
+	    obj = document.getElementById("data1");
+	    if (hidden) {
+		    showItem();
+	    } else {
+		    hideItem();
+	    }
+    }
+
+    function hideItem() {
+	    bottom-=20;
+	    var clip = "rect(0px, 200px," + bottom + "px.Opx)";
+	    obj.style.clip = clip;
+	    if (bottom == 20) {
+		    hidden=true;
+	    } else {
+		    setTimeout("hideItem()", 100);
+	    }
+    }
+
+    function showItem() {
+	    bottom+=20;
+	    var clip = "rect(0px,200px," + bottom + "px,0px)";
+	    obj.style.clip=clip;
+	    if (bottom == 200) {
+		    hidden=false;
+	    } else {
+		    setTimeout("showItem()",100);
+	    }
+    }
+
+    //]]>
+    </script>
+  </head>
+
+  <body>
+  <div id="data1">
+  <h3 onclick="clipItem();">Click to expand or collapse</h3>
+  <div id="contained">
+  This is the text contained within the div block.
+  </div>
+  </div>
+  </body>
+</html>

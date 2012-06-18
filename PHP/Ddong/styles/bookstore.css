@@ -1,0 +1,172 @@
+* { /* sets 0 margin and 0 padding on everything */
+	margin: 0; 
+	padding: 0; 
+}
+
+p, h1, h2, h3, h4, ol, ul, dl  {
+  margin-top: .5em;
+  margin-bottom: 1em;
+}
+
+
+body {
+	background: #fff;
+	color: #333;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 62.5%;
+}
+#wrapper {
+  font-size: 1.2em;
+}	
+
+#branding {
+  height: 100px;
+	padding: 15px 10px 5px;
+	border-bottom: 1px solid #ccc;
+	background: #ffd;
+}
+#primary-nav {
+  position: absolute;
+  top: 90px;
+  left: 0;
+  height: 30px;
+  width: 100%;
+  background: #efd;
+}
+li {
+  margin-left: 1.2em;
+}
+#container {
+	float: left;
+	width: 100%;
+	margin-bottom: 2em;
+}
+#content {
+	margin: 0 21em 0 16em; /* Margins for content column. Should be 0, #sidebar width, 0, #secondary-nav width */
+}
+
+#secondary-nav {
+	float: left;
+	width: 15em; 
+	margin-left: -100%;
+	background: #efd;
+}
+
+
+#sidebar {
+	float: left;
+	width: 20em; /*Width of right column in pixels*/
+	margin-left: -20em; /*Set margin to that of -(RightColumnWidth)*/
+	background: #efd;
+}
+
+#footer {
+	clear: left;
+  width: 100%;
+	background: #000;
+	color: #fff;
+	text-align: center;
+	padding: 4px 0;
+}
+
+/****************************************
+   =MAIN CONTENT AREA
+-------------------------------------- */
+
+
+/* padding for all child elements within container */
+#content *, 
+#secondary-nav *, 
+#sidebar * {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+/* NO padding for all grandchild+ elements within container */
+#content * *, 
+#secondary-nav * *, 
+#sidebar * * {
+  padding: 0;
+}
+
+
+/****************************************
+   =PRIMARY NAV
+-------------------------------------- */
+#primary-nav ul {
+  list-style-type: none;
+  padding-left: 5px;
+}
+#primary-nav li {
+  float: left;
+  margin-left: 0;
+  padding: 5px;
+}
+
+/****************************************
+   =SECONDARY NAV - currently left column
+-------------------------------------- */
+#secondary-nav h2, #sidebar h2 {
+	border-bottom: 1px dotted #ccc;
+}
+
+#sidebar h3 {
+  border-top: 1px dotted #ccc;
+  padding-top: 1em;
+}
+
+#secondary-nav h3 {
+  font-size: 1em;
+}
+#secondary-nav h3 a {
+  padding-left: 20px;
+  color: #15b;
+  text-decoration: none;
+  background: url('../icons/cart.png') no-repeat 0 50%;
+}
+
+#secondary-nav h3 a.active {
+  color: #000;
+  cursor: text;
+}
+#secondary-nav h3 span {
+  border-bottom: 1px dotted #15b;
+}
+
+#secondary-nav li {
+  margin-bottom: .5em;
+}
+
+#footer a {
+	color: #ff0;
+} 
+
+
+/***************************************
+   =INTERFACE ELEMENTS
+-------------------------------------- */
+
+.clickable {
+  cursor: pointer;
+}
+
+.hover {
+  text-decoration: underline;
+}
+
+
+/* ----------------------------
+=Alsett Clearing Method for floats 
+-------------------------------*/  
+.clear-after:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+  }
+.clear-after {display: inline-block;}
+/* backslash hack hides from IE Mac \*/
+	* html .clear-after {height: 1%;}
+	.clear-after {display: block;}
+/* end backslash hack */

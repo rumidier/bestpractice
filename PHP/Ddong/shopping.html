@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C/DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="texthtml; charset=utf-8" />
+      <title>Cart</title>
+      <link rel="stylesheet" href="styles/bookstore.css" type="text/css" media="screen" />
+      <link rel="stylesheet" href="styles/tables.css" type="text/css" media="screen" />
+      <link rel="stylesheet" href="styles/forms.css" type="text/css" media="screen" />
+      <script src="scripts/jquery.js" type="text/javascript"></script>
+      <script src="scripts/tables.js" type="text/javascript"></script>
+      <script src="scripts/forms.js" type="text/javascript"></script>
+  </head>
+
+  <body>
+    <form action="checkout.php" method="POST">
+      <table id="cart">
+        <thead>
+          <tr>
+            <th class="item">Item</th>
+            <th class="quantify">Quantity</th>
+            <th class="price">Price</th>
+            <th class="cost">Total</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr class="subtotal">
+            <td class="item">Subtotal</td>
+            <td class="quantify"></td>
+            <td class="price"></td>
+            <td class="cost">$3218</td>
+          </tr>
+          <tr class="tax">
+            <td class="item">Tax</td>
+            <td class="quantify"></td>
+            <td class="price">6%</td>
+            <td class="cost">$0</td>
+          </tr>
+          <tr class="shipping">
+            <td class="item">Shipping</td>
+            <td class="quantify">5</td>
+            <td class="price">$2 per item</td>
+            <td class="cost">$0</td>
+          </tr>
+          <tr class="total">
+            <td class="item">Total</td>
+            <td class="quantify"></td>
+            <td class="price"></td>
+            <td class="cost">$0</td>
+          </tr>
+          <tr class="actions">
+            <td></td>
+            <td><input type="button" name="recalculate" value="Recalculate" id="recalculate" /></td>
+            <td></td>
+            <td><input type="submit" name="submit" value="Place Order" id="submit" /></td>
+          </tr>
+        </tfoot>
+
+        <tbody>
+          <table width="100%" cellspacing="10" cellpadding="10" border="10">
+            <tr><td>
+              <table width="763" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td align="center">
+                    <table width="650" border="0" cellpadding="2" cellspacing="0">
+                      <tr>
+                        <td width="170" rowspan="2"><img src="./image.php/RN-J001.jpg" height="150" width="169"></td>
+                        <td>　</td>
+                        <td height="60"><font size="5"><b>eX.computer</b></font></td>
+                      </tr>
+                      <tr>
+                        <td valign="top" colspan="2"><span class="normalfont2">2ch</span></td>
+                      </tr>
+                      <tr>
+                        <td align="center">&nbsp;</td>
+                        <td align="right" colspan="2"><span class="normalfont2">販売店舗</span></td>
+                      </tr>
+                    </table>
+                    <table width="763" border="0" cellspacing="0" cellpadding="0">
+                      <td valign="top">
+                        <table align="center" width="95%" border="0" cellspacing="0" cellpadding="0">
+                          <tr bgcolor="#f5f5f5">
+                          <td height="20"><b><span class="normalfont2">OS</span></b></td>
+                          <td align="right"></td>
+                          </tr>
+                          <tr>
+                            <td colspan="1" class="smallfont"></td>
+                          </tr>
+                          <tr>
+                            <td height="26" colspan="2" class="normalfont1">
+                            <input value="0885370259223" name="jancode_1" id="jancode_1_0" type="radio">
+                            <label for="jancode_1_0">【64bit版】 Windows 7 Ultimate 64-bit【+9523円】</label><br />
+
+                            <input value="0885370312546" name="jancode_1" id="jancode_1_1" type="radio">
+                            <label for="jancode_1_1">Windows 7 Professional 32-bit【+3809円】</label><br />
+
+                            <input checked="checked" value="0885370312553" name="jancode_1" id="jancode_1_2" type="radio">
+                            <label for="jancode_1_2">【64bit版】 Windows 7 Home Premium 64-bit【納期+3日】</label><br />
+
+                            <input value="0885370312560" name="jancode_1" id="jancode_1_3" type="radio">
+                            <label for="jancode_1_3">【64bit版】 Windows 7 Professional 64-bit【+3809円】</label><br />
+                          </td>
+                          </tr>
+                        </table>
+                        <br />
+                        <table align="center" width="95%" border="0" cellspacing="0" cellpadding="0">
+                          <tr bgcolor="#f5f5f5">
+                            <td height="20"><b><span class="normalfont2">Office</span></b></td>
+                            <td align="right"></td>
+                          </tr>
+                          <tr>
+                            <td colspan="1" class="smallfont"></td>
+                          </tr>
+                          <tr>
+                            <td height="26" colspan="2" class="normalfont1">
+                              <input value="4515479512832" name="jancode_2" id="jancode_2_0" type="radio">
+                              <label for="jancode_2_0">Microsoft Office Personal 2010</label><br />
+                          
+                              <input value="4515479512849" name="jancode_2" id="jancode_2_1" type="radio">
+                              <label for="jancode_2_1">Microsoft Office Home and Business 2010【+23810円】</label><br />
+                          
+                              <input value="4515479512856" name="jancode_2" id="jancode_2_2" type="radio">
+                              <label for="jancode_2_2">Microsoft Office Professional 2010【+47619円】</label><br />
+                            </td>
+                          </tr>
+                        </table>
+                        <br />
+                        <table align="center" width="95%" border="0" cellspacing="0" cellpadding="0">
+                          <tr bgcolor="#f5f5f5">
+                            <td height="20"><b><span class="normalfont2">対策</span></b></td>
+                            <td align="right"></td>
+                          </tr>
+                          <tr>
+                            <td colspan="1" class="smallfont"></td>
+                          </tr>
+                          <tr>
+                            <td height="26" colspan="2" class="normalfont1">
+                              <input value="0405972972018" name="jancode_3" id="jancode_3_0" type="radio">
+                              <label for="jancode_3_0">15ヶ月 製品版【+4000円】</label><br />
+                              
+                              <input value="0405972973015" name="jancode_3" id="jancode_3_1" type="radio">
+                              <label for="jancode_3_1">36ヶ月 製品版【+10000円】</label><br />
+                              
+                              <input checked="checked" value="9999910001591" name="jancode_3" id="jancode_3_2" type="radio">
+                              <label for="jancode_3_2">90日 期間限定版</label><br />
+                            </td>
+                          </tr>
+                        </table>
+                        <br />
+                        <table align="center" width="95%" border="0" cellspacing="0" cellpadding="0">
+                          <tr bgcolor="#f5f5f5">
+                            <td height="20"><b><span class="normalfont2">CPU</span></b></td>
+                            <td align="right"></td>
+                          </tr>
+                          <tr>
+                            <td colspan="1" class="smallfont"></td>
+                          </tr>
+                          <tr>
+                            <td height="26" colspan="2" class="normalfont1">
+                              <input checked="checked" value="0735858217729" name="jancode_4" id="jancode_4_0" type="radio">
+                              <label for="jancode_4_0">Intel Core i5-2500</label><br />
+                            </td>
+                          </tr>
+                        </table>
+                        <br/>
+                        <table align="center" width="95%" border="0" cellspacing="0" cellpadding="0">
+                          <tr bgcolor="#f5f5f5">
+                            <td height="20"><b><span class="normalfont2">メモリ</span></b></td>
+                            <td align="right"></td>
+                          </tr>
+                          <tr>
+                            <td colspan="1" class="smallfont"></td>
+                          </tr>
+                          <tr>
+                            <td height="26" colspan="2" class="normalfont1">
+                              <input checked="checked" value="1217010000657" name="jancode_5" id="jancode_5_0" type="radio">
+                              <label for="jancode_5_0">8GB （4GB x2枚） DDR3-1333 (PC3-10600) DDR3 SDRAM</label><br />
+                              
+                              <input value="1217010000817" name="jancode_5" id="jancode_5_1" type="radio">
+                              <label for="jancode_5_1">4GB （4GB x1枚） DDR3-1333 (PC3-10600) DDR3 SDRAM【-2000円】</label><br />
+                            </td>
+                          </tr>
+                        </table>
+                        <br/>
+                        <table align="center" width="95%" border="0" cellspacing="0" cellpadding="0">
+                          <tr bgcolor="#f5f5f5">
+                            <td height="20"><b><span class="normalfont2">ハードディスク</span></b></td>
+                            <td align="right"></td>
+                          </tr>
+                          <tr>
+                            <td colspan="1" class="smallfont"></td>
+                          </tr>
+                          <tr>
+                            <td height="26" colspan="2" class="normalfont1">
+                              <input value="0735858222631" name="jancode_6" id="jancode_6_0" type="radio">
+                              <label for="jancode_6_0">【SSD】 120GB MLC (intel製 520 Series)【+10000円】</label><br />
+                              
+                              <input value="0735858222662" name="jancode_6" id="jancode_6_1" type="radio">
+                              <label for="jancode_6_1">【SSD】 240GB MLC (intel製 520 Series)【+27000円】</label><br />
+                              
+                              <input checked="checked" value="1160010000205" name="jancode_6" id="jancode_6_2" type="radio">
+                              <label for="jancode_6_2">〔HDD〕 500GB SATA6Gbps対応 （WD製 WD5000AAKX）</label><br />
+                              
+                              <input value="1160010000304" name="jancode_6" id="jancode_6_3" type="radio">
+                              <label for="jancode_6_3">〔HDD〕  1TB SATA6Gbps対応 （WD製 WD10EARX / AFT）【+2000円】</label><br />
+                              
+                              <input value="4540395600141" name="jancode_6" id="jancode_6_4" type="radio">
+                              <label for="jancode_6_4">【SSD】 128GB MLC (Crucial製 m4 Series)【+11000円】</label><br />
+                            </td>
+                          </tr>
+                        </table>
+                        <br/>
+                        <table align="center" width="95%" border="0" cellspacing="0" cellpadding="0">
+                          <tr bgcolor="#f5f5f5">
+                            <td height="20"><b><span class="normalfont2">光学ドライブ</span></b></td>
+                            <td align="right"></td>
+                          </tr>
+                          <tr>
+                            <td colspan="1" class="smallfont"></td>
+                          </tr>
+                          <tr>
+                            <td height="26" colspan="2" class="normalfont1">
+                              <input checked="checked" value="1190010000271" name="jancode_8" id="jancode_8_0" type="radio">
+                              <label for="jancode_8_0">DL対応 DVDスーパーマルチ（LG電子製）</label><br />
+                              
+                              <input value="4534782920509" name="jancode_8" id="jancode_8_1" type="radio">
+                              <label for="jancode_8_1">書込み・BDXL対応 ブルーレイ （LG電子製 BH14NS48 / 書込・再生ソフト付)【+10000円】</label><br />
+                            </td>
+                          </tr>
+                        </table>
+                        <br/>
+                        <table align="center" width="95%" border="0" cellspacing="0" cellpadding="0">
+                          <tr bgcolor="#f5f5f5">
+                            <td height="20"><b><span class="normalfont2">Select</span></b></td>
+                            <td align="right"></td>
+                          </tr>
+                          <tr>
+                            <td colspan="1" class="smallfont"></td>
+                          </tr>
+                          <tr>
+                            <td height="26" colspan="2" class="normalfont1">
+                              <select>
+                                <option value="1111111111111">One</option>
+                                <option value="2222222222222">Two</option>
+                                <option value="3333333333333">Three</option>
+                                <option value="4444444444444">Four</option>
+                              </select>
+                            </td>
+                          </tr>
+                        </table>
+                        <br/>
+                      <table align="center" width="95%" border="0" cellspacing="0" cellpadding="0">
+                        <tr bgcolor="#f5f5f5">
+                          <td height="20"><b><span class="normalfont2">Select</span></b></td>
+                          <td align="right"></td>
+                        </tr>
+                        <tr>
+                          <td colspan="1" class="smallfont"></td>
+                        </tr>
+                        <tr>
+                          <td height="26" colspan="2" class="normalfont1">
+                            <input value="3860000000000" name="jancode_9" id="jancode_9_0" type="checkbox">
+                            <label for="jancode_9_0">386</label>
+
+                            <input value="4860000000000" name="jancode_9" id="jancode_9_1" type="checkbox">
+                            <label for="jancode_9_1">486</label><br />
+
+                            <input value="5860000000000" name="jancode_9" id="jancode_9_2" type="checkbox">
+                            <label for="jancode_9_2">586</label>
+
+                            <input value="6860000000000" name="jancode_9" id="jancode_9_3" type="checkbox">
+                            <label for="jancode_9_3">686</label><br />
+                          </td>
+                        </tr>
+                      </table>
+                      <br/>
+                    </td> <!-- TOP -->
+                  </table>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </tbody>
+    </form>
+  </body>
+</html>

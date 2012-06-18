@@ -1,0 +1,54 @@
+.poem {
+  margin: 0 5em;
+}
+.chapter {
+  margin: 1em;
+}
+
+#switcher {
+  float: right;
+  background-color: #ddd;
+  border: 1px solid #000;
+  margin: 10px;
+  padding: 10px;
+  font-size: .9em;
+}
+#switcher h3 {
+  margin: 0;
+}
+#switcher .button {
+  width: 100px;
+  float: left;
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+  background-color: #fff;
+  border-top: 3px solid #888;
+  border-left: 3px solid #888;
+  border-bottom: 3px solid #444;
+  border-right: 3px solid #444;
+}
+#header {
+  clear: both;
+}
+
+body.large #container .chapter {
+  font-size: 1.5em;
+}
+
+body.narrow #container .chapter {
+  width: 400px;
+}
+
+.selected {
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}
+
+#switcher .hover {
+  cursor: pointer;
+  background-color: #afa;
+}

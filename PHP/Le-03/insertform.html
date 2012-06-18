@@ -1,0 +1,16 @@
+<SCRIPT>
+  function insert()
+    {
+      var name = insertform.name.value;
+      console.log('###');
+      console.log(opener);
+      console.log('###');
+      opener.insName.uname.value = name;
+      console.log(self);
+      self.close();
+    }
+</SCRIPT>
+<form name="insertform">
+  이름을 입력하세요.<br>
+  <input type="text" NAME="name"><input type="button" value="입력" OnClick="insert()">
+</form>

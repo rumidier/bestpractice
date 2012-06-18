@@ -1,0 +1,14 @@
+<SCRIPT>
+function insert()
+{
+	var name = insertform.name.value;
+	opener.insName.uname.value = name;
+	self.close();
+}
+</SCRIPT>
+
+<FORM NAME="insertform">
+이름을 입력하세요.<BR>
+<INPUT TYPE="TEXT" NAME="name"><INPUT TYPE="BUTTON" VALUE="입력"
+OnClick="insert()">
+</FORM>

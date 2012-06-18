@@ -1,0 +1,138 @@
+#news-feed {
+  padding: 0;
+  margin: 0 0 0 10px;
+  position: relative;
+  height: 200px;
+  width: 17em;
+  overflow: hidden;
+}
+
+.headline {
+  position: absolute;
+  height: 200px;
+  top: 210px;
+  overflow: hidden;
+}
+#news-feed h4 {
+  margin-top: .5em;
+  margin-bottom: .25em;
+  font-size: 1em;
+}
+#news-feed h4 a {
+  color: #006;
+}
+#news-feed .publication-date {
+  margin-bottom: 1em;
+  font-style: italic;
+}
+.news-wait {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  margin-left: -10px;
+  z-index: 4;
+}
+
+.fade-slice {
+  position: absolute;
+  width: 20em;
+  height: 2px;
+  background-color: #efd;
+  z-index: 3;
+}
+
+
+
+a img {
+  border: 0;
+}
+
+.author {
+  margin-bottom: 1em;
+  padding-bottom: .5em;
+  border-bottom: 1px solid #ccc;
+}
+.book {
+  font-style: italic;
+}
+
+
+#featured-books {
+  position: relative;
+  background: #ddd;
+  width: 440px;
+  height: 186px;
+  overflow: auto;
+  margin: 1em auto;
+  padding: 0;
+  text-align: center;
+  z-index: 2;
+}
+#featured-books .covers {
+  position: relative;
+  width: 840px;
+  z-index: 3;
+}
+#featured-books a {
+  float: left;
+  margin: 10px;
+  height: 146px;
+}
+#featured-books .price {
+  display: none;
+}
+
+#featured-books .control {
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  top: 0;
+}
+
+img.enlarged {
+  position: absolute;
+  z-index: 5;
+  cursor: pointer;
+}
+
+img.enlarged-control {
+  position: absolute;
+  z-index: 6;
+  cursor: pointer;
+}
+
+.enlarged-price {
+  background-color: #373c40;
+  color: #fff;
+  width: 80px;
+  padding: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: right;
+  position: absolute;
+  z-index: 6;
+}
+
+
+/*.sidewiper {
+  position: relative;
+  border: 1px solid #ccc;
+  height: 300px;
+}
+#content .sidewiper h3 {
+  position: relative;
+  width: 20px;
+  float: left;
+  height: 280px;
+  background-color: #15b;
+  background-repeat: no-repeat;
+  color: #fff;
+  border-right: 1px solid #fff;
+}
+#content .sidewiper div {
+  position: relative;
+  width: 300px;
+  padding: 10px;
+  height: 260px;
+  float: left;
+}*/

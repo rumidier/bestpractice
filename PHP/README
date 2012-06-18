@@ -1,0 +1,7 @@
+apache2 start
+    # sudo /etc/init.d/apache2 start
+
+apache2 conf
+    # /etc/apache2
+      include 되는 모든 conf -> apache2.conf
+    # /etc/apache2/sites-available 파일 작성 -> /etc/apache2/sites-enabled 에 ln -s origin finish 작성

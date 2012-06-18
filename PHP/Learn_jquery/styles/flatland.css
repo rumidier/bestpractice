@@ -1,0 +1,62 @@
+.chapter {
+width: 42em;
+}
+#f-title {
+  font-size: 1.5em;
+}
+#excerpt {
+  font-style: italic;
+}
+
+/* ----------------
+ * = FOOTNOTES
+------------------ */
+
+span.footnote {
+  font-style: italic;
+  font-family: "Times New Roman", Times, serif;
+  display: block;
+  margin: 1em 0;
+}
+
+.chapter span.footnote {
+  display: inline;
+}
+.text-reference {
+  font-weight: bold;
+}
+#notes li {
+  margin: 1em 0;
+}
+#notes {
+  margin-top: 1em;
+  border-top: 1px solid #dedede;
+}
+#footer {
+  margin-top: 1em;
+  border-top: 1px solid #dedede;
+}
+
+/* --------------------
+ * = SIMPLE PULL-QUOTE
+--------------------- */
+
+/* ---------------------
+ * =PULL-QUOTE WITH ROUNDED CORNERS AND DROP SHADOWS
+------------------------ */
+
+.pulled-wrapper {
+  background:url(../images/pq-top.jpg) no-repeat left top;
+  position: absolute;
+  width: 160px;
+  right: -180px;
+  padding-top: 18px;
+}
+.pulled {
+background: url(../images/pq-bottom.jpg) no-repeat left bottom;
+  position: relative;
+  display: block;
+  width: 140px;
+  padding: 0 10px 24px 10px;
+  font: italic 1.4em "Times New Roman", Times, serif;
+}

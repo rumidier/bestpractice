@@ -1,0 +1,49 @@
+
+li {
+  padding: 0 3px;
+}
+.horizontal {
+  float: left;
+  list-style: none;
+  margin: 10px;
+}
+.sub-level {
+  background: #ffc;
+}
+a {
+  color: #00f;
+}
+a.mailto {
+  color: #f00;
+}
+a.pdflink {
+  color: #090;
+}
+a.mysite {
+  text-decoration: none;
+  border-bottom: 1px dotted #00f;
+}
+
+.table-heading {
+  background-color: #ff0;
+}
+th {
+  text-align: left;
+}
+.odd {
+  background-color: #ffc;
+}
+.even {
+  background-color: #cef;
+}
+.highlight {
+  color: #f00;
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+.bold {
+  font-weight: bold;
+}

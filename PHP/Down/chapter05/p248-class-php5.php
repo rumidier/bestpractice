@@ -1,0 +1,17 @@
+<?
+	/* Human Å¬·¡½º¸¦ ¿©±â¿¡ »ðÀÔ */
+	include "p247-human-php5.php";
+
+	//5»ìÂ¥¸® Ã¶¼ö¸¦ »ý¼ºÇÕ´Ï´Ù.
+	$charles = new Human('Ã¶¼ö', 5);
+
+	//Ã¶¼ö´Â ¸î »ì?
+	$charles->Talk($charles->Age);
+
+	//Ã¶¼ö¾ß! ¹ä ¸ÔÀÚ~
+	$charles->Eat("dinner");
+
+	//¹äÀ» ¸Ô°í ³­ ÈÄ Ã¶¼öÀÇ Å°¿Í ¸ö¹«°Ô°¡ ´Ã¾ú´Ù.
+	$charles->Height = 110; // 110 cm
+	$charles->Weight = 22; // 22 Kg
+?>

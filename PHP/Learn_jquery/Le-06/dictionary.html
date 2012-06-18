@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XTHML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>악마의 사전</title>
+    <link rel="sytlesheet" href="../css/default.css" type="text/css" media="screen" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="../styles/dictionary.css" type="text/css" media="screen" />
+    <script src="../scripts/dictionary.js" type="text/javascript" charset="utf-8"></script>
+  </head>
+
+  <body>
+    <div id="container">
+      <div id="header">
+        <h2>악마의 사전</h2>
+        <div class="author">앰브로스 비어스 지음</div>
+      </div>
+      
+      <div class="letters">
+        <div class="letter" id="letter-a">
+          <h3>A</h3>
+          <div class="button">Load</div>        
+        </div>
+        <div class="letter" id="letter-b">
+          <h3>B</h3>
+          <div class="button">Load</div>        
+        </div>
+        <div class="letter" id="letter-c">
+          <h3>C</h3>
+          <div class="button">Load</div>        
+        </div>
+        <div class="letter" id="letter-d">
+          <h3>D</h3>
+          <div class="button">Load</div>        
+        </div>
+	<div class="letter" id="letter-e">
+	  <h3>E</h3>
+	  <ul>
+	    <li><a href="e.php?term=EDITOR">Editor</a></li>
+	    <li><a href="e.php?term=EDIBLE">Edible</a></li>
+	    <li><a href="e.php?term=EDUCATION">Education</a></li>
+	    <li><a href="e.php?term=ELOQUENCE">Eloquence</a></li>
+	    <li><a href="e.php?term=ELYSIUM">Elysium</a></li>
+	    <li><a href="e.php?term=EMOTION">Emotion</a></li>
+	    <li><a href="e.php?term=ENVY">Envy</a></li>
+	    <li><a href="e.php?term=EPAULET">Epaulet</a></li>
+	    <li><a href="e.php?term=EXPERIENCE">Experience</a></li>
+	  </ul>
+	</div>
+	<div class="letter" id="letter-f">
+	  <form>
+	  <input type="text" name="term" value="" id="term">
+	  <input type="submit" name="search" value="search" id="search">
+	  </form>
+	</div>
+      </div>
+      <div id="loading">
+        Loading...
+      </div>
+      <div id="dictionary">
+      </div>
+    </div>
+  </body>
+</html>

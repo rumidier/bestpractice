@@ -1,0 +1,5 @@
+<?
+	include 'head.html';
+	echo 'main.php ÀÔ´Ï´Ù.<BR>';
+	include 'tail.html';
+?>

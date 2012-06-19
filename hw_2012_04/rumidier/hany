@@ -1,0 +1,77 @@
+#!/usr/bin/env perl 
+
+use 5.010;
+use utf8;
+use strict;
+use warnings;
+use Encode;
+use LWP::UserAgent;
+use HTML::TreeBuilder;
+use HTML::Element;
+use Data::Dumper;
+binmode(STDOUT, ":utf8");
+
+my $ua = LWP::UserAgent->new;
+$ua->timeout(10);
+$ua->env_proxy;
+
+my $search_n = $ARGV[0];
+#my @search_n;
+#push @search_n, decode("utf8", $_) for @ARGV;
+my $response = $ua->get("http://endic.naver.com/popManager.nhn?m=search&searchOption=&query=$search_n");
+
+my $lists;
+$response->is_success ? $lists = $response->decoded_content : die $response->status_line;
+
+my $tree = HTML::TreeBuilder->new();
+$tree->parse($lists);
+$tree->eof;
+
+my $links;
+my $dic_select;
+$dic_select = $tree->look_down('class', 'list_select');
+
+if (!$dic_select) {
+    my @body_selects = $tree->look_down('class', qr/word_num word_num2 .*?$/);
+
+    for my $body_select (@body_selects) {
+        print_body($body_select);
+    }
+}
+else {
+    my $select_value = $dic_select->look_down('class', "underlink N=a:pos.tab");
+    $select_value->as_text ? print_word() : print_idiom();
+}
+
+sub print_body {
+    my $body_select = shift;
+
+    my $body_check = $body_select->look_down('alt', '본문');
+
+    if ($body_check) {
+        say "[본문]";
+        my @ere = $body_select->look_down('class', 'fnt_e30');
+        say $_->as_text for @ere;
+    }
+}
+
+sub print_idiom {
+    say "[뜻]";
+    my $mean = $tree->look_down('class', "first align_px mean_on");
+    say $mean->as_text;
+}
+
+sub print_word {
+    my @words   = $tree->look_down('class', qr/box_wrap1 .*?/);
+    $dic_select = $tree->look_down('class', 'list_select');
+
+    for my $word (@words) {
+        my $dic_tit     = $word->look_down('class', 'dic_tit6');
+        my @align_lines = $word->look_down('class', qr/ mean_on/);
+        say $dic_tit->as_text;
+
+        for my $align_line (@align_lines) {
+            say $align_line->as_text;
+        }
+    }
+}

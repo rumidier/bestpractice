@@ -20,37 +20,52 @@ my ( $language, $word ) = @ARGV;
 my %dic_data;
 if ($word) {
     %dic_data = full_data();
-    for my $da ( keys %dic_data ) {
-        say "@{ $dic_data{$da} }";
+
+    if ($dic_data{$word}) {
+        say "$word";
+        say "$dic_data{$word}";
     }
-    search_continue($word);
+    else {
+#search_continue($word);
+    }
 }
 else {
     %dic_data = full_data();
-    while ( chomp(my $word = <STDIN>) ) {
-        search_continue($word);
+    while (1) {
+        print "Input the word (Ctrl+D is exit) : ";
+        my $word = <STDIN>;
+        last unless ($word);
+        chomp($word);
+
+        if ($dic_data{$word}) {
+            say "$word";
+            say "$dic_data{$word}";
+        }
+        else {
+            search_continue($word);
+        }
     }
 }
 
 sub full_data {
-    open my $fh, "<:encoding(UTF-8)", "cache.data"
-        or die "connet open < cache.data: $!"; 
+    my $ua = LWP::UserAgent->new;
+    my $response = $ua->local_address("cache_2.data");
+    say Dumper $response;
+#    open my $fh, "<:encoding(UTF-8)", "cache_2.data"
+#        or die "connet open < cache_2.data: $!"; 
 
-    my %full_data;
-#$_ = enconding_utf8($_);
-    while (<$fh>) {
-        chomp(my $list = $_);
-        $list =~ m!<word id="(?<word>[^"]+)">(?<data>[^<]+)</word>!;
-
-        my $word  = $+{word};
-        my $data  = $+{data};
-
-        push @{ $full_data{$word} }, $data;
-    }
-
-    close $fh;
-
-    return %full_data;
+#    my %full_data;
+##$_ = enconding_utf8($_);
+#        $fh =~ m!<word id="(?<word>[^"]+)">(?<data>[^<]+)</word>!g;
+#
+#        my $word  = $+{word};
+#        my $data  = $+{data};
+#
+##push @{ $full_data{$word} }, $data;
+#
+#    close $fh;
+#
+#    return %full_data;
 }
 
 sub search_continue {
@@ -87,7 +102,7 @@ sub search_continue {
         }
         else {
             my $select_value = $dic_select->look_down('class', "underlink N=a:pos.tab");
-            $select_value->as_text ? parser_word($tree) : print_idiom($tree);
+            $select_value->as_text ? parser_word($tree, $word) : parser_mean($tree, $word);
         }
     }
     elsif ($language eq 'ke') {
@@ -133,19 +148,36 @@ sub parser_bonmun {
     if ( $body_select->look_down('alt', '본문') ) {
         say "[본문]";
         my @body_text = $body_select->look_down('class', 'fnt_e30');
-        say $_->as_text for @body_text;
+        my $full_text = '';
+        foreach my $one_text (@body_text) {
+            $full_text .= $one_text->as_text . "\n";
+        }
+        open my $fh, ">>:encoding(UTF-8)", "cache_2.data"
+            or die "connet open >> cache_2.data: $!"; 
+
+        my $result_word = sprintf(qq(<word id="%s">%s<word>), $word, $full_text);
+        print $fh $result_word;
+        close $fh;
+
+        print "$full_text";
     }
 }
 
-sub print_idiom {
-    my $tree = shift;
-    say "[뜻]";
+sub parser_mean {
+    my ( $tree, $word ) = @_;
     my $mean = $tree->look_down('class', "first align_px mean_on");
+    open my $fh, ">>:encoding(UTF-8)", "cache_2.data"
+        or die "connet open >> cache_2.data: $!"; 
+    my $result_word = sprintf(qq(<word id="%s">%s<word>), $word, $mean->as_text);
+
+    print $fh $result_word;
+    close $fh;
+
     say $mean->as_text;
 }
 
 sub parser_word {
-    my $tree       = shift;
+    my ( $tree, $word ) = @_;
     my @words      = $tree->look_down('class', qr/box_wrap1 .*?/);
     my $dic_select = $tree->look_down('class', 'list_select');
 
@@ -166,7 +198,7 @@ sub parser_word {
 
     open my $fh, ">>:encoding(UTF-8)", "cache_2.data"
         or die "connet open >> cache_2.data: $!"; 
-    my $result_word = sprintf(qq(<word id="naver">%s<word>),$full_words);
+    my $result_word = sprintf(qq(<word id="%s">%s<word>),$word, $full_words);
 
     print $fh $result_word;
     close $fh;

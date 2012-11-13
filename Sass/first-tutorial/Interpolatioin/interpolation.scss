@@ -1,0 +1,8 @@
+$side: top;
+$radius: 10px;
+
+.rounded- {
+	border-#{$side}-radius: $radius;
+	-moz-border-radius-#{$side}: $radius;
+	-webkit-border-#{$side}-radius: $radius;
+}

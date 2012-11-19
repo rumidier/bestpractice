@@ -1,0 +1,10 @@
+.parent .child,
+.parent .sibling {
+  color: black;
+}
+.child + .child,
+.child + .sibling,
+.sibling + .child,
+.sibling + .sibling {
+  color: red;
+}

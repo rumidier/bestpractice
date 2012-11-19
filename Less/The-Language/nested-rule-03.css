@@ -1,0 +1,6 @@
+.bordered.float {
+  float: left;
+}
+.bordered .top {
+  margin: 5px;
+}

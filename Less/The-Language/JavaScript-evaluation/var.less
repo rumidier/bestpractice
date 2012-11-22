@@ -1,0 +1,9 @@
+@var: `"hello".toUpperCase() + '!'`;
+
+@str: "hello";
+@varr: ~`"@{str}".toUpperCase() + '!'`;
+
+@height: `document.body.clientHeight`;
+
+@color: color(`window.colors.baseColor`);
+@darkcolor: daken(@color, 10%);

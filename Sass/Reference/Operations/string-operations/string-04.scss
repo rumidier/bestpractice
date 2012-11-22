@@ -1,0 +1,5 @@
+$value: null;
+
+p:before {
+  content: "I ate #{$value} pies!";
+}

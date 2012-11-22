@@ -1,0 +1,2 @@
+perisoners = ["Roger", "Roderick", "Brian"]
+release prisoner for prisoner in prisoners when prisoner[0] is "R"

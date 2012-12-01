@@ -5,5 +5,8 @@
   exports = this;
 
   exports.MyVariable = "foo-bar";
+  $('').css
+    color: 'red'
+    backgound-color: ''
 
 }).call(this);
